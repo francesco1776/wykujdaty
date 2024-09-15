@@ -92,18 +92,21 @@ h1 {
     width: auto; /* Przywróć domyślną szerokość */
     text-align: left; /* Wyrównaj tekst do lewej */
 }
-
+.container {
+    width: 80%; /* Szerokość kontenera, dopasuj w zależności od potrzeb */
+    margin: 0 auto; /* Wyśrodkuj kontener na stronie */
+    position: relative; /* Ważne, aby dziecko (menu) było względem niego pozycjonowane */
+}
 /* Styl dla menu zaawansowanych opcji */
 .advanced-options {
-    width: 50%; /* Dopasuj szerokość do potrzeb */
-    margin: 0 auto; /* Wyśrodkuj menu */
+    width: 50%; /* Dopasuj szerokość menu opcji */
     padding: 20px;
-    background-color: #f5f5f5; /* Możesz dostosować kolor tła */
+    background-color: #f5f5f5;
     border: 1px solid #ddd;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    position: relative; /* Upewnia się, że będzie w obrębie kontenera */
-    margin-left: 0px;
+    margin-left: 0; /* Wyrównaj menu do lewej strony kontenera */
+    position: relative; /* Menu powinno być pozycjonowane względem kontenera nadrzędnego */
 }
 
 /* Upewnij się, że główny kontener strony jest wycentrowany */
