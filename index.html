@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Dat Historycznych</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Nauka Dat Historycznych</h1>
+<div id="homeButton" class="home-button">🏠</div>
+
+<div class="menu">
+    <h2>Wybierz Tryb Nauki</h2>
+    <button class="button" onclick="startFlashcards('eventToDate')">Wydarzenie → Data</button>
+    <button class="button" onclick="startFlashcards('dateToEvent')">Data → Wydarzenie</button>
+    
+    <h2>Wybierz Grupę</h2>
+    <label><input type="radio" name="group" value="all" checked> Wszystkie</label>
+    <label><input type="radio" name="group" value="pl"> Polska</label>
+    <label><input type="radio" name="group" value="world"> Europa i Świat</label>
+
+    <details> 
+    <summary>Więcej</summary>
+     <h3>Wybierz Kraj</h3>
+    <label><input type="radio" name="country" value="all" checked> Wszystkie kraje</label>
+    <label><input type="radio" name="country" value="pl"> Polska</label>
+    <label><input type="radio" name="country" value="de"> Niemcy</label>
+    <label><input type="radio" name="country" value="fr"> Francja</label>
+    <label><input type="radio" name="country" value="uk"> Wielka Brytania</label>
+    <label><input type="radio" name="country" value="us"> USA</label>
+    <label><input type="radio" name="country" value="it"> Włochy</label>
+    <label><input type="radio" name="country" value="gr"> Grecja</label>
+    <label><input type="radio" name="country" value="ru"> Rosja</label>
+    <label><input type="radio" name="country" value="es"> Hiszpania</label>
+    <label><input type="radio" name="country" value="se"> Szwecja</label>
+    <label><input type="radio" name="country" value="ca"> Kanada</label>
+    </details>
+
+    <h2>Wybierz Epokę</h2>
+    <label><input type="checkbox" name="era" value="st"> Starożytność</label>
+    <label><input type="checkbox" name="era" value="sm"> Średniowiecze</label>
+    <label><input type="checkbox" name="era" value="xvi"> XVI wiek</label>
+    <label><input type="checkbox" name="era" value="xvii"> XVII wiek</label>
+    <label><input type="checkbox" name="era" value="xviii"> XVIII wiek</label>
+    <label><input type="checkbox" name="era" value="xix"> XIX wiek</label>
+    <label><input type="checkbox" name="era" value="xx"> XX wiek</label>
+    
+    <h2>Sortowanie fiszek</h2>
+    <label>
+        <input type="radio" name="sort" value="chronological" checked>
+        Chronologicznie
+    </label>
+    <label>
+        <input type="radio" name="sort" value="random">
+        Losowo
+    </label>
+
+    <!-- Przycisk Opcje Zaawansowane -->
+    <button id="advancedOptionsButton" class="button">Opcje zaawansowane</button>
+</div>
+
+<!-- Zwijane Menu Opcji Zaawansowanych -->
+<div id="advancedOptionsMenu" class="advanced-options hidden">
+    <h3>Wybór typu fiszek</h3>
+    <form id="flashcardTypeForm">
+        <label><input type="checkbox" name="type" value="bi"> Bitwy, Wojny</label><br>
+        <label><input type="checkbox" name="type" value="na"> Odkrycia Naukowe</label><br>
+        <label><input type="checkbox" name="type" value="pa"> Panowanie Władcy</label><br>
+        <label><input type="checkbox" name="type" value="po"> Ugody, unie, porozumienia, traktaty</label><br>
+        <label><input type="checkbox" name="type" value="in"> Inne</label><br>
+    </form>
+</div>
+
+<!-- Sekcje, które będą widoczne w odpowiednich momentach -->
+<div id="flashcards" class="flashcards">
+    <div id="flashcardContent"></div>
+    <div class="input-group">
+        <input type="text" id="userInput" placeholder="Wpisz swoją odpowiedź">
+    </div>
+    <button class="button" onclick="checkAnswer()">Sprawdź</button>
+    <button class="button" onclick="showAnswer()">Nie pamiętam</button>
+</div>
+
+<div id="summary" class="summary">
+    <h2>Podsumowanie</h2>
+    <div id="summaryContent"></div>
+    <div class="button-container">
+        <button class="button" onclick="returnToMenu()">Powrót do menu</button>
+        <button class="button" onclick="repeatAll()">Powtórz wszystkie fiszki</button>
+        <button class="button" onclick="repeatIncorrect()">Powtórz niepoprawne odpowiedzi</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
