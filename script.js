@@ -306,35 +306,6 @@ function hideFlashcards() {
     // Ukrywa fiszki podczas powrotu do menu
     document.querySelector('.flashcards').style.display = 'none';
     }
-function repeatAll() {
-    document.querySelector('.summary').style.display = 'none';
-    currentCardIndex = 0;
-    sessionCards = getFilteredFlashcards();  // Reload all flashcards
-    wrongAnswers = [];  // Clear wrong answers for a fresh start
-    sessionAttempts = {};  // Reset attempts
-
-    // Initialize sessionAttempts again for new session
-    sessionCards.forEach(card => {
-        sessionAttempts[card.id] = 0;
-    });
-
-    document.querySelector('.flashcards').style.display = 'block';
-    showNextCard();
-}
-
-function repeatIncorrect() {
-    if (wrongAnswers.length > 0) {
-        sessionCards = [...wrongAnswers];  // Use the wrong answers as the new session
-        currentCardIndex = 0;
-        wrongAnswers = [];  // Clear the wrongAnswers array after copying
-        document.querySelector('.summary').style.display = 'none';
-        document.querySelector('.flashcards').style.display = 'block';
-        showNextCard();
-    } else {
-        alert("Nie masz żadnych fiszek do powtórzenia!");
-        returnToMenu();  // If no wrong answers, return to menu
-    }
-}
 
 function hideButtons() {
     document.querySelectorAll('.flashcards .button').forEach(button => button.style.display = 'none');
