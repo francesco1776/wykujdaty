@@ -308,22 +308,31 @@ function hideFlashcards() {
     }
 function repeatAll() {
     document.querySelector('.summary').style.display = 'none';
-    startFlashcards(mode);
+    currentCardIndex = 0;
+    sessionCards = getFilteredFlashcards();  // Reload all flashcards
+    wrongAnswers = [];  // Clear wrong answers for a fresh start
+    sessionAttempts = {};  // Reset attempts
+
+    // Initialize sessionAttempts again for new session
+    sessionCards.forEach(card => {
+        sessionAttempts[card.id] = 0;
+    });
+
+    document.querySelector('.flashcards').style.display = 'block';
+    showNextCard();
 }
 
 function repeatIncorrect() {
-    // Filtruj tylko fiszki, które zostały odpowiedziane błędnie (próby >1)
-    const incorrectCards = flashcards.filter(card => sessionAttempts[card.id] > 1);
-    
-    if (incorrectCards.length > 0) {
-        sessionCards = [...incorrectCards];
+    if (wrongAnswers.length > 0) {
+        sessionCards = [...wrongAnswers];  // Use the wrong answers as the new session
         currentCardIndex = 0;
+        wrongAnswers = [];  // Clear the wrongAnswers array after copying
         document.querySelector('.summary').style.display = 'none';
         document.querySelector('.flashcards').style.display = 'block';
         showNextCard();
     } else {
         alert("Nie masz żadnych fiszek do powtórzenia!");
-        returnToMenu();
+        returnToMenu();  // If no wrong answers, return to menu
     }
 }
 
