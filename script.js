@@ -292,7 +292,8 @@ const flashcards = [
     { id: 291, event: "Przywilej cerekwicko-nieszawski", date: "1454", era: "[sm]", area: ["pl"], type: "pa" },
     { id: 292, event: "II Pokój Toruński", date: "1466", era: "[sm]", area: ["pl", "de"], type: "po" },
     { id: 293, event: "Wynalezienie druku", date: "1450", era: "[sm]", area: ["de"], type: "in" },
-    { id: 294, event: "Wojna Dwóch Róż", date: "1455-1485", era: "[sm]", area: ["gb"], type: "bi" }
+    { id: 294, event: "Wojna Dwóch Róż", date: "1455-1485", era: "[sm]", area: ["gb"], type: "bi" },
+    { id: 295, event: "Początek rewolucji neolitycznej", date: "10000 p.n.e", era: "[st]", area: [], type: "in"}               
 ];
 
 
