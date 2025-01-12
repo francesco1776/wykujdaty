@@ -178,49 +178,13 @@ const flashcards = [
     { id: 177, event: "Synod w Clermont", date: "1095", era: "[sm]", area: ["fr"], type: "in" },
     { id: 178, event: "I wyprawa krzyżowa", date: "1096-1099", era: "[sm]", area: ["fr", "it", "tr"], type: "bi" },
     { id: 179, event: "Zdobycie Jerozolimy przez krzyżowców i powstanie Królestwa Jerozolimskiego", date: "1099", era: "[sm]", area: ["il"], type: "in" },
-    { id: 180, event: "Początek samodzielnych rządów Bolesława Krzywoustego", date: "1108", era: "[sm]", area: ["pl"], type: "pa" },
-    { id: 181, event: "Wojna z królem niemieckim Henrykiem V", date: "1109", era: "[sm]", area: ["pl", "de"], type: "bi" },
-    { id: 182, event: "Powstanie kroniki Gala Anonima", date: "1112-1116", era: "[sm]", area: ["pl"], type: "in" },
     { id: 183, event: "Podporządkowanie Polsce Pomorza Gdańskiego", date: "1116", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 184, event: "Podpisanie konkordatu wormackiego", date: "1122", era: "[sm]", area: ["de", "it"], type: "po" },
     { id: 185, event: "Podporządkowanie Polsce Pomorza Zachodniego", date: "1122", era: "[sm]", area: ["pl"], type: "in" },
     { id: 186, event: "Śmierć Bolesława Krzywoustego i początek rozbicia dzielnicowego", date: "1138", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 187, event: "Wypędzenie Władysława II Wygnańca z Polski", date: "1146", era: "[sm]", area: ["pl"], type: "in" },
     { id: 188, event: "II wyprawa krzyżowa", date: "1147-1149", era: "[sm]", area: ["fr", "it", "de"], type: "bi" },
-    { id: 189, event: "Najazd cesarza Fryderyka I Barbarossy na Polskę", date: "1157", era: "[sm]", area: ["pl", "de"], type: "bi" },
-    { id: 190, event: "Objęcie tronu krakowskiego przez Kazimierza II Sprawiedliwego", date: "1177", era: "[sm]", area: ["pl"], type: "pa" },
-    { id: 191, event: "Zjazd w Łęczycy", date: "1180", era: "[sm]", area: ["pl"], type: "in" },
     { id: 192, event: "III wyprawa krzyżowa", date: "1189-1192", era: "[sm]", area: ["fr", "it", "de"], type: "bi" },
-    { id: 193, event: "Powstanie zakonu krzyżackiego", date: "1191", era: "[sm]", area: ["de"], type: "in" },
     { id: 194, event: "IV wyprawa krzyżowa", date: "1202-1204", era: "[sm]", area: ["fr", "it"], type: "bi" },
-    { id: 195, event: "Zdobycie Konstantynopola przez krzyżowców i powstanie Cesarstwa Łacińskiego", date: "1204", era: "[sm]", area: ["tr", "gr"], type: "in" },
-    { id: 196, event: "Krucjata przeciwko katarom", date: "1209-1229", era: "[sm]", area: ["fr"], type: "bi" },
-    { id: 197, event: "Lokacja Złotoryi", date: "1211", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 198, event: "Magna Charta Libertatum", date: "1215", era: "[sm]", area: ["uk"], type: "po" },
-    { id: 199, event: "Bitwa nad rzeką Kałką", date: "1223", era: "[sm]", area: ["ru"], type: "bi" },
-    { id: 200, event: "Zaproszenie Krzyżaków do osiedlenia się na Ziemi Chełmińskiej", date: "1226", era: "[sm]", area: ["pl", "de"], type: "in" },
-    { id: 201, event: "Zjazd w Gąsawie, śmierć Leszka Białego", date: "1227", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 202, event: "Przybycie Krzyżaków do Ziemi Chełmińskiej", date: "1228", era: "[sm]", area: ["pl", "de"], type: "in" },
-    { id: 203, event: "Podbój Rusi przez Mongołów", date: "1236-1240", era: "[sm]", area: ["ru"], type: "bi" },
-    { id: 204, event: "Przyłączenie zakonu kawalerów mieczowych do zakonu krzyżackiego", date: "1237", era: "[sm]", area: ["pl", "de"], type: "in" },
-    { id: 205, event: "Inwazja mongolska na Polskę i Węgry", date: "1241", era: "[sm]", area: ["pl", "hu"], type: "bi" },
-    { id: 206, event: "Bitwa pod Legnicą i śmierć Henryka II Pobożnego", date: "1241", era: "[sm]", area: ["pl"], type: "bi" },
-    { id: 207, event: "Chrzest władcy Litwy Mendoga", date: "1251", era: "[sm]", area: ["lt"], type: "in" },
-    { id: 208, event: "Koronacja królewska Mendoga", date: "1253", era: "[sm]", area: ["lt"], type: "pa" },
-    { id: 209, event: "Pierwsze posiedzenie parlamentu angielskiego", date: "1264", era: "[sm]", area: ["uk"], type: "in" },
-    { id: 210, event: "Koniec wielkiego bezkrólewia w Niemczech i elekcja Rudolfa I Habsburga na króla niemieckiego", date: "1273", era: "[sm]", area: ["de"], type: "in" },
-    { id: 211, event: "Zakończenie podboju Prus przez Krzyżaków", date: "1283", era: "[sm]", area: ["pl", "de"], type: "bi" },
-    { id: 212, event: "Upadek Akki", date: "1291", era: "[sm]", area: ["il"], type: "bi" },
-    { id: 213, event: "Koronacja Przemysła II", date: "1295", era: "[sm]", area: ["pl"], type: "pa" },
-    { id: 214, event: "Koronacja Wacława II", date: "1300", era: "[sm]", area: ["pl", "cz"], type: "pa" },
-    { id: 215, event: "Zwołanie pierwszego posiedzenia Stanów Generalnych", date: "1302", era: "[sm]", area: ["fr"], type: "in" },
-    { id: 216, event: "Rzeź Gdańska", date: "1308", era: "[sm]", area: ["pl"], type: "bi" },
-    { id: 217, event: "Początek niewoli awiniońskiej", date: "1309", era: "[sm]", area: ["fr"], type: "in" },
     { id: 218, event: "Opanowanie Pomorza Gdańskiego przez Krzyżaków", date: "1309", era: "[sm]", area: ["pl", "de"], type: "in" },
-    { id: 219, event: "Koronacja królewska Władysława Łokietka", date: "1320", era: "[sm]", area: ["pl"], type: "pa" },
-    { id: 220, event: "Bitwa pod Płowcami", date: "1331", era: "[sm]", area: ["pl", "de"], type: "bi" },
-    { id: 221, event: "Panowanie Kazimierza Wielkiego", date: "1333-1370", era: "[sm]", area: ["pl"], type: "pa" },
-    { id: 222, event: "Pierwszy zjazd w Wyszehradzie", date: "1335", era: "[sm]", area: ["pl", "hu", "cz"], type: "in" },
     { id: 223, event: "Powstanie Akademii Krakowskiej", date: "1364", era: "[sm]", area: ["pl"], type: "in" },
     { id: 224, event: "Rządy Andegawenów na Węgrzech", date: "1382-1385", era: "[sm]", area: ["hu"], type: "pa" },
     { id: 225, event: "Unia w Krewie", date: "1385", era: "[sm]", area: ["pl", "lt"], type: "po" },
@@ -229,16 +193,11 @@ const flashcards = [
     { id: 228, event: "Powstanie kroniki Gala Anonima", date: "1112-1116", era: "[sm]", area: ["pl"], type: "in" },
     { id: 229, event: "Podporządkowanie Polski Pomorza Gdańskiego", date: "1116", era: "[sm]", area: ["pl"], type: "in" },
     { id: 230, event: "Podpisanie konkordatu wormackiego", date: "1122", era: "[sm]", area: ["it", "de"], type: "in" },
-    { id: 231, event: "Podporządkowanie Polski Pomorza Zachodniego", date: "1122", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 232, event: "Śmierć Bolesława Krzywoustego i początek rozbicia dzielnicowego", date: "1138", era: "[sm]", area: ["pl"], type: "in" },
     { id: 233, event: "Wypędzenie Władysława II Wygnańca z Polski", date: "1146", era: "[sm]", area: ["pl"], type: "bi" },
-    { id: 234, event: "II wyprawa krzyżowa", date: "1147-1149", era: "[sm]", area: ["fr", "it", "tr"], type: "bi" },
     { id: 235, event: "Najazd cesarza Fryderyka I Barbarossy na Polskę", date: "1157", era: "[sm]", area: ["pl", "de"], type: "bi" },
     { id: 236, event: "Objęcie tronu krakowskiego przez Kazimierza II Sprawiedliwego", date: "1177", era: "[sm]", area: ["pl"], type: "pa" },
     { id: 237, event: "Zjazd w Łęczycy", date: "1180", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 238, event: "III wyprawa krzyżowa", date: "1189-1192", era: "[sm]", area: ["fr", "it", "tr"], type: "bi" },
     { id: 239, event: "Powstanie zakonu krzyżackiego", date: "1191", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 240, event: "IV wyprawa krzyżowa", date: "1202-1204", era: "[sm]", area: ["fr", "it", "tr"], type: "bi" },
     { id: 241, event: "Zdobycie Konstantynopola przez krzyżowców i powstanie cesarstwa łacińskiego", date: "1204", era: "[sm]", area: ["tr"], type: "in" },
     { id: 242, event: "Krucjata przeciwko katarom", date: "1209-1229", era: "[sm]", area: ["fr"], type: "bi" },
     { id: 243, event: "Lokacja Złotoryi", date: "1211", era: "[sm]", area: ["pl"], type: "in" },
@@ -352,14 +311,26 @@ let sortOrder = 'chronological';  // 'chronological' lub 'random'
 // Wyświetl menu na początku
 document.querySelector('.menu').style.display = 'block';
 
+
+function removeDuplicates(cards) {
+    const uniqueCards = [];
+    const ids = new Set();
+
+    cards.forEach(card => {
+        if (!ids.has(card.id)) {
+            ids.add(card.id);
+            uniqueCards.push(card);
+        }
+    });
+
+    return uniqueCards;
+}
+
 function startFlashcards(selectedMode) {
     mode = selectedMode;
     groupFilter = document.querySelector('input[name="group"]:checked').value;
-    
-
     // Zaktualizowany kod do formatowania filtrów epok
-    eraFilters = Array.from(document.querySelectorAll('input[name="era"]:checked')).map(cb => `[${cb.value}]`);
-
+    eraFilters = Array.from(document.querySelectorAll('input[name="era"]:checked')).map((cb) => `[${cb.value}]`);
     console.log("Selected Mode:", mode);
     console.log("Group Filter:", groupFilter);
     console.log("Era Filters:", eraFilters);
@@ -367,7 +338,7 @@ function startFlashcards(selectedMode) {
     sortMode = document.querySelector('input[name="sort"]:checked').value;
     currentCardIndex = 0;
     wrongAnswers = [];
-    sessionCards = getFilteredFlashcards();  
+    sessionCards = getFilteredFlashcards();
     sessionAttempts = {};
 
     console.log("Session Cards Before Sorting:", sessionCards);
@@ -376,25 +347,24 @@ function startFlashcards(selectedMode) {
 
     console.log("Session Cards After Sorting:", sessionCards);
 
-    sessionCards.forEach(card => {
+    sessionCards.forEach((card) => {
         sessionAttempts[card.id] = 0;
     });
 
-    if (sortMode === 'random') {
-        shuffleArray(sessionCards); 
+    if (sortMode === "random") {
+        shuffleArray(sessionCards);
     }
-    
-    document.querySelector('.menu').style.display = 'none';
-    document.querySelector('.flashcards').style.display = 'block';
-    document.querySelector('.summary').style.display = 'none'; // Ukryj podsumowanie
-    document.getElementById('advancedOptionsMenu').classList.add('hidden');
-    document.getElementById('advancedOptionsButton').classList.add('hidden');
+
+    document.querySelector(".menu").style.display = "none";
+    document.querySelector(".flashcards").style.display = "block";
+    document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
+    document.getElementById("advancedOptionsMenu").classList.add("hidden");
+    document.getElementById("advancedOptionsButton").classList.add("hidden");
     showInput();
     showButtons();
 
     showNextCard();
 }
-
 function getFilteredFlashcards() {
     console.log("Group Filter:", groupFilter);
     console.log("Era Filters:", eraFilters);
@@ -404,6 +374,7 @@ function getFilteredFlashcards() {
     // Pobieranie wybranych typów fiszek
     const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
 
+    // Filtrowanie kart na podstawie wybranych kryteriów
     const filteredCards = flashcards.filter(card => {
         // Sprawdzanie dopasowania grupy
         const groupMatch = groupFilter === 'all' || 
@@ -423,8 +394,13 @@ function getFilteredFlashcards() {
         return groupMatch && eraMatch && countryMatch && typeMatch;
     });
 
-    console.log("Filtered Cards:", filteredCards);
-    return filteredCards;
+    // Usunięcie duplikatów
+    const uniqueFilteredCards = removeDuplicates(filteredCards);
+
+    console.log("Filtered Cards (before duplicates removal):", filteredCards);
+    console.log("Filtered Cards (after duplicates removal):", uniqueFilteredCards);
+
+    return uniqueFilteredCards;
 }
 
 
@@ -438,7 +414,6 @@ function toggleAdvancedOptions() {
 
 function showNextCard() {
     hideButtons();
-    hideInput();
     document.getElementById('flashcardContent').style.opacity = 0; // Ukryj zawartość pytania
 
     if (currentCardIndex < sessionCards.length) {
@@ -454,7 +429,6 @@ function showNextCard() {
         // Ustawienie opóźnienia dla ukrycia i pokazania elementów
         setTimeout(() => {
             document.getElementById('flashcardContent').style.opacity = 1; // Upewnij się, że zawartość pytania jest widoczna
-            showInput();
             showButtons();
         }, 100); // Opóźnienie 100 ms dla płynności
     } else if (wrongAnswers.length > 0) {
@@ -478,7 +452,6 @@ function checkAnswer() {
         correctAnswer = flashcard.event;
     }
 
-    hideInput();
     hideButtons();
 
     document.getElementById('flashcardContent').style.opacity = 1; // Upewnij się, że zawartość pytania jest widoczna
@@ -631,13 +604,20 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Nasłuchiwacz zdarzeń dla klawisza Enter
+let canTrigger = true; // Flag to track if the event can be triggered
+
 document.getElementById('userInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        e.preventDefault(); // Zapobiega domyślnemu działaniu klawisza Enter
+    if (e.key === 'Enter' && canTrigger) {
+        e.preventDefault(); // Prevent default behavior of the Enter key
         checkAnswer();
+        
+        canTrigger = false; // Disable the event
+        setTimeout(() => {
+            canTrigger = true; // Re-enable the event after 2 seconds
+        }, 2000);
     }
 });
+
 
 
 function showAnswer() {
@@ -649,8 +629,6 @@ function showAnswer() {
     } else {
         correctAnswer = flashcard.event;
     }
-
-    hideInput();
     hideButtons();
 
     document.getElementById('flashcardContent').style.opacity = 1; // Upewnij się, że zawartość pytania jest widoczna

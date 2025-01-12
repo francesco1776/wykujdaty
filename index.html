@@ -3,52 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nauka Dat Historycznych</title>
+    <title>Wykuwator 3000</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>Nauka Dat Historycznych</h1>
+<h1 id="title">
+  <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
+  </p>
+  <p class="subtitle">wersja beta 1.0.0</p>
+</h1>
 <div id="homeButton" class="home-button">🏠</div>
-
+<c-c>cc:francesco2137, all rights reserved</c-c>
+<c-b>Londyn jest czerwony</c-b>
 <div class="menu">
-    <h2>Wybierz Tryb Nauki</h2>
-    <button class="button" onclick="startFlashcards('eventToDate')">Wydarzenie → Data</button>
-    <button class="button" onclick="startFlashcards('dateToEvent')">Data → Wydarzenie</button>
-    
-    <h2>Wybierz Grupę</h2>
-    <label><input type="radio" name="group" value="all" checked> Wszystkie</label>
+    <h2>Wybierz Grupę</h2><br><label><input type="radio" name="group" value="all" checked> Wszystkie</label>
     <label><input type="radio" name="group" value="pl"> Polska</label>
-    <label><input type="radio" name="group" value="world"> Europa i Świat</label>
-
-    <details> 
-    <summary>Więcej</summary>
-     <h3>Wybierz Kraj</h3>
-    <label><input type="radio" name="country" value="all" checked> Wszystkie kraje</label>
-    <label><input type="radio" name="country" value="pl"> Polska</label>
-    <label><input type="radio" name="country" value="de"> Niemcy</label>
-    <label><input type="radio" name="country" value="fr"> Francja</label>
-    <label><input type="radio" name="country" value="uk"> Wielka Brytania</label>
-    <label><input type="radio" name="country" value="us"> USA</label>
-    <label><input type="radio" name="country" value="it"> Włochy</label>
-    <label><input type="radio" name="country" value="gr"> Grecja</label>
-    <label><input type="radio" name="country" value="ru"> Rosja</label>
-    <label><input type="radio" name="country" value="es"> Hiszpania</label>
-    <label><input type="radio" name="country" value="se"> Szwecja</label>
-    <label><input type="radio" name="country" value="ca"> Kanada</label>
-    </details>
-
-    <h2>Wybierz Epokę</h2>
-    <label><input type="checkbox" name="era" value="st"> Starożytność</label>
-    <label><input type="checkbox" name="era" value="sm"> Średniowiecze</label>
-    <label><input type="checkbox" name="era" value="xvi"> XVI wiek</label>
-    <label><input type="checkbox" name="era" value="xvii"> XVII wiek</label>
-    <label><input type="checkbox" name="era" value="xviii"> XVIII wiek</label>
-    <label><input type="checkbox" name="era" value="nap"> Epoka Napoleońska</label>
-    <label><input type="checkbox" name="era" value="xix"> XIX wiek</label>
-    <label><input type="checkbox" name="era" value="xx"> XX wiek</label>
-    
-    <h2>Sortowanie fiszek</h2>
+    <label><input type="radio" name="group" value="world"> Europa i Świat</label> 
+    <details><summary>Więcej</summary> <div id="innekraje"><h3>Wybierz Kraj</h3>
+    <br><label><input type="radio" name="country" value="all" checked> Wszystkie kraje</label>
+    <br><label><input type="radio" name="country" value="pl"> Polska</label>
+    <br><label><input type="radio" name="country" value="de"> Niemcy</label>
+    <br><label><input type="radio" name="country" value="fr"> Francja</label>
+    <br><label><input type="radio" name="country" value="uk"> Wielka Brytania</label>
+    <br><label><input type="radio" name="country" value="us"> USA</label>
+    <br><label><input type="radio" name="country" value="it"> Włochy</label>
+    <br><label><input type="radio" name="country" value="gr"> Grecja</label>
+    <br><label><input type="radio" name="country" value="ru"> Rosja</label>
+    <br><label><input type="radio" name="country" value="es"> Hiszpania</label>
+    <br><label><input type="radio" name="country" value="se"> Szwecja</label>
+    <br><label><input type="radio" name="country" value="ca"> Kanada</label>
+     </div></details>
+    </div>
+    <div class="epoki">
+   <h2>Wybierz Epokę</h2>
+    <br><label><input type="checkbox" name="era" value="st"> Starożytność </label><h4>10 tys. p.n.e - 476 n.e</h4>
+    <br><label><input type="checkbox" name="era" value="sm"> Średniowiecze</label><h4> 477 - 1491</h4>
+    <br><label><input type="checkbox" name="era" value="xvi"> XVI wiek</label><h4> 1492 - 1599</h4>
+    <br><label><input type="checkbox" name="era" value="xvii"> XVII wiek</label><h4> 1600 - 1699</h4>
+    <br><label><input type="checkbox" name="era" value="xviii"> XVIII wiek</label><h4> 1700 - 1788</h4>
+    <br><label><input type="checkbox" name="era" value="nap"> Epoka Napoleońska</label><h4> 1789 - 1815</h4>
+    <br><label><input type="checkbox" name="era" value="xix"> XIX wiek</label><h4-c>indev</h4-c>
+    <br><label><input type="checkbox" name="era" value="xx"> XX wiek</label><h4-c>indev</h4-c>
+    </div>
+    <div class="menu">
+    <h2>Sortowanie</h2><br>
     <label>
         <input type="radio" name="sort" value="chronological" checked>
         Chronologicznie
@@ -57,12 +56,11 @@
         <input type="radio" name="sort" value="random">
         Losowo
     </label>
+    
 
-    <!-- Przycisk Opcje Zaawansowane -->
-    <button id="advancedOptionsButton" class="button">Opcje zaawansowane</button>
-
-
-<!-- Zwijane Menu Opcji Zaawansowanych -->
+</div> <div id="ni">
+    <br><button class="button" onclick="startFlashcards('eventToDate')" id="start">start</button>
+    <br><button id="advancedOptionsButton" class="button">opcje zaawansowane</button> <br>
 <div id="advancedOptionsMenu" class="advanced-options hidden">
     <h3>Wybór typu fiszek</h3>
     <form id="flashcardTypeForm">
@@ -72,8 +70,8 @@
         <label><input type="checkbox" name="type" value="po"> Ugody, unie, porozumienia, traktaty</label><br>
         <label><input type="checkbox" name="type" value="in"> Inne</label><br>
     </form>
-</div>
-    </div>
+</div></div>
+    
 <!-- Sekcje, które będą widoczne w odpowiednich momentach -->
 <div id="flashcards" class="flashcards">
     <div id="flashcardContent"></div>

@@ -1,30 +1,128 @@
 body {
     font-family: Century Gothic, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
+    color: #cbcbcb;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-color: #261e1e;
+    padding: 15px;
+    font-size: 15px;
 }
+#fullBackground {
+    background: linear-gradient(to right, #007bff, #423535); /* Background spanning across */
+    width: 100%; /* Make it span across the container */
+    padding: 20px; /* Add some padding for spacing */
+    text-align: center; /* Center-align the text */
+    color: white; /* Ensure the text is readable */
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000; /* Optional shadow */
+}
+.label {
+   margin-bottom: -5px;
+  }
 
 h1 {
     text-align: center;
 }
+h3 {
+    display: inline;
+}
+h2 {
+    display: inline;
+}
+.page-title {
+       display: block;
+       margin-top: 0;
+       margin-bottom: .5rem;
+       font-size: 2rem;
+    }
+    .subtitle {
+      display: block;
+      margin: 0;
+      font-size: 1rem;
+      color: gray;
+    }
+h2, label {
+  margin: 0; /* Removes any default margin */
+  padding: 0; /* Removes padding */
+}
 
+.container {
+  padding: 0; /* Remove any padding from the container */
+}
+
+.epoki h2 + label {
+  margin-top: 0; /* Removes the gap above the label */
+}
+c-c {
+    position: fixed;
+bottom: 0;
+right: 0;
+    font-size: 12px;
+    color: #cbcbcb;
+}
+c-b {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+}
+h4 {
+    font-size: 10px;
+    color:#aeb1b2;
+    text-shadow: none;
+    display: inline;
+}
+h4-c {
+    font-size: 10px;
+    color:#c81e1e;
+    text-shadow: none;
+    display: inline;
+}
 .flashcards, .summary {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #423535;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 .menu {
     width: 100%;
     max-width: 800px; /* Ogranicz szerokość menu, dostosuj według potrzeb */
     margin: 0 auto; /* Wyśrodkuj */
-    padding: 20px;
-    background-color: #f9f9f9; /* Kolor tła menu */
+    padding: 10px;
+    background-color: #423535; /* Kolor tła menu */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    align-items: center;
+    text-align: center;
+}
+.epoki {
+    width: 100%;
+    max-width: 800px; /* Ogranicz szerokość menu, dostosuj według potrzeb */
+    margin: 0 auto; /* Wyśrodkuj */
+    padding: 10px;
+    background-color: #423535; /* Kolor tła menu */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    align-items: center;
+    text-align: center;
+    display: block;
+    gap: 0;
+    
+}
+#ni {
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
+#innekraje {
+    text-align: left;
+}
+#epoki {
+    text-align: left;
+}
 /* Domyślnie ukryte sekcje */
 .flashcards,
 .summary {
@@ -33,12 +131,21 @@ h1 {
 
 .input-group {
     margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .input-group input {
     padding: 10px;
     width: 90%;
     margin-bottom: 10px;
+}
+input, textarea {
+  background-color: #7b7b7b;
+    color: white;
+
+}
+input::placeholder {
+    color: #ffffff;  /* Tutaj możesz ustawić dowolny kolor */
 }
 
 .button {
@@ -50,20 +157,30 @@ h1 {
     margin-right: 10px;
     display: inline-block;
 }
+#start {
+    background-color: #0026ff; /* Zielone tło */
+    color: white; /* Biały tekst */
+    padding: 10px 20px; /* Odstępy wewnętrzne */
+    border: none; /* Usunięcie obramowania */
+    cursor: pointer; /* Kursor jako wskaźnik */
+    font-size: 20px; /* Rozmiar czcionki */
+    margin-bottom: 10px;
+    width: 250px;
+    margin: 0 auto;
+    font-family: Century Gothic, sans-serif;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 
+#start:hover {
+    background-color: #0156ac; /* Ciemniejsze zielone tło na hover */
+}
 .button:hover {
     background-color: #0056b3;
 }
-
-/* Styl dla kontenera przycisków */
-.input-group {
-    margin-top: 10px;
-}
-
 /* Ustaw przyciski w kontenerze obok siebie */
 .summary .button-container {
     display: flex;
-    justify-content: space-around;
     margin-top: 20px;
 }
 
@@ -86,55 +203,39 @@ h1 {
 
 /* Styl dla przycisku Opcje zaawansowane */
 #advancedOptionsButton {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 10px;
     width: auto; /* Przywróć domyślną szerokość */
-    text-align: left; /* Wyrównaj tekst do lewej */
+    height: auto;
+    font-size: auto;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    justify-items: center;
+    font-family: Century Gothic, sans-serif;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
 }
 .container {
     width: 80%; /* Szerokość kontenera, dopasuj w zależności od potrzeb */
-    margin: 0 auto; /* Wyśrodkuj kontener na stronie */
-    position: relative; /* Ważne, aby dziecko (menu) było względem niego pozycjonowane */
 }
 /* Styl dla menu zaawansowanych opcji */
 .advanced-options {
     width: 50%; /* Dopasuj szerokość menu opcji */
-    padding: 20px;
-    background-color: #f5f5f5;
+    padding: 10px;
+    background-color: #423535;
     border: 1px solid #ddd;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin-left: 0; /* Wyrównaj menu do lewej strony kontenera */
-    position: relative; /* Menu powinno być pozycjonowane względem kontenera nadrzędnego */
+    margin: 0 auto; /* Wyśrodkuj */
+    align-items: left;
 }
-
-/* Upewnij się, że główny kontener strony jest wycentrowany */
-body {
-   
-    justify-content: left;
-    align-items: flex-start; /* Aby uniknąć wyśrodkowania w pionie */
-    min-height: 20vh;
-    margin: 0;
-    padding: 20px;
-}
-
-.advanced-options form {
-    display: flex;
-    flex-direction: column;
-}
-
-.advanced-options form label {
-    margin-bottom: 5px;
-}
-
 .hidden {
     display: none;
 }
 
 /* Styl dla widocznego menu */
 .advanced-options.visible {
-    display: block;
+    align-items: left;
 }
 
 .home-button {
@@ -150,5 +251,7 @@ body {
         
 }
 .incorrect {
-    color: darkred;
+    color: #c90202;
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    
 }
