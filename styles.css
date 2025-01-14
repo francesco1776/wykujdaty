@@ -111,12 +111,24 @@ h4-c {
     gap: 0;
     
 }
-#ni {
+.ni {
     text-align: center;
     align-items: center;
     margin: 0 auto;
 }
-
+.sortowanie {
+    display: block;
+    width: 100%;
+    max-width: 800px; /* Ogranicz szerokość menu, dostosuj według potrzeb */
+    margin: 0 auto; /* Wyśrodkuj */
+    padding: 10px;
+    background-color: #423535; /* Kolor tła menu */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    align-items: center;
+    text-align: center;
+}
 #innekraje {
     text-align: left;
 }

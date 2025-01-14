@@ -329,7 +329,6 @@ function removeDuplicates(cards) {
 function startFlashcards(selectedMode) {
     mode = selectedMode;
     groupFilter = document.querySelector('input[name="group"]:checked').value;
-    // Zaktualizowany kod do formatowania filtrów epok
     eraFilters = Array.from(document.querySelectorAll('input[name="era"]:checked')).map((cb) => `[${cb.value}]`);
     console.log("Selected Mode:", mode);
     console.log("Group Filter:", groupFilter);
@@ -354,15 +353,17 @@ function startFlashcards(selectedMode) {
     if (sortMode === "random") {
         shuffleArray(sessionCards);
     }
-
+// pokazywanie i chowanie elementow
     document.querySelector(".menu").style.display = "none";
+    document.querySelector(".epoki").style.display = "none";
+    document.querySelector(".sortowanie").style.display = "none";
+    document.querySelector(".ni").style.display = "none";
     document.querySelector(".flashcards").style.display = "block";
     document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
     document.getElementById("advancedOptionsMenu").classList.add("hidden");
     document.getElementById("advancedOptionsButton").classList.add("hidden");
     showInput();
     showButtons();
-
     showNextCard();
 }
 function getFilteredFlashcards() {
@@ -472,11 +473,13 @@ function checkAnswer() {
     document.getElementById('userInput').value = '';
 }
 function returnToMenu() {
-    document.querySelector('.summary').style.display = 'none';
-    document.querySelector('.menu').style.display = 'block';
-    document.querySelector('.flashcards').style.display = 'none'; // Ukryj fiszki
-    document.getElementById('advancedOptionsMenu').classList.add('hidden');
-    document.getElementById('advancedOptionsButton').classList.add('hidden');
+    document.querySelector(".menu").style.display = "block";
+    document.querySelector(".epoki").style.display = "block";
+    document.querySelector(".sortowanie").style.display = "block";
+    document.querySelector(".ni").style.display = "block";
+    document.querySelector(".flashcards").style.display = "none";
+    document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
+    document.getElementById("advancedOptionsMenu").classList.add("hidden");
 }
 
     
