@@ -8,7 +8,7 @@ const flashcards = [
     { id: 7, event: "Uchwalenie Wielkiej Karty Swobód", date: "1215", era: "[sm]", area: ["an"], type: "in" },
     { id: 8, event: "Bitwa pod Maratonem", date: "490 p.n.e", era: "[st]", area: ["gr"], type: "bi" },
     { id: 9, event: "Traktat w Verdun", date: "843", era: "[sm]", area: ["fr","de"], type: "po" },
-    { id: 10, event: "Bitwa pod Termopilami", date: "480 p.n.e", era: "[st]", area: ["gr"], type: "bi" },
+    { id: 10, event: "Bitwa pod Termopilami i Salaminą", date: "480 p.n.e", era: "[st]", area: ["gr"], type: "bi" },
     { id: 11, event: "Cud Domu Brandenburskiego", date: "1762", era: "[xviii]", area: ["de"], type: "in" },
     { id: 12, event: "Bitwa pod Quebekiem", date: "1759", era: "[xviii]", area: ["uk"], type: "bi" },
     { id: 13, event: "Wydanie Sankcji Pragmatycznej", date: "1713", era: "[xviii]", area: ["at"], type: "in" },
@@ -91,11 +91,11 @@ const flashcards = [
     { id: 90, event: "Wojna krymska", date: "1853-1856", era: "[xix]", area: ["ru", "uk"], type: "bi" },
     { id: 91, event: "Panowanie Cesarza Austrii Franciszka I", date: "1804-1835", era: "[xix]", area: ["at"], type: "pa" },
     { id: 92, event: "Panowanie Cara Mikołaja I", date: "1825-1855", era: "[xix]", area: ["ru"], type: "pa" },
-    { id: 93, event: "Powstanie Młodych Włochów", date: "1831", era: "[xix]", area: ["it"], type: "po" },
+    { id: 93, event: "Powstanie Młodych Włoch", date: "1831", era: "[xix]", area: ["it"], type: "po" },
     { id: 94, event: "Powstanie Młodej Europy", date: "1834", era: "[xix]", area: ["eu"], type: "po" },
     { id: 95, event: "Powstanie rządu sardyńskiego", date: "1848", era: "[xix]", area: ["it"], type: "po" },
-    { id: 96, event: "Zjednoczenie Włoch", date: "1861", era: "[xix]", area: ["it"], type: "po" },
-    { id: 97, event: "Powstanie Imperium Niemieckiego", date: "1871", era: "[xix]", area: ["de"], type: "po" },
+    { id: 96, event: "Zjednoczenie Włoch", date: "1860-1871", era: "[xix]", area: ["it"], type: "po" },
+    { id: 97, event: "Powstanie Cesarstwa Niemieckiego", date: "1871", era: "[xix]", area: ["de"], type: "po" },
     { id: 98, event: "Otto von Bismarck zostaje kanclerzem", date: "1862", era: "[xix]", area: ["de"], type: "pa" },
     { id: 99, event: "Wojna prusko-austriacka", date: "1866", era: "[xix]", area: ["de", "at"], type: "bi" },
     { id: 100, event: "Przewrót 18 brumaire'a", date: "1799", era: "[nap]", area: ["fr"], type: "po" },
@@ -184,14 +184,11 @@ const flashcards = [
     { id: 188, event: "II wyprawa krzyżowa", date: "1147-1149", era: "[sm]", area: ["fr", "it", "de"], type: "bi" },
     { id: 192, event: "III wyprawa krzyżowa", date: "1189-1192", era: "[sm]", area: ["fr", "it", "de"], type: "bi" },
     { id: 194, event: "IV wyprawa krzyżowa", date: "1202-1204", era: "[sm]", area: ["fr", "it"], type: "bi" },
-    { id: 218, event: "Opanowanie Pomorza Gdańskiego przez Krzyżaków", date: "1309", era: "[sm]", area: ["pl", "de"], type: "in" },
     { id: 223, event: "Powstanie Akademii Krakowskiej", date: "1364", era: "[sm]", area: ["pl"], type: "in" },
     { id: 224, event: "Rządy Andegawenów na Węgrzech", date: "1382-1385", era: "[sm]", area: ["hu"], type: "pa" },
-    { id: 225, event: "Unia w Krewie", date: "1385", era: "[sm]", area: ["pl", "lt"], type: "po" },
     { id: 226, event: "Początek samodzielnych rządów Bolesława Krzywoustego", date: "1108", era: "[sm]", area: ["pl"], type: "pa" },
     { id: 227, event: "Wojna z królem niemieckim Henrykiem V", date: "1109", era: "[sm]", area: ["pl", "de"], type: "bi" },
     { id: 228, event: "Powstanie kroniki Gala Anonima", date: "1112-1116", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 229, event: "Podporządkowanie Polski Pomorza Gdańskiego", date: "1116", era: "[sm]", area: ["pl"], type: "in" },
     { id: 230, event: "Podpisanie konkordatu wormackiego", date: "1122", era: "[sm]", area: ["it", "de"], type: "in" },
     { id: 233, event: "Wypędzenie Władysława II Wygnańca z Polski", date: "1146", era: "[sm]", area: ["pl"], type: "bi" },
     { id: 235, event: "Najazd cesarza Fryderyka I Barbarossy na Polskę", date: "1157", era: "[sm]", area: ["pl", "de"], type: "bi" },
@@ -202,7 +199,7 @@ const flashcards = [
     { id: 242, event: "Krucjata przeciwko katarom", date: "1209-1229", era: "[sm]", area: ["fr"], type: "bi" },
     { id: 243, event: "Lokacja Złotoryi", date: "1211", era: "[sm]", area: ["pl"], type: "in" },
     { id: 244, event: "Magna Charta Libertatum", date: "1215", era: "[sm]", area: ["uk"], type: "in" },
-    { id: 245, event: "Bitwa nad rzeką Kałką", date: "1223", era: "[sm]", area: ["ru", "pl"], type: "bi" },
+    { id: 245, event: "Bitwa nad rzeką Kałką", date: "1223", era: "[sm]", area: ["ru"], type: "bi" },
     { id: 246, event: "Zaproszenie krzyżaków do osiedlenia się na ziemi chełmińskiej", date: "1226", era: "[sm]", area: ["pl"], type: "in" },
     { id: 247, event: "Zjazd w Gąsawie, śmierć Leszka Białego", date: "1227", era: "[sm]", area: ["pl"], type: "in" },
     { id: 248, event: "Przybycie krzyżaków do ziemi chełmińskiej", date: "1228", era: "[sm]", area: ["pl"], type: "in" },
@@ -233,7 +230,6 @@ const flashcards = [
     { id: 273, event: "Epidemia dżumy w Europie", date: "1348-1352", era: "[sm]", area: ["eu"], type: "in" },
     { id: 274, event: "Wydanie Złotej Bulli przez Karola IV Luksemburga", date: "1356", era: "[sm]", area: ["de", "cz"], type: "in" },
     { id: 275, event: "Opracowanie statutów piotrkowskiego i wiślickiego", date: "1356-1362", era: "[sm]", area: ["pl"], type: "in" },
-    { id: 276, event: "Założenie Akademii Krakowskiej", date: "1364", era: "[sm]", area: ["pl"], type: "in" },
     { id: 277, event: "Nadanie przywileju koszyckiego", date: "1374", era: "[sm]", area: ["pl"], type: "pa" },
     { id: 278, event: "Bitwa na Kulikowym Polu", date: "1380", era: "[sm]", area: ["ru"], type: "bi" },
     { id: 279, event: "Unia w Krewie", date: "1385", era: "[sm]", area: ["pl", "lt"], type: "po" },
@@ -290,7 +286,146 @@ const flashcards = [
     { id: 330, event: "Koronacja cesarska Karola Wielkiego", date: "800", era: "[sm]", area: ["fr"], type: "in" },
     { id: 331, event: "Powstanie Państwa Wielkomorawskiego", date: "801", era: "[sm]", area: ["cz"], type: "in" },
     { id: 332, event: "Bitwa na Lechowym Polu", date: "955", era: "[sm]", area: ["de"], type: "bi" },
-    { id: 333, event: "Koronacja cesarska Ottona I", date: "962", era: "[sm]", area: ["de"], type: "pa" }
+    { id: 333, event: "Koronacja cesarska Ottona I", date: "962", era: "[sm]", area: ["de"], type: "pa" },
+    { id: 334, event: "Zdobycie Grenady, koniec rekonkwisty", date: "1492", era: "[xvi]", area: ["es"], type: "bi" },  
+    { id: 335, event: "Pierwsza wyprawa Kolumba, odkrycie Ameryki", date: "1492", era: "[xvi]", area: ["es", "us"], type: "na" },  
+    { id: 336, event: "Pierwszy sejm walny", date: "1493", era: "[xvi]", area: ["pl"], type: "in" },  
+    { id: 337, event: "Traktat w Tordesillas", date: "1494", era: "[xvi]", area: ["pt", "es"], type: "po" },  
+    { id: 338, event: "Wyprawa Vasco Da Gamy", date: "1498", era: "[xvi]", area: ["pt", "in"], type: "na" },  
+    { id: 339, event: "Konstytucja Nihil Novi (Radomska)", date: "1505", era: "[xvi]", area: ["pl"], type: "in" },  
+    { id: 340, event: "Bitwa pod Orszą", date: "1514", era: "[xvi]", area: ["pl", "lt", "ru"], type: "bi" },  
+    { id: 341, event: "Zjazd w Wiedniu", date: "1515", era: "[xvi]", area: ["at"], type: "po" },  
+    { id: 342, event: "Ogłoszenie tez Marcina Lutra, początek reformacji", date: "1517", era: "[xvi]", area: ["de"], type: "in" },  
+    { id: 343, event: "Ostatnia wojna z zakonem krzyżackim", date: "1519-1521", era: "[xvi]", area: ["pl", "de"], type: "bi" },  
+    { id: 344, event: "Wyprawa Magellana", date: "1519-1522", era: "[xvi]", area: ["es"], type: "na" },  
+    { id: 345, event: "Podbój Meksyku przez Cortesa", date: "1519-1524", era: "[xvi]", area: ["es", "mx"], type: "bi" },  
+    { id: 346, event: "Powstanie Prus Książęcych", date: "1525", era: "[xvi]", area: ["pl", "de"], type: "in" },  
+    { id: 347, event: "Hołd pruski", date: "1525", era: "[xvi]", area: ["pl", "de"], type: "po" },  
+    { id: 348, event: "Bitwa pod Mohaczem", date: "1526", era: "[xvi]", area: ["hu"], type: "bi" },  
+    { id: 349, event: "Przyłączenie Mazowsza do Polski", date: "1526", era: "[xvi]", area: ["pl"], type: "in" },  
+    { id: 350, event: "Sacco di Roma", date: "1527", era: "[xvi]", area: ["it"], type: "bi" },  
+    { id: 351, event: "Elekcja Vivente Rege Zygmunta Augusta", date: "1529", era: "[xvi]", area: ["pl"], type: "in" },  
+    { id: 352, event: "Pokój wieczysty z Turcją", date: "1533", era: "[xvi]", area: ["pl", "tr"], type: "po" },  
+    { id: 353, event: "Akt supremacji, powstanie anglikanizmu", date: "1534", era: "[xvi]", area: ["gb"], type: "in" },  
+    { id: 354, event: "Założenie jezuitów", date: "1534", era: "[xvi]", area: ["it"], type: "in" },  
+    { id: 355, event: "Początek działalności Kalwina", date: "1536", era: "[xvi]", area: ["fr"], type: "in" },  
+    { id: 356, event: "Wojna kokosza (rokosz lwowski)", date: "1537", era: "[xvi]", area: ["pl"], type: "bi" },  
+    { id: 357, event: "Sobór trydencki", date: "1545-1563", era: "[xvi]", area: ["it"], type: "in" },  
+    { id: 358, event: "Pierwsza wojna szmalkaldzka", date: "1546-1547", era: "[xvi]", area: ["de"], type: "bi" },  
+    { id: 359, event: "Koronacja Iwana IV Groźnego na Cara Wszechrusi", date: "1547", era: "[xvi]", area: ["ru"], type: "pa" },  
+    { id: 360, event: "Druga wojna szmalkaldzka", date: "1552", era: "[xvi]", area: ["de"], type: "bi" },  
+    { id: 361, event: "Pokój w Augsburgu", date: "1555", era: "[xvi]", area: ["de"], type: "po" },  
+    { id: 362, event: "Podział imperium Habsburgów na część hiszpańską i austriacką", date: "1556", era: "[xvi]", area: ["es", "at"], type: "in" },  
+    { id: 363, event: "Sekularyzacja Inflant", date: "1561", era: "[xvi]", area: ["pl", "lv"], type: "in" },  
+    { id: 364, event: "Wybuch wojen religijnych we Francji", date: "1562", era: "[xvi]", area: ["fr"], type: "bi" },  
+    { id: 365, event: "Złożenie hołdu Zygmuntowi II Augustowi przez Gottharda Kettlera", date: "1562", era: "[xvi]", area: ["pl", "lv"], type: "po" },  
+    { id: 366, event: "Bitwa pod Lepanto", date: "1571", era: "[xvi]", area: ["gr"], type: "bi" },  
+    { id: 367, event: "Noc św. Bartłomieja", date: "1572", era: "[xvi]", area: ["fr"], type: "bi" },  
+    { id: 368, event: "Koniec panowania dynastii Jagiellonów, pierwsze bezkrólewie", date: "1572", era: "[xvi]", area: ["pl"], type: "pa" },  
+    { id: 369, event: "Konfederacja Warszawska, pierwsza wolna elekcja", date: "1573", era: "[xvi]", area: ["pl"], type: "in" },  
+    { id: 370, event: "Panowanie Stefana Batorego", date: "1576-1586", era: "[xvi]", area: ["pl"], type: "pa" },  
+    { id: 371, event: "Utworzenie Trybunału Koronnego i piechoty wybranieckiej", date: "1578", era: "[xvi]", area: ["pl"], type: "in" },  
+    { id: 372, event: "Wojna z Moskwą (Batory)", date: "1578-1581", era: "[xvi]", area: ["pl", "ru"], type: "bi" },  
+    { id: 373, event: "Rozejm w Jamie Zapolskim", date: "1582", era: "[xvi]", area: ["pl", "ru"], type: "po" },  
+    { id: 374, event: "Panowanie Wazów w Polsce", date: "1587-1613", era: "[xvi]", area: ["pl"], type: "pa" },  
+    { id: 375, event: "Powstanie Niderlandów", date: "1588", era: "[xvi]", area: ["nl"], type: "in" },  
+    { id: 376, event: "Klęska Wielkiej Armady", date: "1588", era: "[xvi]", area: ["es", "gb"], type: "bi" },  
+    { id: 377, event: "Unia brzeska", date: "1596", era: "[xvi]", area: ["pl"], type: "po" },  
+    { id: 378, event: "Edykt nantejski", date: "1598", era: "[xvi]", area: ["fr"], type: "po" },  
+    { id: 379, event: "Wielka smuta", date: "1598-1613", era: "[xvi]", area: ["ru"], type: "in" },
+    { id: 380, event: "I wojna polsko-szwedzka o Inflanty", date: "1600-1611", era: "[xvii]", area: ["pl", "se"], type: "bi" },  
+    { id: 381, event: "I dymitriada", date: "1604-1606", era: "[xvii]", area: ["pl", "ru"], type: "bi" },  
+    { id: 382, event: "Bitwa pod Kircholmem", date: "1605", era: "[xvii]", area: ["pl", "se"], type: "bi" },  
+    { id: 383, event: "Rokosz Zebrzydowskiego", date: "1606-1607", era: "[xvii]", area: ["pl"], type: "bi" },  
+    { id: 384, event: "Wojna z Moskwą (podymitriadowa)", date: "1609-1618", era: "[xvii]", area: ["pl", "ru"], type: "bi" },  
+    { id: 385, event: "Bitwa pod Kłuszynem i zajęcie Moskwy", date: "1610", era: "[xvii]", area: ["pl", "ru"], type: "bi" },  
+    { id: 386, event: "Przejęcie władzy w Prusach Książęcych przez brandenburską linię Hohenzollernów", date: "1618", era: "[xvii]", area: ["de"], type: "in" },  
+    { id: 387, event: "Wojna trzydziestoletnia", date: "1618-1648", era: "[xvii]", area: ["de", "eu"], type: "bi" },  
+    { id: 388, event: "Rozejm w Dywilinie", date: "1619", era: "[xvii]", area: ["pl", "ru"], type: "po" },  
+    { id: 389, event: "Pokój westfalski", date: "1648", era: "[xvii]", area: ["de", "eu"], type: "po" },  
+    { id: 390, event: "Bitwa pod Białą Górą", date: "1620", era: "[xvii]", area: ["cz"], type: "bi" },  
+    { id: 391, event: "Bitwa pod Cecorą", date: "1620", era: "[xvii]", area: ["pl", "tr"], type: "bi" },  
+    { id: 392, event: "Bitwa pod Chocimiem", date: "1621", era: "[xvii]", area: ["pl", "tr"], type: "bi" },  
+    { id: 393, event: "Wojna ze Szwecją (Gustaw Adolf)", date: "1626-1629", era: "[xvii]", area: ["pl", "se"], type: "bi" },  
+    { id: 394, event: "Bitwa pod Oliwą", date: "1627", era: "[xvii]", area: ["pl", "se"], type: "bi" },  
+    { id: 395, event: "Rozejm w Altmarku", date: "1629", era: "[xvii]", area: ["pl", "se"], type: "po" },  
+    { id: 396, event: "Wojna smoleńska", date: "1632-1634", era: "[xvii]", area: ["pl", "ru"], type: "bi" },  
+    { id: 397, event: "Pokój w Polanowie", date: "1634", era: "[xvii]", area: ["pl", "ru"], type: "po" },  
+    { id: 398, event: "Rozejm w Sztumskiej Wsi", date: "1635", era: "[xvii]", area: ["pl", "se"], type: "po" },  
+    { id: 399, event: "Wojna domowa w Anglii", date: "1642-1648", era: "[xvii]", area: ["gb"], type: "bi" },  
+    { id: 400, event: "Panowanie Ludwika XIV", date: "1643-1715", era: "[xvii]", area: ["fr"], type: "pa" },  
+    { id: 401, event: "Wybuch powstania Chmielnickiego", date: "1648", era: "[xvii]", area: ["pl", "ua"], type: "bi" },  
+    { id: 402, event: "Śmierć Władysława IV Wazy", date: "1648", era: "[xvii]", area: ["pl"], type: "pa" },  
+    { id: 403, event: "Ścięcie Karola I, ogłoszenie Anglii Republiką", date: "1649", era: "[xvii]", area: ["gb"], type: "in" },  
+    { id: 404, event: "Uchwalenie aktu nawigacyjnego", date: "1651", era: "[xvii]", area: ["gb"], type: "in" },  
+    { id: 405, event: "Bitwa pod Beresteczkiem, ugoda w Białej Cerkwi", date: "1651", era: "[xvii]", area: ["pl", "ua"], type: "bi" },  
+    { id: 406, event: "Oliver Cromwell lordem protektorem", date: "1653-1658", era: "[xvii]", area: ["gb"], type: "pa" },  
+    { id: 407, event: "Ugoda perejasławska, atak Rosji na Polskę", date: "1654", era: "[xvii]", area: ["pl", "ru"], type: "po" },  
+    { id: 408, event: "Potop szwedzki", date: "1655-1660", era: "[xvii]", area: ["pl", "se"], type: "bi" },  
+    { id: 409, event: "Traktat w Radnot", date: "1656", era: "[xvii]", area: ["pl", "se"], type: "po" },  
+    { id: 410, event: "Traktaty welawsko-bydgoskie", date: "1657", era: "[xvii]", area: ["pl", "de"], type: "po" },  
+    { id: 411, event: "Unia w Hadziaczu", date: "1658", era: "[xvii]", area: ["pl", "ua"], type: "po" },  
+    { id: 412, event: "Restauracja Monarchii w Anglii", date: "1660", era: "[xvii]", area: ["gb"], type: "in" },  
+    { id: 413, event: "Pokój w Oliwie", date: "1660", era: "[xvii]", area: ["pl", "se"], type: "po" },  
+    { id: 414, event: "Rokosz Lubomirskiego", date: "1665-1666", era: "[xvii]", area: ["pl"], type: "bi" },  
+    { id: 415, event: "Traktat w Buczaczu", date: "1672", era: "[xvii]", area: ["pl", "tr"], type: "po" },  
+    { id: 416, event: "Druga bitwa pod Chocimiem", date: "1673", era: "[xvii]", area: ["pl", "tr"], type: "bi" },  
+    { id: 417, event: "Odsiecz wiedeńska", date: "1683", era: "[xvii]", area: ["pl", "at", "tr"], type: "bi" },  
+    { id: 418, event: "Powstanie Ligi Świętej", date: "1684", era: "[xvii]", area: ["eu"], type: "in" },  
+    { id: 419, event: "Pokój Grzymułtowskiego", date: "1686", era: "[xvii]", area: ["pl", "ru"], type: "po" },  
+    { id: 420, event: "Sławetna rewolucja w Anglii", date: "1688", era: "[xvii]", area: ["gb"], type: "in" },  
+    { id: 421, event: "Pokój w Karłowicach", date: "1699", era: "[xvii]", area: ["pl", "tr", "at"], type: "po" },  
+    { id: 422, event: "Powstanie Królestwa Prus", date: "1701", era: "[xviii]", area: ["de"], type: "in" },  
+    { id: 423, event: "Bitwa pod Połtawą", date: "1709", era: "[xviii]", area: ["ru", "se"], type: "bi" },
+    { id: 424, event: "Wynalezienie maszyny parowej", date: "1769", era: "[xviii]", area: ["gb"], type: "na" },  
+    { id: 425, event: "Uchwalenie konstytucji Francji (rewolucja burżuazyjna)", date: "1791", era: "[xviii]", area: ["fr"], type: "po" },  
+    { id: 426, event: "Uchwalenie konstytucji 3 maja", date: "1791", era: "[xviii]", area: ["pl"], type: "po" },  
+    { id: 427, event: "Ogłoszenie Francji republiką", date: "1792", era: "[xviii]", area: ["fr"], type: "in" },  
+    { id: 428, event: "Ścięcie Ludwika XVI", date: "1793", era: "[xviii]", area: ["fr"], type: "in" },  
+    { id: 429, event: "Przewrót termidoriański", date: "1794", era: "[xviii]", area: ["fr"], type: "in" },  
+    { id: 430, event: "Wyprawa Napoleona do Egiptu", date: "1798", era: "[xviii]", area: ["fr", "eg"], type: "bi" },  
+    { id: 431, event: "Wyprawa legionów polskich na Santo Domingo", date: "1802", era: "[nap]", area: ["pl", "ht"], type: "bi" },  
+    { id: 432, event: "Utworzenie Księstwa Warszawskiego", date: "1807", era: "[nap]", area: ["pl"], type: "in" },  
+    { id: 433, event: "Początek powstania anty-francuskiego w Hiszpanii", date: "1808", era: "[nap]", area: ["es", "fr"], type: "bi" },  
+    { id: 434, event: "Kongres wiedeński", date: "1815", era: "[nap]", era: "[xix]", area: ["eu"], type: "po" },  
+    { id: 435, event: "Powstanie Uniwersytetu Warszawskiego", date: "1816", era: "[xix]", area: ["pl"], type: "in" },  
+    { id: 436, event: "Początek romantyzmu w Polsce", date: "1822", era: "[xix]", area: ["pl"], type: "na" },  
+    { id: 437, event: "Wprowadzenie stanu wyjątkowego na Ziemiach Królestwa Polskiego", date: "1861", era: "[xix]", area: ["pl"], type: "in" },  
+    { id: 438, event: "Wojna secesyjna", date: "1861-1865", era: "[xix]", area: ["us"], type: "bi" },  
+    { id: 439, event: "Utworzenie Czerwonego Krzyża", date: "1863", era: "[xix]", area: ["ch"], type: "in" },  
+    { id: 440, event: "Wybuch powstania styczniowego", date: "1863", era: "[xix]", area: ["pl"], type: "bi" },  
+    { id: 441, event: "Wojna niemiecko-duńska", date: "1864", era: "[xix]", area: ["de", "dk"], type: "bi" },  
+    { id: 442, event: "Powstanie I Międzynarodówki", date: "1864", era: "[xix]", area: ["eu"], type: "in" },  
+    { id: 443, event: "Klęska powstania styczniowego", date: "1864", era: "[xix]", area: ["pl"], type: "bi" },  
+    { id: 444, event: "Uwłaszczenie chłopów w Królestwie Polskim", date: "1864", era: "[xix]", area: ["pl"], type: "in" },  
+    { id: 445, event: "Zniesienie niewolnictwa w USA", date: "1865", era: "[xix]", area: ["us"], type: "in" },  
+    { id: 446, event: "Powstanie Związku Północnoniemieckiego i Austro-Węgier", date: "1867", era: "[xix]", area: ["de", "at"], type: "in" },  
+    { id: 447, event: "Otwarcie Kanału Sueskiego", date: "1869", era: "[xix]", area: ["eg"], type: "in" },  
+    { id: 448, event: "Wojna francusko-pruska", date: "1870-1871", era: "[xix]", area: ["fr", "de"], type: "bi" },  
+    { id: 449, event: "Komuna Paryska", date: "1871", era: "[xix]", area: ["fr"], type: "in" },  
+    { id: 450, event: "Kongres berliński", date: "1878", era: "[xix]", area: ["de", "eu"], type: "po" },  
+    { id: 451, event: "Noc apuchtinowska", date: "1879-1897", era: "[xix]", area: ["pl", "ru"], type: "in" },  
+    { id: 452, event: "Powstanie Trójprzymierza", date: "1882", era: "[xix]", area: ["de", "it", "at"], type: "po" },  
+    { id: 453, event: "Rugi pruskie", date: "1885-1890", era: "[xix]", area: ["pl", "de"], type: "in" },  
+    { id: 454, event: "Encyklika Rerum Novarum", date: "1891", era: "[xix]", area: ["va"], type: "in" },  
+    { id: 455, event: "Powstanie PPS i SDKP", date: "1893", era: "[xix]", area: ["pl"], type: "in" },  
+    { id: 456, event: "Wynalezienie kinematografu", date: "1895", era: "[xix]", area: ["fr"], type: "na" },  
+    { id: 457, event: "Powstanie SL", date: "1895", era: "[xix]", area: ["pl"], type: "in" },  
+    { id: 458, event: "Pierwsze nowożytne Igrzyska Olimpijskie", date: "1896", era: "[xix]", area: ["gr"], type: "in" },  
+    { id: 459, event: "Powstanie Endecji", date: "1897", era: "[xix]", area: ["pl"], type: "in" },  
+    { id: 460, event: "Strajk we Wrześni", date: "1901", era: "[xix]", area: ["pl"], type: "in" },  
+    { id: 461, event: "Pierwszy lot samolotem", date: "1903", era: "[xix]", area: ["us"], type: "na" },  
+    { id: 462, event: "Nagroda Nobla dla Marii Skłodowskiej-Curie", date: "1903", era: "[xix]", area: ["pl", "fr"], type: "na" },  
+    { id: 463, event: "Entente Cordiale", date: "1904", era: "[xix]", area: ["fr", "gb"], type: "po" },  
+    { id: 464, event: "Wojna rosyjsko-japońska", date: "1904-1905", era: "[xix]", area: ["ru", "jp"], type: "bi" },  
+    { id: 465, event: "Rewolucja w Rosji", date: "1905", era: "[xix]", area: ["ru"], type: "bi" },  
+    { id: 466, event: "Powstanie Trójporozumienia", date: "1907", era: "[xix]", area: ["fr", "gb", "ru"], type: "po" },  
+    { id: 467, event: "I wojna bałkańska", date: "1912-1913", era: "[xix]", era: "[ww1]", area: ["balk"], type: "bi" },  
+    { id: 468, event: "II wojna bałkańska", date: "1913", era: "[xix]", era: "[ww1]", area: ["balk"], type: "bi" },
+    { id: 999, event: "a", date: "b", era: "[pw]", area: ["x"], type: "x" },
+    { id: 998, event: "b", date: "c", era: "[pw]", area: ["x"], type: "x" },
+    { id: 997, event: "c", date: "d", era: "[pw]", area: ["x"], type: "x" },
+    
                ];
 
 
@@ -298,7 +433,7 @@ const flashcards = [
 
     
 
-
+let currentRound = 1; // Globalna zmienna do śledzenia bieżącej tury
 let currentCardIndex = 0;
 let mode = '';  // 'eventToDate' lub 'dateToEvent'
 let wrongAnswers = [];
@@ -311,6 +446,83 @@ let sortOrder = 'chronological';  // 'chronological' lub 'random'
 // Wyświetl menu na początku
 document.querySelector('.menu').style.display = 'block';
 
+let chartInstance; // Referencja do wykresu
+const correctAnswers = { count: 0 }; // Licznik poprawnych odpowiedzi
+const incorrectAnswers = { count: 0 }; // Licznik błędnych odpowiedzi
+
+function initializeChart() {
+    const ctx = document.getElementById('resultsChart').getContext('2d');
+    chartInstance = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Poprawne', 'Niepoprawne'],
+            datasets: [{
+                label: 'Odpowiedzi',
+                data: [correctAnswers.count, incorrectAnswers.count],
+                backgroundColor: ['#4caf50', '#f44336'], // Kolory: zielony i czerwony
+                borderWidth: 1,
+            }],
+            
+        },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                display: false
+            },
+            tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const label = context.label || '';
+                            const value = context.raw || 0;
+                            return `${label}: ${value}`;
+                        }
+                    }
+                }
+            }
+        }
+        
+    });
+}
+
+
+
+
+
+
+
+function updateRoundInfo() {
+    currentRound++;
+    const roundInfo = document.getElementById("round-info");
+    roundInfo.textContent = `Tura ${currentRound}`; // Aktualizacja napisu
+}
+
+
+function initializeProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    const progressText = document.getElementById("progress-text");
+
+    // Ustaw pasek na początkowe wartości
+    progressBar.style.width = "0%";
+    progressText.textContent = `0/${sessionCards.length}`; // Liczba całkowita fiszek w sesji
+}
+
+function updateProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    const progressText = document.getElementById("progress-text");
+
+    const totalCards = sessionAttempts ? Object.keys(sessionAttempts).length : sessionCards.length; // Początkowa liczba fiszek
+    const solvedCards = totalCards - sessionCards.length; // Rozwiązane fiszki
+
+    // Oblicz procent wypełnienia
+    const progressPercent = (solvedCards / totalCards) * 100;
+
+    // Zaktualizuj pasek i tekst
+    progressBar.style.width = `${progressPercent}%`;
+    progressText.textContent = `${solvedCards}/${totalCards}`;
+    console.log("dziala aktualizacja pska");
+}
 
 function removeDuplicates(cards) {
     const uniqueCards = [];
@@ -339,7 +551,7 @@ function startFlashcards(selectedMode) {
     wrongAnswers = [];
     sessionCards = getFilteredFlashcards();
     sessionAttempts = {};
-
+    currentRound = 0;
     console.log("Session Cards Before Sorting:", sessionCards);
 
     sessionCards = sortFlashcards(sessionCards, sortMode);
@@ -364,6 +576,9 @@ function startFlashcards(selectedMode) {
     document.getElementById("advancedOptionsButton").classList.add("hidden");
     showInput();
     showButtons();
+    initializeChart();
+    initializeProgressBar();
+    updateRoundInfo();
     showNextCard();
 }
 function getFilteredFlashcards() {
@@ -407,6 +622,8 @@ function getFilteredFlashcards() {
 
 
 
+
+
 function toggleAdvancedOptions() {
     const advancedOptionsMenu = document.getElementById('advancedOptionsMenu');
     advancedOptionsMenu.classList.toggle('hidden');
@@ -436,9 +653,12 @@ function showNextCard() {
         sessionCards = [...wrongAnswers];  // Przepisz tylko błędne odpowiedzi
         wrongAnswers = [];
         currentCardIndex = 0;
+        updateProgressBar();
+        updateRoundInfo();
         showNextCard();
     } else {
         showSummary();
+        currentRound = 0;
     }
 }
 
@@ -460,17 +680,26 @@ function checkAnswer() {
     if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
         document.getElementById('flashcardContent').innerHTML += `<p class="correct">Poprawnie!</p>`;
         sessionCards.splice(currentCardIndex, 1);  // Usuń poprawnie rozwiązane fiszki z listy
+        correctAnswers.count++; // Zwiększ liczbę poprawnych odpowiedzi
+        console.log("poprawne:", correctAnswers);
     } else {
         document.getElementById('flashcardContent').innerHTML += `<p class="incorrect">Błąd! Poprawna odpowiedź to: ${correctAnswer}</p>`;
         wrongAnswers.push(flashcard);  // Dodaj do listy do powtórzenia
         sessionCards.splice(currentCardIndex, 1);  // Usuń z głównej listy
+        incorrectAnswers.count++; // Zwiększ liczbę błędnych odpowiedzi
+        console.log("niepoprawne:", incorrectAnswers);
     }
-
+    chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
+    chartInstance.update(); // Aktualizacja wykresu
     // Opóźnienie, aby komunikat o poprawności się pojawił
     setTimeout(showNextCard, 1000);  // Poczekaj 1 sekunde i wyświetl kolejne pytanie
 
     // Wyczyść pole odpowiedzi
     document.getElementById('userInput').value = '';
+    
+    
+    updateProgressBar();
+
 }
 function returnToMenu() {
     document.querySelector(".menu").style.display = "block";
@@ -641,6 +870,17 @@ function showAnswer() {
     setTimeout(showNextCard, 1000);  // Od razu wyświetl kolejne pytanie
 }
 
+let attemptColor;
+if (sessionAttempts[card.id] === 1) {
+    attemptColor = "green";
+} else if (sessionAttempts[card.id] === 2) {
+    attemptColor = "lightgreen";
+} else if (sessionAttempts[card.id] === 3) {
+    attemptColor = "yellow";
+} else {
+    attemptColor = "red";
+}
+
 function showSummary() { // Początek funkcji
     hideInput(); // Ukrywa pole wejściowe
     hideButtons(); // Ukrywa przyciski
@@ -655,15 +895,40 @@ function showSummary() { // Początek funkcji
     flashcards.forEach(card => { // Rozpoczyna iterację
         if (sessionAttempts[card.id] > 0) {  // Sprawdza, czy fiszka była częścią sesji
             let correctAnswer = '';
+            let attemptColor;
+if (sessionAttempts[card.id] === 1) {
+    attemptColor = "green";
+} else if (sessionAttempts[card.id] === 2) {
+    attemptColor = "lightgreen";
+} else if (sessionAttempts[card.id] === 3) {
+    attemptColor = "yellow";
+} else {
+    attemptColor = "red";
+}
             if (mode === 'eventToDate') { // Jeśli tryb to 'eventToDate'
                 correctAnswer = card.date;
-                summaryContent.innerHTML += `<li>${card.event}: <strong>${correctAnswer}</strong>. Udało się za <strong><span style="color: green;">${sessionAttempts[card.id] === 1 ? 'pierwszym' : `${sessionAttempts[card.id]} razem`}</span></strong>.</li>`;
+                summaryContent.innerHTML += `
+    <li>${card.event} : <strong>${correctAnswer}</strong>. Udało się za 
+    <br><strong><span style="color: ${attemptColor};">
+        ${sessionAttempts[card.id] === 1 ? 'pierwszym razem' : `${sessionAttempts[card.id]} razem`}
+    </span></strong>.
+    </li>`;
             } else { // W przeciwnym razie
                 correctAnswer = card.event;
-                summaryContent.innerHTML += `<li>${card.date}: <strong>${correctAnswer}</strong>. Udało się za <strong><span style="color: green;">${sessionAttempts[card.id] === 1 ? 'pierwszym' : `${sessionAttempts[card.id]} razem`}</span></strong>.</li>`;
+                summaryContent.innerHTML += `
+    <li>${card.date}: <strong>${correctAnswer}</strong>. Udało się za 
+    <strong><span style="color: ${attemptColor};">
+        ${sessionAttempts[card.id] === 1 ? 'pierwszym' : `${sessionAttempts[card.id]} razem`}
+    </span></strong>.
+    </li><ul>
+            <li>Poprawne odpowiedzi: ${correctAnswers.count}</li>
+            <li>Niepoprawne odpowiedzi: ${incorrectAnswers.count}</li>
+        </ul>
+        <canvas id="resultsChart" width="400" height="400"></canvas>
+    `;
             }
         }
     }); // Kończy iterację
-
+initializeChart(); // Inicjalizacja wykresu w podsumowaniu
     summaryContent.innerHTML += '</ul>'; // Kończy listę
 } // Koniec funkcji

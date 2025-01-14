@@ -11,7 +11,7 @@
 <h1 id="title">
   <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
   </p>
-  <p class="subtitle">wersja beta 1.0.0</p>
+  <p class="subtitle">wersja beta 1.0.2</p>
 </h1>
 <div id="homeButton" class="home-button">🏠</div>
 <c-c>cc:francesco2137, all rights reserved</c-c>
@@ -20,7 +20,7 @@
     <h2>Wybierz Grupę</h2><br><label><input type="radio" name="group" value="all" checked> Wszystkie</label>
     <label><input type="radio" name="group" value="pl"> Polska</label>
     <label><input type="radio" name="group" value="world"> Europa i Świat</label> 
-    <details><summary>Więcej</summary> <div id="innekraje"><h3>Wybierz Kraj</h3>
+    <details><summary>Więcej</summary><h4-c>indev</h4-c> <div id="innekraje"><h3>Wybierz Kraj</h3>
     <br><label><input type="radio" name="country" value="all" checked> Wszystkie kraje</label>
     <br><label><input type="radio" name="country" value="pl"> Polska</label>
     <br><label><input type="radio" name="country" value="de"> Niemcy</label>
@@ -43,8 +43,12 @@
     <br><label><input type="checkbox" name="era" value="xvii"> XVII wiek</label><h4> 1600 - 1699</h4>
     <br><label><input type="checkbox" name="era" value="xviii"> XVIII wiek</label><h4> 1700 - 1788</h4>
     <br><label><input type="checkbox" name="era" value="nap"> Epoka Napoleońska</label><h4> 1789 - 1815</h4>
-    <br><label><input type="checkbox" name="era" value="xix"> XIX wiek</label><h4-c>indev</h4-c>
-    <br><label><input type="checkbox" name="era" value="xx"> XX wiek</label><h4-c>indev</h4-c>
+    <br><label><input type="checkbox" name="era" value="xix"> XIX wiek</label><h4> 1816-1913</h4>
+    <br><label><input type="checkbox" name="era" value="ww1"> I wojna światowa</label><h4-c>indev</h4-c>
+    <br><label><input type="checkbox" name="era" value="mw"> 20-lecie międzywojenne</label><h4-c>indev</h4-c>
+    <br><label><input type="checkbox" name="era" value="ww2"> II wojna światowa</label><h4-c>indev</h4-c>
+    <br><label><input type="checkbox" name="era" value="pw"> Powojnie</label><h4-c>indev</h4-c>
+    <br><label><input type="checkbox" name="era" value="pw"> Najnowsza</label><h4-c>indev</h4-c>
     </div>
     <div class="sortowanie">
     <h2>Sortowanie</h2><br>
@@ -60,7 +64,7 @@
 
 <div class="ni">
     <br><button class="button" onclick="startFlashcards('eventToDate')" id="start">start</button>
-    <br><button id="advancedOptionsButton" class="button">opcje zaawansowane</button> <br>
+    <br><button id="advancedOptionsButton" class="button">opcje zaawansowane</button><br><h4-c>indev</h4-c> <br>
 <div id="advancedOptionsMenu" class="advanced-options hidden">
     <h3>Wybór typu fiszek</h3>
     <form id="flashcardTypeForm">
@@ -79,12 +83,18 @@
         <input type="text" id="userInput" placeholder="Wpisz swoją odpowiedź">
     </div>
     <button class="button" onclick="checkAnswer()">Sprawdź</button>
-    <button class="button" onclick="showAnswer()">Nie pamiętam</button>
+    <button class="button" onclick="showAnswer(), updateProgressBar()">Nie pamiętam</button>
+    <container class="chart"><canvas id="resultsChart" width="100" height="100"> </canvas></container><p id="round-info">Tura 1</p>
+    <div class="progress-container">
+    <div id="progress-bar"></div>
+    <p id="progress-text">0/0</p>
+</div>
 </div>
 
 <div id="summary" class="summary">
     <h2>Podsumowanie</h2>
     <div id="summaryContent"></div>
+    <canvas id="resultsChart2" width="100" height="100"></canvas>
     <div class="button-container">
         <button class="button" onclick="returnToMenu()">Powrót do menu</button>
         
@@ -93,5 +103,6 @@
 </div>
 
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

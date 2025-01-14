@@ -86,22 +86,23 @@ h4-c {
 }
 .menu {
     width: 100%;
-    max-width: 800px; /* Ogranicz szerokość menu, dostosuj według potrzeb */
-    margin: 0 auto; /* Wyśrodkuj */
+    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
+    margin: 0 auto; /* WyÅ›rodkuj */
     padding: 10px;
-    background-color: #423535; /* Kolor tła menu */
+    background-color: #423535; /* Kolor tÅ‚a menu */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
     align-items: center;
     text-align: center;
+    display: block;
 }
 .epoki {
     width: 100%;
-    max-width: 800px; /* Ogranicz szerokość menu, dostosuj według potrzeb */
-    margin: 0 auto; /* Wyśrodkuj */
+    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
+    margin: 0 auto; /* WyÅ›rodkuj */
     padding: 10px;
-    background-color: #423535; /* Kolor tła menu */
+    background-color: #423535; /* Kolor tÅ‚a menu */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
@@ -111,23 +112,71 @@ h4-c {
     gap: 0;
     
 }
+.progress-container {
+    width: 100%;
+    background-color: #7b7b7b;
+    border: 1px solid #ccc;
+    margin-top: 0;
+    position: relative;
+    height: 25px;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+#progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+}
 .ni {
     text-align: center;
     align-items: center;
     margin: 0 auto;
+    display: block;
 }
 .sortowanie {
     display: block;
     width: 100%;
-    max-width: 800px; /* Ogranicz szerokość menu, dostosuj według potrzeb */
-    margin: 0 auto; /* Wyśrodkuj */
+    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
+    margin: 0 auto; /* WyÅ›rodkuj */
     padding: 10px;
-    background-color: #423535; /* Kolor tła menu */
+    background-color: #423535; /* Kolor tÅ‚a menu */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
     align-items: center;
     text-align: center;
+}
+#resultsChart {
+    width: 100%; /* Ustaw na 100% szerokoÅ›ci rodzica */
+    height: 100%; /* Automatyczne dopasowanie wysokoÅ›ci */
+    display: inline-block; /* UsuÅ„ ewentualne odstÄ™py inline */
+    align-items: right;
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+.chart {
+     display: flex;
+    justify-content: flex-end; /* Aligns children (the canvas) to the right */
+    align-items: center; /* Centers the canvas vertically within the container */
+    height: 118px; /* Optional height */
+    width: 100%;
+    margin-bottom: 0;
+    border: 1px solid #ddd; /* Optional border for visualization */
 }
 #innekraje {
     text-align: left;
@@ -135,20 +184,27 @@ h4-c {
 #epoki {
     text-align: left;
 }
-/* Domyślnie ukryte sekcje */
+/* DomyÅ›lnie ukryte sekcje */
 .flashcards,
 .summary {
-    display: none; /* Ukryj domyślnie sekcje */
+    display: none; /* Ukryj domyÅ›lnie sekcje */
 }
-
-.input-group {
+#round-info {
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 0;
+    margin-top:0;
+}
+b.input-group {
     margin-bottom: 15px;
     margin-top: 10px;
 }
 
 .input-group input {
     padding: 10px;
-    width: 90%;
+    width: 96%;
     margin-bottom: 10px;
 }
 input, textarea {
@@ -157,7 +213,7 @@ input, textarea {
 
 }
 input::placeholder {
-    color: #ffffff;  /* Tutaj możesz ustawić dowolny kolor */
+    color: #ffffff;  /* Tutaj moÅ¼esz ustawiÄ‡ dowolny kolor */
 }
 
 .button {
@@ -170,11 +226,11 @@ input::placeholder {
     display: inline-block;
 }
 #start {
-    background-color: #0026ff; /* Zielone tło */
-    color: white; /* Biały tekst */
-    padding: 10px 20px; /* Odstępy wewnętrzne */
-    border: none; /* Usunięcie obramowania */
-    cursor: pointer; /* Kursor jako wskaźnik */
+    background-color: #0026ff; /* Zielone tÅ‚o */
+    color: white; /* BiaÅ‚y tekst */
+    padding: 10px 20px; /* OdstÄ™py wewnÄ™trzne */
+    border: none; /* UsuniÄ™cie obramowania */
+    cursor: pointer; /* Kursor jako wskaÅºnik */
     font-size: 20px; /* Rozmiar czcionki */
     margin-bottom: 10px;
     width: 250px;
@@ -185,7 +241,7 @@ input::placeholder {
 }
 
 #start:hover {
-    background-color: #0156ac; /* Ciemniejsze zielone tło na hover */
+    background-color: #0156ac; /* Ciemniejsze zielone tÅ‚o na hover */
 }
 .button:hover {
     background-color: #0056b3;
@@ -196,14 +252,14 @@ input::placeholder {
     margin-top: 20px;
 }
 
-/* Styl dla ukrywania kontenera przycisków */
+/* Styl dla ukrywania kontenera przyciskÃ³w */
 .hidden-button-container {
     display: none;
 }
 
-/* Dodaj styl dla kontenera przycisków w sekcji podsumowania */
+/* Dodaj styl dla kontenera przyciskÃ³w w sekcji podsumowania */
 .button-container {
-    display: flex;
+    display: block;
     justify-content: space-around;
     flex-wrap: wrap; /* Pozwala przyciskom na zawijanie w razie potrzeby */
     margin-top: 20px;
@@ -215,7 +271,7 @@ input::placeholder {
 
 /* Styl dla przycisku Opcje zaawansowane */
 #advancedOptionsButton {
-    width: auto; /* Przywróć domyślną szerokość */
+    width: auto; /* PrzywrÃ³Ä‡ domyÅ›lnÄ… szerokoÅ›Ä‡ */
     height: auto;
     font-size: auto;
     margin: 0 auto;
@@ -225,20 +281,21 @@ input::placeholder {
     font-family: Century Gothic, sans-serif;
     font-weight: bold;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    display: inline-block;
     
 }
 .container {
-    width: 80%; /* Szerokość kontenera, dopasuj w zależności od potrzeb */
+    width: 80%; /* SzerokoÅ›Ä‡ kontenera, dopasuj w zaleÅ¼noÅ›ci od potrzeb */
 }
 /* Styl dla menu zaawansowanych opcji */
 .advanced-options {
-    width: 50%; /* Dopasuj szerokość menu opcji */
+    width: 50%; /* Dopasuj szerokoÅ›Ä‡ menu opcji */
     padding: 10px;
     background-color: #423535;
     border: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin: 0 auto; /* Wyśrodkuj */
+    margin: 0 auto; /* WyÅ›rodkuj */
     align-items: left;
 }
 .hidden {
@@ -256,7 +313,7 @@ input::placeholder {
     left: 10px;
     font-size: 24px;
     cursor: pointer;
-    z-index: 1000; /* Upewnij się, że przycisk jest nad innymi elementami */
+    z-index: 1000; /* Upewnij siÄ™, Å¼e przycisk jest nad innymi elementami */
 }
 .correct {
     color: green;
