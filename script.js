@@ -422,9 +422,85 @@ const flashcards = [
     { id: 466, event: "Powstanie Trójporozumienia", date: "1907", era: "[xix]", area: ["fr", "gb", "ru"], type: "po" },  
     { id: 467, event: "I wojna bałkańska", date: "1912-1913", era: "[xix]", era: "[ww1]", area: ["balk"], type: "bi" },  
     { id: 468, event: "II wojna bałkańska", date: "1913", era: "[xix]", era: "[ww1]", area: ["balk"], type: "bi" },
+    { id: 467, event: "zamach na arcyksięcia Franciszka Ferdynanda w Sarajewie", date: "1914", era: "[ww1]", area: ["ba"], type: "in" },
+    { id: 468, event: "bitwa nad Tannenbergiem", date: "1914", era: "[ww1]", area: ["de", "ru"], type: "bi" },
+    { id: 469, event: "bitwa nad Marną", date: "1914", era: "[ww1]", area: ["fr"], type: "bi" },
+    { id: 470, event: "wkroczenie I Kompanii Kadrowej do Królestwa Polskiego", date: "1914", era: "[ww1]", area: ["pl"], type: "in" },
+    { id: 471, event: "utworzenie Legionów Polskich w Austro-Węgrzech", date: "1914", era: "[ww1]", area: ["pl", "at"], type: "in" },
+    { id: 472, event: "bitwa pod Ypres, pierwsze wykorzystanie gazów bojowych", date: "1915", era: "[ww1]", area: ["be","fr","de"], type: "bi" },
+    { id: 473, event: "bitwa pod Verdun", date: "1916", era: "[ww1]", area: ["fr"], type: "bi" },
+    { id: 474, event: "bitwa jutlandzka", date: "1916", era: "[ww1]", area: ["sea"], type: "bi" },
+    { id: 475, event: "bitwa nad Sommą", date: "1916", era: "[ww1]", area: ["fr"], type: "bi" },
+    { id: 476, event: "akt 5 listopada", date: "1916", era: "[ww1]", area: ["pl"], type: "po" },
+    { id: 477, event: "rewolucja lutowa w Rosji i abdykacja Mikołaja II", date: "1917", era: "[ww1]", area: ["ru"], type: "in" },
+    { id: 478, event: "przystąpienie USA do IWŚ", date: "1917", era: "[ww1]", area: ["us"], type: "in" },
+    { id: 479, event: "rewolucja październikowa", date: "1917", era: "[ww1]", area: ["ru"], type: "in" },
+    { id: 480, event: "kryzys przysięgowy, powstanie KNP", date: "1917", era: "[ww1]", area: ["pl"], type: "in" },
+    { id: 481, event: "ogłoszenie 14-punktów Wilsona", date: "1918", era: "[ww1]", area: ["us"], type: "po" },
+    { id: 482, event: "pokój brzeski", date: "1918", era: "[ww1]", area: ["ru", "de"], type: "po" },
+    { id: 483, event: "abdykacja Wilhelma II", date: "1918", era: "[ww1]", area: ["de"], type: "in" },
+    { id: 484, event: "podpisanie rozejmu w Compiegne", date: "1918", era: "[ww1]", area: ["fr", "de"], type: "po" },
+    { id: 485, event: "przejęcie władzy wojskowej przez Piłsudskiego", date: "1918", era: "[mw]", area: ["pl"], type: "in" },
+    { id: 486, event: "wojna polsko-ukraińska o Lwów i Galicję Wschodnią", date: "1918-1919", era: "[mw]", area: ["pl", "ua"], type: "bi" },
+    { id: 487, event: "powstanie wielkopolskie", date: "1918-1919", era: "[mw]", area: ["pl"], type: "bi" },
+    { id: 488, event: "podpisanie traktatu wersalskiego", date: "1919", era: "[mw]", area: ["fr"], type: "po" },
+    { id: 489, event: "traktat w Saint Germain", date: "1919", era: "[mw]", area: ["at"], type: "po" },
+    { id: 490, event: "traktat w Neuilly", date: "1919", era: "[mw]", area: ["bg"], type: "po" },
+    { id: 491, event: "traktat w Trianon", date: "1920", era: "[mw]", area: ["hu"], type: "po" },
+    { id: 492, event: "traktat w Sevres", date: "1920", era: "[mw]", area: ["tr"], type: "po" },
+    { id: 493, event: "wybuch wojny polsko-bolszewickiej", date: "1919", era: "[mw]", area: ["pl", "ru"], type: "bi" },
+    { id: 494, event: "uchwalenie małej konstytucji", date: "1919", era: "[mw]", area: ["pl"], type: "in" },
+    { id: 495, event: "I powstanie śląskie", date: "1919", era: "[mw]", area: ["pl", "de"], type: "bi" },
+    { id: 496, event: "plebiscyty na Warmii, Mazurach i Powiślu", date: "1920", era: "[mw]", area: ["pl", "de"], type: "po" },
+    { id: 497, event: "bitwa Warszawska", date: "1920", era: "[mw]", area: ["pl"], type: "bi" },
+    { id: 498, event: "II powstanie śląskie", date: "1920", era: "[mw]", area: ["pl", "de"], type: "bi" },
+    { id: 499, event: "zajęcie wileńszczyzny przez Żeligowskiego", date: "1920", era: "[mw]", area: ["pl", "lt"], type: "in" },
+    { id: 500, event: "wprowadzenie NEP w Rosji Sowieckiej", date: "1921", era: "[mw]", area: ["ru"], type: "in" },
+    { id: 501, event: "konstytucja marcowa", date: "1921", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 502, event: "traktat w Rydze", date: "1921", era: "[mw]", area: ["pl", "ru"], type: "po" },
+{ id: 503, event: "wojna polsko-bolszewicka", date: "1919-1921", era: "[mw]", area: ["pl", "ru"], type: "bi" },
+{ id: 504, event: "plebiscyt na Górnym Śląsku", date: "1921", era: "[mw]", area: ["pl", "de"], type: "po" },
+{ id: 505, event: "III powstanie śląskie", date: "1921", era: "[mw]", area: ["pl", "de"], type: "bi" },
+{ id: 506, event: "traktat w Rapallo", date: "1922", era: "[mw]", area: ["de", "ru"], type: "po" },
+{ id: 507, event: "marsz na Rzym, przejęcie władzy przez Mussoliniego", date: "1922", era: "[mw]", area: ["it"], type: "in" },
+{ id: 508, event: "powstanie ZSRS", date: "1922", era: "[mw]", area: ["ru"], type: "in" },
+{ id: 509, event: "przyłączenie Litwy Środkowej do Polski", date: "1922", era: "[mw]", area: ["pl", "lt"], type: "in" },
+{ id: 510, event: "zabójstwo prezydenta Gabriela Narutowicza", date: "1922", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 511, event: "pucz monachijski", date: "1923", era: "[mw]", area: ["de"], type: "in" },
+{ id: 512, event: "reforma walutowa Grabskiego", date: "1924", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 513, event: "układ w Locarno", date: "1925", era: "[mw]", area: ["de", "fr"], type: "po" },
+{ id: 514, event: "przewrót majowy", date: "1926", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 515, event: "ustawy wyjątkowe we Włoszech", date: "1926", era: "[mw]", area: ["it"], type: "in" },
+{ id: 516, event: "nowela sierpniowa", date: "1926", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 517, event: "utworzenie BBWR", date: "1926", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 518, event: "czarny czwartek, początek Wielkiego Kryzysu", date: "1929", era: "[mw]", area: ["us"], type: "in" },
+{ id: 519, event: "powstanie Centrolewu", date: "1929", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 520, event: "Kongres Obrony Prawa i Wolności Ludu, wybory brzeskie", date: "1930", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 521, event: "zajęcie Mandżurii przez wojska japońskie", date: "1931", era: "[mw]", area: ["cn", "jp"], type: "bi" },
+{ id: 522, event: "proces brzeski", date: "1931-1932", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 523, event: "podpisanie polsko-sowieckiego paktu o nieagresji", date: "1932", era: "[mw]", area: ["pl", "ru"], type: "po" },
+{ id: 524, event: "wielki głód na Ukrainie", date: "1932-1933", era: "[mw]", area: ["ua", "ru"], type: "in" },
+{ id: 525, event: "powołanie Adolfa Hitlera na urząd kanclerza Niemiec", date: "1933", era: "[mw]", area: ["de"], type: "in" },
+{ id: 526, event: "noc długich noży", date: "1934", era: "[mw]", area: ["de"], type: "in" },
+{ id: 527, event: "polsko-niemiecki pakt o nieagresji", date: "1934", era: "[mw]", area: ["pl", "de"], type: "po" },
+{ id: 528, event: "wielka czystka w ZSRS", date: "1934-1939", era: "[mw]", area: ["ru"], type: "in" },
+{ id: 529, event: "przywrócenie powszechnej służby wojskowej w Niemczech, powstanie Wehrmachtu", date: "1935", era: "[mw]", area: ["de"], type: "in" },
+{ id: 530, event: "uchwalenie ustaw norymberskich", date: "1935", era: "[mw]", area: ["de"], type: "in" },
+{ id: 531, event: "atak Włoch na Abisynię", date: "1935", era: "[mw]", area: ["it", "et"], type: "bi" },
+{ id: 532, event: "wojna domowa w Hiszpanii", date: "1936-1939", era: "[mw]", area: ["es"], type: "bi" },
+{ id: 533, event: "remilitaryzacja Nadrenii", date: "1936", era: "[mw]", area: ["de"], type: "in" },
+{ id: 534, event: "pakt antykominternowski", date: "1936", era: "[mw]", area: ["de", "jp"], type: "po" },
+{ id: 535, event: "początek budowy COP", date: "1936", era: "[mw]", area: ["pl"], type: "in" },
+{ id: 536, event: "Anschluss Austrii", date: "1938", era: "[mw]", area: ["de", "at"], type: "in" },
+{ id: 537, event: "konferencja monachijska", date: "1938", era: "[mw]", area: ["de", "fr", "it", "uk"], type: "po" },
+{ id: 538, event: "noc kryształowa", date: "1938", era: "[mw]", area: ["de"], type: "in" },
+{ id: 539, event: "zajęcie Zaolzia", date: "1938", era: "[mw]", area: ["pl", "cz"], type: "in" },
+{ id: 540, event: "rozbiór Czechosłowacji", date: "1939", era: "[mw]", area: ["de", "cz", "pl"], type: "in" },
+{ id: 541, event: "zajęcie Albanii", date: "1939", era: "[mw]", area: ["it", "al"], type: "in" },
+{ id: 542, event: "pakt Ribbentrop-Mołotow", date: "1939", era: "[mw]", area: ["de", "ru"], type: "po" },
     { id: 999, event: "a", date: "b", era: "[pw]", area: ["x"], type: "x" },
     { id: 998, event: "b", date: "c", era: "[pw]", area: ["x"], type: "x" },
-    { id: 997, event: "c", date: "d", era: "[pw]", area: ["x"], type: "x" },
+    { id: 997, event: "c", date: "d", era: "[pw]", area: ["x"], type: "x" }
     
                ];
 
@@ -578,6 +654,7 @@ function startFlashcards(selectedMode) {
     showButtons();
     initializeChart();
     initializeProgressBar();
+    updateProgressBar();
     updateRoundInfo();
     showNextCard();
 }
@@ -662,6 +739,12 @@ function showNextCard() {
     }
 }
 
+function niga () {
+    incorrectAnswers.count++;
+    chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
+    chartInstance.update();
+    
+}
 function checkAnswer() {
     const userInput = document.getElementById('userInput').value.trim();
     const flashcard = sessionCards[currentCardIndex];

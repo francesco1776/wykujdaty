@@ -175,8 +175,7 @@ h4-c {
     align-items: center; /* Centers the canvas vertically within the container */
     height: 118px; /* Optional height */
     width: 100%;
-    margin-bottom: 0;
-    border: 1px solid #ddd; /* Optional border for visualization */
+    margin-bottom: 0; /* Optional border for visualization */
 }
 #innekraje {
     text-align: left;
