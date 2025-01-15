@@ -688,6 +688,11 @@ const incorrectAnswers = { count: 0 }; // Licznik błędnych odpowiedzi
 
 function initializeChart() {
     const ctx = document.getElementById('resultsChart').getContext('2d');
+    // Zniszcz poprzedni wykres, jeśli istnieje
+    if (chartInstance) {
+        chartInstance.destroy();
+        chartInstance = null;
+    }
     chartInstance = new Chart(ctx, {
         type: 'pie',
         data: {
@@ -771,8 +776,17 @@ function removeDuplicates(cards) {
 
     return uniqueCards;
 }
-
+// FUNKCJA OD WYSTARTOWANIA FISZEK
 function startFlashcards(selectedMode) {
+const flashcardContent = document.getElementById('flashcardContent');
+    if (flashcardContent) {
+        flashcardContent.innerHTML = ''; // Usuń stare pytanie
+    }
+
+const timerDisplay = document.getElementById('live-timer');
+    if (timerDisplay) {
+        timerDisplay.textContent = 'Czas: 00:00'; // Zresetuj zegar
+    }
     mode = selectedMode;
     groupFilter = document.querySelector('input[name="group"]:checked').value;
     eraFilters = Array.from(document.querySelectorAll('input[name="era"]:checked')).map((cb) => `[${cb.value}]`);
@@ -783,6 +797,10 @@ function startFlashcards(selectedMode) {
     currentCardIndex = 0;
     wrongAnswers = [];
     sessionCards = getFilteredFlashcards();
+    if (sessionCards.length === 0) {
+    console.error('Brak fiszek do wyświetlenia.');
+    return; // Zakończ, jeśli nie ma fiszek
+}
     sessionAttempts = {};
     currentRound = 0;
     console.log("Session Cards Before Sorting:", sessionCards);
@@ -809,13 +827,16 @@ function startFlashcards(selectedMode) {
     document.getElementById("advancedOptionsButton").classList.add("hidden");
     showInput();
     showButtons();
+    if (!chartInstance) {
     initializeChart();
+}
     chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
     chartInstance.update(); // Aktualizacja wykresu
     initializeProgressBar();
     updateProgressBar();
     updateRoundInfo();
     startTimer(); // Rozpocznij stoper
+    console.log('Aktualny indeks:', currentCardIndex);
     showNextCard();
 }
 function getFilteredFlashcards() {
@@ -870,9 +891,18 @@ function toggleAdvancedOptions() {
 function showNextCard() {
     hideButtons();
     document.getElementById('flashcardContent').style.opacity = 0; // Ukryj zawartość pytania
+const flashcardContent = document.getElementById('flashcardContent');
+    if (!flashcardContent) {
+        console.error('Element #flashcardContent nie istnieje.');
+        return;
+    }
 
+    // Usuń starą zawartość przed wyświetleniem nowej fiszki
+    flashcardContent.innerHTML = '';
     if (currentCardIndex < sessionCards.length) {
         const flashcard = sessionCards[currentCardIndex];
+    console.log('Treść wyświetlana w flashcardContent:', flashcardContent.innerHTML); // Sprawdź zawartość fiszki
+    console.log('Aktualny indeks:', currentCardIndex);
         sessionAttempts[flashcard.id] += 1;  // Zwiększ liczbę prób
 
         if (mode === 'eventToDate') {
@@ -883,6 +913,7 @@ function showNextCard() {
 
         // Ustawienie opóźnienia dla ukrycia i pokazania elementów
         setTimeout(() => {
+            console.log('Aktualna fiszka:', sessionCards[currentCardIndex]);
             document.getElementById('flashcardContent').style.opacity = 1; // Upewnij się, że zawartość pytania jest widoczna
             showButtons();
         }, 100); // Opóźnienie 100 ms dla płynności
@@ -1177,7 +1208,11 @@ function resetSession() {
         chartInstance.destroy(); // Zniszczenie istniejącego wykresu
         chartInstance = null; // Usunięcie referencji
     }
-
+ // Czyszczenie widoku fiszek
+    const flashcardContent = document.getElementById('flashcardContent');
+    if (flashcardContent) {
+        flashcardContent.innerHTML = ''; // Wyczyść treść fiszki
+    }
     // Re-inicjalizacja wykresu z pustymi danymi
     initializeChart();
     console.log('Zresetowano wszystkie dane sesji, w tym wykres, pasek, licznik czasu oraz odpowiedzi.');
@@ -1249,11 +1284,9 @@ if (sessionAttempts[card.id] === 1) {
             <li>Poprawne odpowiedzi: ${correctAnswers.count}</li>
             <li>Niepoprawne odpowiedzi: ${incorrectAnswers.count}</li>
         </ul>
-        <canvas id="resultsChart" width="400" height="400"></canvas>
     `;
             }
         }
     }); // Kończy iterację
-initializeChart(); // Inicjalizacja wykresu w podsumowaniu
     summaryContent.innerHTML += '</ul>'; // Kończy listę
 } // Koniec funkcji
