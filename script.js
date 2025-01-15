@@ -472,7 +472,7 @@ const flashcards = [
 { id: 514, event: "przewrót majowy", date: "1926", era: "[mw]", area: ["pl"], type: "in" },
 { id: 515, event: "ustawy wyjątkowe we Włoszech", date: "1926", era: "[mw]", area: ["it"], type: "in" },
 { id: 516, event: "nowela sierpniowa", date: "1926", era: "[mw]", area: ["pl"], type: "in" },
-{ id: 517, event: "utworzenie BBWR", date: "1926", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 517, event: "utworzenie BBWR", date: "1926", era: "[mw]", area: ["pl"], type: "in" },
 { id: 518, event: "czarny czwartek, początek Wielkiego Kryzysu", date: "1929", era: "[mw]", area: ["us"], type: "in" },
 { id: 519, event: "powstanie Centrolewu", date: "1929", era: "[mw]", area: ["pl"], type: "in" },
 { id: 520, event: "Kongres Obrony Prawa i Wolności Ludu, wybory brzeskie", date: "1930", era: "[mw]", area: ["pl"], type: "in" },
@@ -498,10 +498,147 @@ const flashcards = [
 { id: 540, event: "rozbiór Czechosłowacji", date: "1939", era: "[mw]", area: ["de", "cz", "pl"], type: "in" },
 { id: 541, event: "zajęcie Albanii", date: "1939", era: "[mw]", area: ["it", "al"], type: "in" },
 { id: 542, event: "pakt Ribbentrop-Mołotow", date: "1939", era: "[mw]", area: ["de", "ru"], type: "po" },
-    { id: 999, event: "a", date: "b", era: "[pw]", area: ["x"], type: "x" },
-    { id: 998, event: "b", date: "c", era: "[pw]", area: ["x"], type: "x" },
-    { id: 997, event: "c", date: "d", era: "[pw]", area: ["x"], type: "x" }
-    
+{ id: 543, event: "wybuch II wojny światowej", date: "1939", era: "[ww2]", area: ["pl", "de"], type: "bi" },
+{ id: 544, event: "atak na Polskę", date: "1939", era: "[ww2]", area: ["pl", "de"], type: "bi" },
+{ id: 545, event: "wojna zimowa", date: "1939-1940", era: "[ww2]", area: ["fi", "ru"], type: "bi" },
+{ id: 546, event: "utworzenie Służby Zwycięstwu Polski, Związku Walki Zbrojnej", date: "1939", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 547, event: "powołanie rządu emigracyjnego gen. Władysława Sikorskiego", date: "1939", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 548, event: "układ o granicach i przyjaźni między III Rzeszą i ZSRS", date: "1939", era: "[ww2]", area: ["de", "ru"], type: "po" },
+{ id: 549, event: "atak Niemiec na Danię i Norwegię", date: "1940", era: "[ww2]", area: ["de", "dk", "no"], type: "bi" },
+{ id: 550, event: "atak Niemiec na Belgię, Holandię, Luksemburg i Francję", date: "1940", era: "[ww2]", area: ["de", "fr", "be", "nl", "lu"], type: "bi" },
+{ id: 551, event: "włączenie państw bałtyckich i Besarabii do ZSRS", date: "1940", era: "[ww2]", area: ["lt", "lv", "ee", "ru"], type: "in" },
+{ id: 552, event: "bitwa o Anglię", date: "1940", era: "[ww2]", area: ["uk", "de"], type: "bi" },
+{ id: 553, event: "agresja Włoch na Grecję", date: "1940", era: "[ww2]", area: ["it", "gr"], type: "bi" },
+{ id: 554, event: "wymordowanie polskich jeńców wojennych w Katyniu", date: "1940", era: "[ww2]", area: ["pl", "ru"], type: "in" },
+{ id: 555, event: "utworzenie Auschwitz", date: "1940", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 556, event: "agresja państw Osi na Grecję i Jugosławię", date: "1941", era: "[ww2]", area: ["gr", "yu", "it", "de"], type: "bi" },
+{ id: 557, event: "operacja Barbarossa", date: "1941", era: "[ww2]", area: ["de", "ru"], type: "bi" },
+{ id: 558, event: "podpisanie karty atlantyckiej", date: "1941", era: "[ww2]", area: ["uk", "us"], type: "po" },
+{ id: 559, event: "nalot na Pearl Harbor", date: "1941", era: "[ww2]", area: ["us", "jp"], type: "bi" },
+{ id: 560, event: "układ Sikorski-Majski", date: "1941", era: "[ww2]", area: ["pl", "ru"], type: "po" },
+{ id: 561, event: "konferencja w Wannsee", date: "1942", era: "[ww2]", area: ["de"], type: "in" },
+{ id: 562, event: "bitwa o Midway", date: "1942", era: "[ww2]", area: ["us", "jp"], type: "bi" },
+{ id: 563, event: "bitwa o Stalingrad", date: "1942", era: "[ww2]", area: ["ru", "de"], type: "bi" },
+{ id: 564, event: "operacja Torch", date: "1942", era: "[ww2]", area: ["af", "us", "uk"], type: "bi" },
+{ id: 565, event: "utworzenie PPR", date: "1942", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 566, event: "przemianowanie ZWZ na AK", date: "1942", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 567, event: "utworzenie Żegoty", date: "1942", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 568, event: "bitwa na Łuku Kurskim", date: "1943", era: "[ww2]", area: ["ru", "de"], type: "bi" },
+{ id: 569, event: "desant aliantów na Sycylię", date: "1943", era: "[ww2]", area: ["it"], type: "bi" },
+{ id: 570, event: "kapitulacja Włoch", date: "1943", era: "[ww2]", area: ["it"], type: "in" },
+{ id: 571, event: "konferencja w Teheranie", date: "1943", era: "[ww2]", area: ["ir", "us", "uk", "ru"], type: "po" },
+{ id: 572, event: "powstanie w getcie warszawskim", date: "1943", era: "[ww2]", area: ["pl"], type: "bi" },
+{ id: 573, event: "katastrofa w Gibraltarze, śmierć Sikorskiego", date: "1943", era: "[ww2]", area: ["gi"], type: "in" },
+{ id: 574, event: "rzeź wołyńska", date: "1943", era: "[ww2]", area: ["ua", "pl"], type: "in" },
+{ id: 575, event: "D-Day, operacja Market Garden", date: "1944", era: "[ww2]", area: ["fr", "nl", "uk", "us"], type: "bi" },
+{ id: 576, event: "początek akcji 'Burza'", date: "1944", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 577, event: "bitwa o Monte Cassino", date: "1944", era: "[ww2]", area: ["it"], type: "bi" },
+{ id: 578, event: "manifest PKWN", date: "1944", era: "[ww2]", area: ["pl"], type: "in" },
+{ id: 579, event: "powstanie warszawskie", date: "1944", era: "[ww2]", area: ["pl"], type: "bi" },
+{ id: 580, event: "konferencja w Jałcie", date: "1945", era: "[ww2]", area: ["ru", "uk", "us"], type: "po" },
+{ id: 581, event: "bitwa o Berlin", date: "1945", era: "[ww2]", area: ["de"], type: "bi" },
+{ id: 582, event: "konferencja w Poczdamie", date: "1945", era: "[ww2]", area: ["de", "uk", "us", "ru"], type: "po" },
+{ id: 583, event: "zrzucenie bomb atomowych na Hiroshimę i Nagasaki", date: "1945", era: "[ww2]", area: ["jp"], type: "bi" },
+{ id: 584, event: "kapitulacja Niemiec", date: "1945", era: "[ww2]", area: ["de"], type: "po" },
+{ id: 585, event: "kapitulacja Japonii", date: "1945", era: "[ww2]", area: ["jp"], type: "po" },
+{ id: 586, event: "powstanie ONZ", date: "1945", era: "[pw]", area: ["us"], type: "in" },
+{ id: 587, event: "rozwiązanie AK", date: "1945", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 588, event: "powstanie TRJN", date: "1945", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 589, event: "początek zimnej wojny", date: "1946", era: "[pw]", area: ["us", "ru"], type: "in" },
+{ id: 590, event: "referendum ludowe", date: "1946", era: "[pw]", area: ["pl"], type: "in" },
+    { id: 591, event: "ogłoszenie doktryny Trumana", date: "1947", era: "[pw]", area: ["us"], type: "in" },
+{ id: 592, event: "plan Marshalla", date: "1947", era: "[pw]", area: ["us", "eu"], type: "po" },
+{ id: 593, event: "powstanie Indii i Pakistanu", date: "1947", era: "[pw]", area: ["in", "pk"], type: "in" },
+{ id: 594, event: "sfałszowane wybory do sejmu ustawodawczego", date: "1947", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 595, event: "akcja Wisła", date: "1947", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 596, event: "proklamacja niepodległości Izraela", date: "1948", era: "[pw]", area: ["il"], type: "in" },
+{ id: 597, event: "kryzys berliński", date: "1948", era: "[pw]", area: ["de", "us", "ru"], type: "bi" },
+{ id: 598, event: "utworzenie PZPR", date: "1948", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 599, event: "powstanie RWPG", date: "1949", era: "[pw]", area: ["ru", "eu"], type: "in" },
+{ id: 600, event: "powstanie NATO", date: "1949", era: "[pw]", area: ["us", "eu"], type: "po" },
+{ id: 601, event: "powstanie RFN", date: "1949", era: "[pw]", area: ["de"], type: "in" },
+{ id: 602, event: "powstanie ChRL", date: "1949", era: "[pw]", area: ["cn"], type: "in" },
+{ id: 603, event: "powstanie NRD", date: "1949", era: "[pw]", area: ["de"], type: "in" },
+{ id: 604, event: "wojna w Korei", date: "1950-1953", era: "[pw]", area: ["kr", "cn", "us"], type: "bi" },
+{ id: 605, event: "powołanie Europejskiej Wspólnoty Węgla i Stali", date: "1951", era: "[pw]", area: ["eu"], type: "po" },
+{ id: 606, event: "uchwalenie konstytucji PRL", date: "1952", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 607, event: "śmierć Stalina", date: "1953", era: "[pw]", area: ["ru"], type: "in" },
+{ id: 608, event: "utworzenie Układu Warszawskiego", date: "1955", era: "[pw]", area: ["ru", "eu"], type: "po" },
+{ id: 609, event: "XX zjazd KPZS", date: "1956", era: "[pw]", area: ["ru"], type: "in" },
+{ id: 610, event: "rewolucja węgierska", date: "1956", era: "[pw]", area: ["hu"], type: "bi" },
+{ id: 611, event: "kryzys sueski", date: "1956", era: "[pw]", area: ["eg", "uk", "fr", "il"], type: "bi" },
+{ id: 612, event: "poznański czerwiec", date: "1956", era: "[pw]", area: ["pl"], type: "bi" },
+{ id: 613, event: "Gomułka I sekretarzem KC PZPR", date: "1956", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 614, event: "podpisanie traktatów rzymskich – powstanie EWG i Euroatomu", date: "1957", era: "[pw]", area: ["eu"], type: "po" },
+{ id: 615, event: "początek polityki wielkiego skoku w Chinach", date: "1958", era: "[pw]", area: ["cn"], type: "in" },
+{ id: 616, event: "rok Afryki", date: "1960", era: "[pw]", area: ["af"], type: "in" },
+{ id: 617, event: "pierwszy lot załogowy w Kosmos", date: "1961", era: "[pw]", area: ["ru"], type: "na" },
+{ id: 618, event: "budowa muru berlińskiego", date: "1961", era: "[pw]", area: ["de"], type: "in" },
+{ id: 619, event: "kryzys kubański", date: "1962", era: "[pw]", area: ["cu", "us", "ru"], type: "bi" },
+{ id: 620, event: "Sobór Watykański II", date: "1962-1965", era: "[pw]", area: ["va"], type: "in" },
+{ id: 621, event: "Wojna w Wietnamie", date: "1964-1973", era: "[pw]", area: ["vn", "us"], type: "bi" },
+{ id: 622, event: "rewolucja kulturalna w Chinach", date: "1966", era: "[pw]", area: ["cn"], type: "in" },
+{ id: 623, event: "wojna sześciodniowa na Bliskim Wschodzie", date: "1967", era: "[pw]", area: ["il", "eg", "sy", "jo"], type: "bi" },
+{ id: 624, event: "rewolta studencka w Europie Zachodniej i USA", date: "1968", era: "[pw]", area: ["us", "eu"], type: "in" },
+{ id: 625, event: "stłumienie Praskiej Wiosny", date: "1968", era: "[pw]", area: ["cz", "ru"], type: "bi" },
+{ id: 626, event: "wydarzenia marcowe w Polsce", date: "1968", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 627, event: "lądowanie Apollo 11 na Księżycu", date: "1969", era: "[pw]", area: ["us"], type: "na" },
+{ id: 628, event: "uznanie przez RFN zachodniej granicy Polski", date: "1970", era: "[pw]", area: ["pl", "de"], type: "po" },
+{ id: 629, event: "strajki na wybrzeżu", date: "1970", era: "[pw]", area: ["pl"], type: "bi" },
+{ id: 630, event: "Gierek I sekretarzem KC PZPR", date: "1970", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 631, event: "wojna Jom Kippur", date: "1973", era: "[pw]", area: ["il", "eg", "sy"], type: "bi" },
+{ id: 632, event: "początek kryzysu paliwowego", date: "1973", era: "[pw]", area: ["us", "world"], type: "in" },
+{ id: 633, event: "rewolucja goździków w Portugalii", date: "1974", era: "[pw]", area: ["pt"], type: "bi" },
+{ id: 634, event: "podpisanie aktu końcowego KBWE", date: "1975", era: "[pw]", area: ["eu", "us"], type: "po" },
+{ id: 635, event: "koniec dyktatury Franco w Hiszpanii", date: "1975", era: "[pw]", area: ["es"], type: "in" },
+{ id: 636, event: "nowelizacja Konstytucji PRL", date: "1976", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 637, event: "robotnicze wystąpienia w Radomiu, Ursusie i Płocku", date: "1976", era: "[pw]", area: ["pl"], type: "bi" },
+{ id: 638, event: "powstanie Komitetu Obrony Robotników", date: "1976", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 639, event: "powołanie Ruchu Obrony Praw Człowieka i Obywatela", date: "1977", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 640, event: "powstanie Wolnych Związków Zawodowych Wybrzeża", date: "1978", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 641, event: "Wojtyła Papieżem", date: "1978", era: "[pw]", area: ["pl", "va"], type: "in" },
+{ id: 642, event: "rewolucja islamska w Iranie", date: "1979", era: "[pw]", area: ["ir"], type: "bi" },
+{ id: 643, event: "interwencja ZSRR w Afganistanie", date: "1979-1989", era: "[pw]", area: ["af", "ru"], type: "bi" },
+{ id: 644, event: "pierwsza pielgrzymka JP2 do Polski", date: "1979", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 645, event: "strajk w Stoczni Gdańskiej", date: "1980", era: "[pw]", area: ["pl"], type: "bi" },
+{ id: 646, event: "porozumienia sierpniowe, powstanie NSZZ Solidarności", date: "1980", era: "[pw]", area: ["pl"], type: "po" },
+{ id: 647, event: "zamach na JP2", date: "1981", era: "[pw]", area: ["va", "it"], type: "in" },
+{ id: 648, event: "stan wojenny w Polsce", date: "1981-1983", era: "[pw]", area: ["pl"], type: "bi" },
+{ id: 649, event: "pacyfikacja kopalni Wujek", date: "1981", era: "[pw]", area: ["pl"], type: "bi" },
+{ id: 650, event: "Michaił Gorbaczow sekretarzem generalnym KC KPZR", date: "1985", era: "[pw]", area: ["ru"], type: "in" },
+{ id: 651, event: "podpisanie układu w Schengen", date: "1985", era: "[pw]", area: ["eu"], type: "po" },
+{ id: 652, event: "katastrofa w Czarnobylu", date: "1986", era: "[pw]", area: ["ua"], type: "na" },
+{ id: 653, event: "masakra na placu Tiananmen", date: "1989", era: "[pw]", area: ["cn"], type: "bi" },
+{ id: 654, event: "Jesień Narodów", date: "1989", era: "[pw]", area: ["eu"], type: "in" },
+{ id: 655, event: "obrady Okrągłego Stołu", date: "1989", era: "[pw]", area: ["pl"], type: "po" },
+{ id: 656, event: "I tura częściowo wolnych wyborów", date: "1989", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 657, event: "powołanie rządu Tadeusza Mazowieckiego", date: "1989", era: "[pw]", area: ["pl"], type: "in" },
+{ id: 658, event: "ogłoszenie niepodległości przez Litwę", date: "1990", era: "[ff]", area: ["lt"], type: "in" },
+{ id: 659, event: "zjednoczenie Niemiec", date: "1990", era: "[ff]", area: ["de"], type: "in" },
+{ id: 660, event: "rozwiązanie PZPR, realizacja planu Balcerowicza", date: "1990", era: "[ff]", area: ["pl"], type: "in" },
+{ id: 661, event: "zaprzysiężenie Lecha Wałęsy na prezydenta RP", date: "1990", era: "[ff]", area: ["pl"], type: "in" },
+{ id: 662, event: "I wojna w Zatoce Perskiej", date: "1991", era: "[ff]", area: ["iq", "us"], type: "bi" },
+{ id: 663, event: "rozpad ZSRR", date: "1991", era: "[ff]", area: ["ru"], type: "in" },
+{ id: 664, event: "powstanie WNP", date: "1991", era: "[ff]", area: ["ru", "eu"], type: "po" },
+{ id: 665, event: "wojna w Jugosławii", date: "1991-1995", era: "[ff]", area: ["yu"], type: "bi" },
+{ id: 666, event: "podpisanie traktatu z Maastricht o powołaniu Unii Europejskiej", date: "1992", era: "[ff]", area: ["eu"], type: "po" },
+{ id: 667, event: "rozpad Czechosłowacji", date: "1993", era: "[ff]", area: ["cz", "sk"], type: "in" },
+{ id: 668, event: "opuszczenie Polski przez ostatnie oddziały rosyjskie", date: "1993", era: "[ff]", area: ["pl"], type: "in" },
+{ id: 669, event: "I wojna czeczeńska", date: "1994-1996", era: "[ff]", area: ["ru", "cz"], type: "bi" },
+{ id: 670, event: "uchwalenie konstytucji RP", date: "1997", era: "[ff]", area: ["pl"], type: "in" },
+{ id: 671, event: "przyjęcie Polski do NATO", date: "1999", era: "[ff]", area: ["pl", "us", "eu"], type: "po" },
+{ id: 672, event: "II wojna czeczeńska", date: "1999-2009", era: "[ff]", area: ["ru", "cz"], type: "bi" },
+{ id: 673, event: "zamach na World Trade Center", date: "2001", era: "[ff]", area: ["us"], type: "bi" },
+{ id: 674, event: "pomarańczowa rewolucja na Ukrainie", date: "2004", era: "[ff]", area: ["ua"], type: "in" },
+{ id: 675, event: "przyjęcie Polski do UE", date: "2004", era: "[ff]", area: ["pl", "eu"], type: "po" },
+{ id: 676, event: "przystąpienie Polski do strefy Schengen", date: "2007", era: "[ff]", area: ["pl", "eu"], type: "po" },
+{ id: 677, event: "wojna Gruzji z Rosją, Abchazją i Osetią Południową", date: "2008", era: "[ff]", area: ["ge", "ru"], type: "bi" },
+{ id: 678, event: "światowy kryzys finansowy", date: "2008", era: "[ff]", area: ["world"], type: "in" },
+{ id: 679, event: "początek Arabskiej Wiosny Ludów", date: "2010", era: "[ff]", area: ["af", "me"], type: "bi" },
+{ id: 680, event: "katastrofa smoleńska", date: "2010", era: "[ff]", area: ["pl", "ru"], type: "in" },
+{ id: 681, event: "wybuch wojny domowej w Syrii", date: "2011", era: "[ff]", area: ["sy"], type: "bi" },
+{ id: 682, event: "Euromajdan", date: "2013", era: "[ff]", area: ["ua"], type: "bi" },
+{ id: 683, event: "aneksja Krymu", date: "2014", era: "[ff]", area: ["ua", "ru"], type: "bi" },
                ];
 
 
@@ -518,6 +655,29 @@ let sessionAttempts = {}; // Obiekt do śledzenia prób dla każdej fiszki
 let groupFilter = 'all'; // 'all', 'pl', 'world'
 let eraFilters = []; // Tablica epok
 let sortOrder = 'chronological';  // 'chronological' lub 'random'
+let startTime; // Czas rozpoczęcia sesji
+let timerInterval; // Referencja do setInterval
+
+
+function startTimer() {
+    startTime = Date.now(); // Zapisz czas rozpoczęcia sesji
+
+    // Aktualizuj co sekundę
+    timerInterval = setInterval(() => {
+        const elapsedTime = Date.now() - startTime; // Oblicz upływający czas
+        const minutes = Math.floor(elapsedTime / 60000);
+        const seconds = Math.floor((elapsedTime % 60000) / 1000);
+
+        // Formatowanie czasu
+        const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+        // Wyświetlenie w HTML
+        document.getElementById('live-timer').textContent = `Czas: ${formattedTime}`;
+    }, 1000);
+}
+function stopTimer() {
+    clearInterval(timerInterval); // Zatrzymaj licznik
+}
 
 // Wyświetl menu na początku
 document.querySelector('.menu').style.display = 'block';
@@ -534,20 +694,19 @@ function initializeChart() {
             labels: ['Poprawne', 'Niepoprawne'],
             datasets: [{
                 label: 'Odpowiedzi',
-                data: [correctAnswers.count, incorrectAnswers.count],
+                data: [correctAnswers.count, incorrectAnswers.count], // Użycie aktualnych danych
                 backgroundColor: ['#4caf50', '#f44336'], // Kolory: zielony i czerwony
                 borderWidth: 1,
             }],
-            
         },
         options: {
-            responsive: false,
+            responsive: true,
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                display: false
-            },
-            tooltip: {
+                    display: false
+                },
+                tooltip: {
                     callbacks: {
                         label: function (context) {
                             const label = context.label || '';
@@ -558,7 +717,6 @@ function initializeChart() {
                 }
             }
         }
-        
     });
 }
 
@@ -621,7 +779,6 @@ function startFlashcards(selectedMode) {
     console.log("Selected Mode:", mode);
     console.log("Group Filter:", groupFilter);
     console.log("Era Filters:", eraFilters);
-
     sortMode = document.querySelector('input[name="sort"]:checked').value;
     currentCardIndex = 0;
     wrongAnswers = [];
@@ -653,9 +810,12 @@ function startFlashcards(selectedMode) {
     showInput();
     showButtons();
     initializeChart();
+    chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
+    chartInstance.update(); // Aktualizacja wykresu
     initializeProgressBar();
     updateProgressBar();
     updateRoundInfo();
+    startTimer(); // Rozpocznij stoper
     showNextCard();
 }
 function getFilteredFlashcards() {
@@ -783,15 +943,6 @@ function checkAnswer() {
     
     updateProgressBar();
 
-}
-function returnToMenu() {
-    document.querySelector(".menu").style.display = "block";
-    document.querySelector(".epoki").style.display = "block";
-    document.querySelector(".sortowanie").style.display = "block";
-    document.querySelector(".ni").style.display = "block";
-    document.querySelector(".flashcards").style.display = "none";
-    document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
-    document.getElementById("advancedOptionsMenu").classList.add("hidden");
 }
 
     
@@ -963,17 +1114,108 @@ if (sessionAttempts[card.id] === 1) {
 } else {
     attemptColor = "red";
 }
+function retryWrongAnswers() {
+    // Filtrowanie fiszek, na które odpowiedziano za więcej niż pierwszym razem
+    const retryCards = Object.keys(sessionAttempts)
+        .filter(id => sessionAttempts[id] > 1) // Wybrane ID fiszek
+        .map(id => flashcards.find(card => card.id === parseInt(id))); // Znalezienie pełnych obiektów fiszek
+
+    if (retryCards.length === 0) {
+        alert("Nie ma fiszek do powtórzenia!"); // Informacja, jeśli nie ma błędnych odpowiedzi
+        return;
+    }
+console.log("dziala retry");
+    
+    // Przygotowanie nowej sesji dla powtórki
+    document.querySelector('.summary').style.display = 'none';
+    document.querySelector('.flashcards').style.display = 'block';
+    showInput();
+    sessionCards = retryCards;
+    console.log("Session Cards After Sorting:", sessionCards);
+    currentCardIndex = 0;
+    wrongAnswers = [];
+    initializeProgressBar();
+    startTimer();
+    updateRoundInfo();
+    showNextCard();
+}
+function resetSession() {
+    // Zresetowanie zmiennych globalnych
+    currentRound = 1; 
+    currentCardIndex = 0; 
+    mode = ''; 
+    wrongAnswers = []; 
+    sessionCards = []; 
+    sessionAttempts = {}; 
+    groupFilter = 'all'; 
+    eraFilters = []; 
+    sortOrder = 'chronological'; 
+
+    // Reset zmiennych odpowiedzi
+    correctAnswers.count = 0; 
+    incorrectAnswers.count = 0; 
+
+    // Reset timera
+    stopTimer(); 
+    const timerDisplay = document.getElementById('live-timer');
+    if (timerDisplay) {
+        timerDisplay.textContent = 'Czas: 00:00';
+    }
+
+    // Reset paska postępu
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    if (progressBar) {
+        progressBar.style.width = '0%';
+    }
+    if (progressText) {
+        progressText.textContent = '0/0';
+    }
+
+    // Reset wykresu
+    if (chartInstance) {
+        chartInstance.destroy(); // Zniszczenie istniejącego wykresu
+        chartInstance = null; // Usunięcie referencji
+    }
+
+    // Re-inicjalizacja wykresu z pustymi danymi
+    initializeChart();
+    console.log('Zresetowano wszystkie dane sesji, w tym wykres, pasek, licznik czasu oraz odpowiedzi.');
+}
+
+function returnToMenu() {
+    document.querySelector(".menu").style.display = "block";
+    document.querySelector(".epoki").style.display = "block";
+    document.querySelector(".sortowanie").style.display = "block";
+    document.querySelector(".ni").style.display = "block";
+    document.querySelector(".flashcards").style.display = "none";
+    document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
+    document.getElementById("advancedOptionsMenu").classList.add("hidden");
+    resetSession();
+}
+
 
 function showSummary() { // Początek funkcji
     hideInput(); // Ukrywa pole wejściowe
     hideButtons(); // Ukrywa przyciski
-
+    stopTimer(); // Zatrzymaj stoper
     document.querySelector('.flashcards').style.display = 'none'; // Ukrywa sekcję fiszek
     document.querySelector('.summary').style.display = 'block'; // Wyświetla sekcję podsumowania
     
     const summaryContent = document.getElementById('summaryContent'); // Pobiera element dla podsumowania
     summaryContent.innerHTML = '<ul>'; // Rozpoczyna listę w HTML
+// Obliczenie całkowitego czasu sesji
+    const endTime = new Date(); // Czas zakończenia
+    const totalTime = Math.floor((endTime - startTime) / 1000); // Całkowity czas w sekundach
 
+    // Konwersja czasu na format MM:SS
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = totalTime % 60;
+
+    // Wyświetlenie czasu w podsumowaniu
+    summaryContent.innerHTML += `
+        <li><strong>Całkowity czas sesji:</strong> ${minutes} min ${seconds} sek</li>
+    `;
     // Iteracja przez fiszki w sesji
     flashcards.forEach(card => { // Rozpoczyna iterację
         if (sessionAttempts[card.id] > 0) {  // Sprawdza, czy fiszka była częścią sesji

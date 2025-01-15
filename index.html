@@ -11,7 +11,7 @@
 <h1 id="title">
   <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
   </p>
-  <p class="subtitle">wersja beta 1.0.3</p>
+  <p class="subtitle">wersja beta 1.0.4</p>
 </h1>
 <div id="homeButton" class="home-button">🏠</div>
 <c-c>cc:francesco2137, all rights reserved</c-c>
@@ -43,12 +43,12 @@
     <br><label><input type="checkbox" name="era" value="xvii"> XVII wiek</label><h4> 1600 - 1699</h4>
     <br><label><input type="checkbox" name="era" value="xviii"> XVIII wiek</label><h4> 1700 - 1788</h4>
     <br><label><input type="checkbox" name="era" value="nap"> Epoka Napoleońska</label><h4> 1789 - 1815</h4>
-    <br><label><input type="checkbox" name="era" value="xix"> XIX wiek</label><h4> 1816-1913</h4>
-    <br><label><input type="checkbox" name="era" value="ww1"> I wojna światowa</label><h4-c>indev</h4-c>
-    <br><label><input type="checkbox" name="era" value="mw"> 20-lecie międzywojenne</label><h4-c>indev</h4-c>
-    <br><label><input type="checkbox" name="era" value="ww2"> II wojna światowa</label><h4-c>indev</h4-c>
-    <br><label><input type="checkbox" name="era" value="pw"> Powojnie</label><h4-c>indev</h4-c>
-    <br><label><input type="checkbox" name="era" value="pw"> Najnowsza</label><h4-c>indev</h4-c>
+    <br><label><input type="checkbox" name="era" value="xix"> XIX wiek</label><h4> 1816 - 1913</h4>
+    <br><label><input type="checkbox" name="era" value="ww1"> I wojna światowa</label><h4> 1914 - 1918</h4>
+    <br><label><input type="checkbox" name="era" value="mw"> 20-lecie międzywojenne</label><h4> 1919 - 1938</h4>
+    <br><label><input type="checkbox" name="era" value="ww2"> II wojna światowa</label><h4> 1939 - 1945</h4>
+    <br><label><input type="checkbox" name="era" value="pw"> Powojnie</label><h4> 1946 - 1988</h4>
+    <br><label><input type="checkbox" name="era" value="ff"> Najnowsza</label><h4> 1989 - teraz</h4>
     </div>
     <div class="sortowanie">
     <h2>Sortowanie</h2><br>
@@ -84,7 +84,10 @@
     </div>
     <button class="button" onclick="checkAnswer()">Sprawdź</button>
     <button class="button" onclick="showAnswer(), updateProgressBar(), niga()">Nie pamiętam</button>
-    <container class="chart"><canvas id="resultsChart" width="100" height="100"> </canvas></container><p id="round-info">Tura 1</p>
+    <button id="close" class="button" onclick="showSummary()">Zakończ Sesję</button>
+    <container class="chart"><canvas id="resultsChart" width="100" height="100"> </canvas></container><p id="round-info">Tura 1</p> <div class="time-display">
+        <span id="live-timer">Czas: 00:00</span>
+    </div>
     <div class="progress-container">
     <div id="progress-bar"></div>
     <p id="progress-text">0/0</p>
@@ -97,6 +100,7 @@
     <canvas id="resultsChart2" width="100" height="100"></canvas>
     <div class="button-container">
         <button class="button" onclick="returnToMenu()">Powrót do menu</button>
+        <button id="retry-button" class="button" onclick="retryWrongAnswers()">Powtórz błędne odpowiedzi</button>
         
 
     </div>
