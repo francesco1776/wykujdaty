@@ -1,0 +1,475 @@
+body {
+    font-family: Century Gothic, sans-serif;
+    color: #cbcbcb;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-color: #261e1e;
+    padding: 15px;
+    font-size: 15px;
+}
+#fullBackground {
+    background: linear-gradient(to right, #007bff, #423535); /* Background spanning across */
+    width: 100%; /* Make it span across the container */
+    padding: 20px; /* Add some padding for spacing */
+    text-align: center; /* Center-align the text */
+    color: white; /* Ensure the text is readable */
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000; /* Optional shadow */
+}
+.label {
+   margin-bottom: -5px;
+  }
+.nadpaskowcy {
+    display:flex;
+    margin-bottom:0;
+    align-items: center;
+}
+.time-display {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-left: 0;
+    margin-bottom:-2px;
+}
+#round-info {
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 0;
+    margin-top:0;
+}
+h1 {
+    text-align: center;
+}
+h3 {
+    display: inline;
+}
+h2 {
+    display: inline;
+}
+.page-title {
+       display: block;
+       margin-top: 0;
+       margin-bottom: .5rem;
+       font-size: 2rem;
+    }
+    .subtitle {
+      display: block;
+      margin: 0;
+      font-size: 1rem;
+      color: gray;
+    }
+h2, label {
+  margin: 0; /* Removes any default margin */
+  padding: 0; /* Removes padding */
+}
+
+.container {
+  padding: 0; /* Remove any padding from the container */
+}
+
+.zs {
+    background-color: #c90202;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 1px;
+}
+.for {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 5%;
+    margin-right: 0;
+    text-align: center;
+}
+.ch {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.guziki {
+    display:flex;
+    justify-content: space-between;
+    align-items: center; /* Wyrównanie w pionie */
+    width: 100%; /* Szerokość kontenera */
+
+    
+}
+
+.epoki h2 + label {
+  margin-top: 0; /* Removes the gap above the label */
+}
+c-c {
+    position: fixed;
+bottom: 0;
+right: 0;
+    font-size: 12px;
+    color: #cbcbcb;
+}
+c-b {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+}
+h4 {
+    font-size: 10px;
+    color:#aeb1b2;
+    text-shadow: none;
+    display: inline;
+}
+h4-c {
+    font-size: 10px;
+    color:#c81e1e;
+    text-shadow: none;
+    display: inline;
+}
+.flashcards, .summary {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #423535;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+.menu {
+    width: 100%;
+    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
+    margin: 0 auto; /* WyÅ›rodkuj */
+    padding: 10px;
+    background-color: #423535; /* Kolor tÅ‚a menu */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    align-items: center;
+    text-align: center;
+    display: block;
+}
+.epoki {
+    width: 100%;
+    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
+    margin: 0 auto; /* WyÅ›rodkuj */
+    padding: 10px;
+    background-color: #423535; /* Kolor tÅ‚a menu */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    align-items: center;
+    text-align: center;
+    display: block;
+    gap: 0;
+    
+}
+.progress-container {
+    width: 100%;
+    background-color: #7b7b7b;
+    border: 1px solid #ccc;
+    margin-top: 0;
+    position: relative;
+    height: 25px;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+#progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+}
+.ni {
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    display: block;
+}
+.sortowanie {
+    display: block;
+    width: 100%;
+    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
+    margin: 0 auto; /* WyÅ›rodkuj */
+    padding: 10px;
+    background-color: #423535; /* Kolor tÅ‚a menu */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    align-items: center;
+    text-align: center;
+}
+#resultsChart {
+    width: 100%; /* Ustaw na 100% szerokoÅ›ci rodzica */
+    height: 100%; /* Automatyczne dopasowanie wysokoÅ›ci */
+    display: inline-block; /* UsuÅ„ ewentualne odstÄ™py inline */
+    align-items: right;
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+.chart {
+    display: flex;
+    justify-content: flex-end; /* Aligns children (the canvas) to the right */
+    align-items: center; /* Centers the canvas vertically within the container */
+    height: 120px; /* Optional height */
+    width: 25%;
+    margin-bottom: 0; /* Optional border for visualization */
+}
+#innekraje {
+    text-align: left;
+}
+#epoki {
+    text-align: left;
+}
+/* DomyÅ›lnie ukryte sekcje */
+.flashcards,
+.summary {
+    display: none; /* Ukryj domyÅ›lnie sekcje */
+}
+
+b.input-group {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.input-group input {
+    padding: 10px;
+    width: 96%;
+    margin-bottom: 10px;
+}
+input, textarea {
+  background-color: #7b7b7b;
+    color: white;
+
+}
+input::placeholder {
+    color: #ffffff;  /* Tutaj moÅ¼esz ustawiÄ‡ dowolny kolor */
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+}
+#start {
+    background-color: #0026ff; /* Zielone tÅ‚o */
+    color: white; /* BiaÅ‚y tekst */
+    padding: 10px 20px; /* OdstÄ™py wewnÄ™trzne */
+    border: none; /* UsuniÄ™cie obramowania */
+    cursor: pointer; /* Kursor jako wskaÅºnik */
+    font-size: 20px; /* Rozmiar czcionki */
+    margin-bottom: 10px;
+    width: 250px;
+    margin: 0 auto;
+    font-family: Century Gothic, sans-serif;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#start:hover {
+    background-color: #0156ac; /* Ciemniejsze zielone tÅ‚o na hover */
+}
+.button:hover {
+    background-color: #0056b3;
+}
+/* Ustaw przyciski w kontenerze obok siebie */
+.summary .button-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+/* Styl dla ukrywania kontenera przyciskÃ³w */
+.hidden-button-container {
+    display: none;
+}
+
+/* Dodaj styl dla kontenera przyciskÃ³w w sekcji podsumowania */
+.button-container {
+    display: block;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Pozwala przyciskom na zawijanie w razie potrzeby */
+    margin-top: 20px;
+}
+
+.hidden-input {
+    display: none;
+}
+
+/* Styl dla przycisku Opcje zaawansowane */
+#advancedOptionsButton {
+    width: auto; /* PrzywrÃ³Ä‡ domyÅ›lnÄ… szerokoÅ›Ä‡ */
+    height: auto;
+    font-size: auto;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    justify-items: center;
+    font-family: Century Gothic, sans-serif;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    display: inline-block;
+    
+}
+.container {
+    width: 80%; /* SzerokoÅ›Ä‡ kontenera, dopasuj w zaleÅ¼noÅ›ci od potrzeb */
+}
+/* Styl dla menu zaawansowanych opcji */
+.advanced-options {
+    width: 50%; /* Dopasuj szerokoÅ›Ä‡ menu opcji */
+    padding: 10px;
+    background-color: #423535;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.hidden {
+    display: none;
+}
+
+/* Styl dla widocznego menu */
+.advanced-options.visible {
+    align-items: left;
+}
+
+.home-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000; /* Upewnij siÄ™, Å¼e przycisk jest nad innymi elementami */
+}
+.correct {
+    color: green;
+        
+}
+.incorrect {
+    color: #c90202;
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    
+}
+/* Ogólne style */
+body {
+    font-family: Century Gothic, sans-serif;
+    color: #cbcbcb;
+    background-color: #261e1e;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Układ dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    #title, .menu, .epoki, .sortowanie, .flashcards{
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .summary {
+        font-size:1rem;
+    }
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .guziki {
+        flex-direction: column;
+        align-items: center;
+    }
+    .guziki button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .progress-container {
+        height: 23px;
+        margin-top: 5px;
+    }
+    .nadpaskowcy {
+        justify-content: space-between;
+    }
+    .button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    .time-display {
+        font-size: 1.5rem;
+        
+    }
+    #round-info {
+        font-size: 1.4rem;
+    }
+    #start {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    .home-button {
+        font-size: 20px;
+    }
+
+    .advanced-options {
+        width: 95%;
+        padding: 10px;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: none;
+        margin-left: 0;
+        align-items: left;
+        display: block;
+        
+    }
+
+    #resultsChart, #resultsChart2 {
+        width: 100%;
+        height: auto;
+        
+    }
+
+    input, textarea {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .input-group input {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .menu label, .epoki label, .sortowanie label {
+        font-size: 1rem;
+    }
+}
