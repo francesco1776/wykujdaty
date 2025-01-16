@@ -260,10 +260,28 @@ input, textarea {
     color: white;
 
 }
+.guziki .next-button {
+   background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+.guziki .next-button:hover {
+    background-color: rgb(0, 68, 255);
+}
+#ro
 input::placeholder {
     color: #ffffff;  /* Tutaj moÅ¼esz ustawiÄ‡ dowolny kolor */
 }
-
+h-da {
+    font-size: 16px;
+    color: #ffd700;
+}
 .button {
     background-color: #007bff;
     color: white;
@@ -281,7 +299,7 @@ input::placeholder {
     cursor: pointer; /* Kursor jako wskaÅºnik */
     font-size: 20px; /* Rozmiar czcionki */
     margin-bottom: 10px;
-    width: 250px;
+    width: 100%;
     margin: 0 auto;
     font-family: Century Gothic, sans-serif;
     font-weight: bold;
@@ -343,6 +361,8 @@ input::placeholder {
     border: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    margin: 0 auto; /* WyÅ›rodkuj */
+    align-items: left;
 }
 .hidden {
     display: none;
@@ -438,27 +458,12 @@ body {
     #round-info {
         font-size: 1.4rem;
     }
-    #start {
-        width: 38rem;
-        font-size: 1.2rem;
-        margin: 0 auto;
-    }
+
 
     .home-button {
         font-size: 20px;
     }
 
-    .advanced-options {
-        width: 38rem;
-        padding: 15px;
-        margin: 0 auto;
-        border-radius: 0;
-        box-shadow: none;
-        margin-left: 0;
-        align-items: left;
-        margin-right: 0;
-        
-    }
 
     #resultsChart, #resultsChart2 {
         width: 100%;

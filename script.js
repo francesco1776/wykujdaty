@@ -657,7 +657,8 @@ let eraFilters = []; // Tablica epok
 let sortOrder = 'chronological';  // 'chronological' lub 'random'
 let startTime; // Czas rozpoczęcia sesji
 let timerInterval; // Referencja do setInterval
-
+let timeoutMode = "default"; // "default", "manual", "custom"
+let customTimeoutValue = 2000; // W milisekundach (2 sekundy jako domyślna wartość)
 
 function startTimer() {
     startTime = Date.now(); // Zapisz czas rozpoczęcia sesji
@@ -678,6 +679,17 @@ function startTimer() {
 function stopTimer() {
     clearInterval(timerInterval); // Zatrzymaj licznik
 }
+function hideButtons() {
+    document.querySelectorAll('.guziki .for, .guziki .ch, .guziki .zs').forEach(button => {
+        button.style.display = 'none'; // Ukryj guziki z wybranymi klasami
+    });
+}
+
+function showButtons() {
+    document.querySelectorAll('.guziki .for, .guziki .ch, .guziki .zs').forEach(button => {
+        button.style.display = 'flex'; // Pokaż guziki z wybranymi klasami
+    });
+}
 
 // Wyświetl menu na początku
 document.querySelector('.menu').style.display = 'block';
@@ -685,6 +697,29 @@ document.querySelector('.menu').style.display = 'block';
 let chartInstance; // Referencja do wykresu
 const correctAnswers = { count: 0 }; // Licznik poprawnych odpowiedzi
 const incorrectAnswers = { count: 0 }; // Licznik błędnych odpowiedzi
+
+document.querySelectorAll('input[name="timeoutMode"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+        timeoutMode = this.value;
+
+        // Jeśli wybrano niestandardowy timeout, aktywuj pole input
+        const customTimeoutInput = document.getElementById('customTimeout');
+        if (timeoutMode === "custom") {
+            customTimeoutInput.disabled = false;
+            customTimeoutInput.addEventListener('input', function () {
+                const value = parseInt(this.value);
+                if (!isNaN(value) && value > 0) {
+                    customTimeoutValue = value * 1000; // Przekształcenie sekund na milisekundy
+                }
+            });
+        } else {
+            customTimeoutInput.disabled = true;
+        }
+    });
+});
+
+
+
 
 function initializeChart() {
     const ctx = document.getElementById('resultsChart').getContext('2d');
@@ -877,9 +912,37 @@ function getFilteredFlashcards() {
     return uniqueFilteredCards;
 }
 
+function dontRemember() {
+    updateProgressBar();
+    niga();
+    checkAnswer();}
+
+               
+               
 
 
+function addNextButton() {
+    // Find the container where the button should appear
+    const guzikiContainer = document.querySelector('.guziki');
 
+    // Check if the button already exists to avoid duplicates
+    const existingButton = guzikiContainer.querySelector('.next-button');
+    if (existingButton) return;
+
+    // Create a new button element
+    const nextButton = document.createElement('button');
+    nextButton.textContent = 'Przejdź do następnej';
+    nextButton.className = 'next-button'; // Add a unique class for identification
+
+    // Add an event listener to handle moving to the next flashcard
+    nextButton.addEventListener('click', () => {
+        nextButton.remove(); // Remove the button after it's clicked
+        showNextCard(); // Call the function to display the next card
+    });
+
+    // Append the button to the container
+    guzikiContainer.appendChild(nextButton);
+}
 
 
 function toggleAdvancedOptions() {
@@ -957,7 +1020,7 @@ function checkAnswer() {
         correctAnswers.count++; // Zwiększ liczbę poprawnych odpowiedzi
         console.log("poprawne:", correctAnswers);
     } else {
-        document.getElementById('flashcardContent').innerHTML += `<p class="incorrect">Błąd! Poprawna odpowiedź to: ${correctAnswer}</p>`;
+        document.getElementById('flashcardContent').innerHTML += `<p class="incorrect">Błąd! Poprawna odpowiedź to:<h-da> ${correctAnswer}</h-da></p>`;
         wrongAnswers.push(flashcard);  // Dodaj do listy do powtórzenia
         sessionCards.splice(currentCardIndex, 1);  // Usuń z głównej listy
         incorrectAnswers.count++; // Zwiększ liczbę błędnych odpowiedzi
@@ -966,7 +1029,12 @@ function checkAnswer() {
     chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
     chartInstance.update(); // Aktualizacja wykresu
     // Opóźnienie, aby komunikat o poprawności się pojawił
-    setTimeout(showNextCard, 1000);  // Poczekaj 1 sekunde i wyświetl kolejne pytanie
+    if (timeoutMode === "manual") {
+        addNextButton();
+    } else {
+        const timeout = timeoutMode === "custom" ? customTimeoutValue : 2000; // Wartość domyślna to 2 sekundy
+        setTimeout(showNextCard, timeout);
+    }
 
     // Wyczyść pole odpowiedzi
     document.getElementById('userInput').value = '';
@@ -982,13 +1050,7 @@ function hideFlashcards() {
     document.querySelector('.flashcards').style.display = 'none';
     }
 
-function hideButtons() {
-    document.querySelectorAll('.flashcards .button').forEach(button => button.style.display = 'none');
-}
 
-function showButtons() {
-    document.querySelectorAll('.flashcards .button').forEach(button => button.style.display = 'inline-block');
-}
 
 function hideInput() {
     document.querySelector('.input-group').style.display = 'none';

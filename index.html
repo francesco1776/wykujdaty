@@ -11,7 +11,7 @@
 <h1 id="title">
   <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
   </p>
-  <p class="subtitle">wersja beta 1.0.5</p>
+  <p class="subtitle">wersja beta 1.0.6</p>
 </h1>
 <div id="homeButton" class="home-button">🏠</div>
 <c-c>cc:francesco2137, all rights reserved</c-c>
@@ -74,6 +74,26 @@
         <label><input type="checkbox" name="type" value="po"> Ugody, unie, porozumienia, traktaty</label><br>
         <label><input type="checkbox" name="type" value="in"> Inne</label><br>
     </form>
+    <h3> Czas wyświetlania odpowiedzi</h3>
+    <div class="timeout-options">
+    
+    
+    <!-- Opcja domyślna -->
+    <label>
+        <input type="radio" name="timeoutMode" value="default" checked> Domyślny timeout
+    </label><br>
+    
+    <!-- Opcja nauki -->
+    <label>
+        <input type="radio" name="timeoutMode" value="manual"> Przejdź dopiero po kliknięciu
+    </label><br>
+    
+    <!-- Opcja z ustawianiem czasu -->
+    <label>
+        <input type="radio" name="timeoutMode" value="custom"> Wpisz własny timeout (w sekundach)
+    </label>
+    <input type="number" id="customTimeout" placeholder="Sekundy" min="1" disabled>
+</div>
 </div></div>
     
 <!-- Sekcje, które będą widoczne w odpowiednich momentach -->
@@ -84,7 +104,7 @@
     </div>
     <div class="guziki">
     <button class="ch" onclick="checkAnswer()">Sprawdź</button>
-    <button id="forgot" class="for" onclick="showAnswer(), updateProgressBar(), niga()">Nie pamiętam</button>
+    <button id="forgot" class="for" onclick="dontRemember()">Nie pamiętam</button>
    <container class="close"> <button id="close" class="zs" onclick="showSummary()">Zakończ Sesję</button></container></div>
     <container class="chart"><canvas id="resultsChart" width="100" height="100"> </canvas></container><div class="nadpaskowcy"><p id="round-info">Tura 1</p> <div class="time-display">
         <span id="live-timer">Czas: 00:00</span></div>

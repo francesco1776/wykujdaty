@@ -31,6 +31,20 @@ body {
     margin-left: 73%;
     margin-bottom:-2px;
 }
+.guziki .next-button {
+   background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 5%;
+    margin-right: 0;
+    text-align: center;
+}
+
+.guziki .next-button:hover {
+    background-color: rgb(0, 68, 255);
+}
 #round-info {
     font-size: 17px;
     font-weight: bold;
@@ -68,7 +82,10 @@ h2, label {
 .container {
   padding: 0; /* Remove any padding from the container */
 }
-
+h-da {
+    font-size: 16px;
+    color: #ffd700;
+}
 .zs {
     background-color: #c90202;
     color: white;
