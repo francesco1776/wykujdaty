@@ -114,9 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     var currentPath = window.location.pathname;
 
-    if (isMobile && currentPath !== '/mobilne.html') {
+    if (isMobile && !currentPath.includes('mobilne.html')) {
         window.location.href = 'mobilne.html';
-    } else if (!isMobile && currentPath !== '/index.html') {
+    } else if (!isMobile && !currentPath.includes('index.html')) {
         window.location.href = 'index.html';
     }
 });
