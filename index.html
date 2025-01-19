@@ -11,7 +11,7 @@
 <h1 id="title">
   <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
   </p>
-  <p class="subtitle">wersja beta 1.0.6</p>
+  <p class="subtitle">wersja beta 1.0.7</p>
 </h1>
 <div id="homeButton" class="home-button">🏠</div>
 <c-c>cc:francesco2137, all rights reserved</c-c>
@@ -20,19 +20,24 @@
     <h2>Wybierz Grupę</h2><br><label><input type="radio" name="group" value="all" checked> Wszystkie</label>
     <label><input type="radio" name="group" value="pl"> Polska</label>
     <label><input type="radio" name="group" value="world"> Europa i Świat</label> 
-    <details><summary>Więcej</summary><h4-c>indev</h4-c> <div id="innekraje"><h3>Wybierz Kraj</h3>
-    <br><label><input type="radio" name="country" value="all" checked> Wszystkie kraje</label>
-    <br><label><input type="radio" name="country" value="pl"> Polska</label>
-    <br><label><input type="radio" name="country" value="de"> Niemcy</label>
-    <br><label><input type="radio" name="country" value="fr"> Francja</label>
-    <br><label><input type="radio" name="country" value="uk"> Wielka Brytania</label>
-    <br><label><input type="radio" name="country" value="us"> USA</label>
-    <br><label><input type="radio" name="country" value="it"> Włochy</label>
-    <br><label><input type="radio" name="country" value="gr"> Grecja</label>
-    <br><label><input type="radio" name="country" value="ru"> Rosja</label>
-    <br><label><input type="radio" name="country" value="es"> Hiszpania</label>
-    <br><label><input type="radio" name="country" value="se"> Szwecja</label>
-    <br><label><input type="radio" name="country" value="ca"> Kanada</label>
+    <details><summary>Więcej</summary><div id="innekraje"><h3>Wybierz Kraj</h3>
+    <br><label><input type="checkbox" name="country" value="pl"> Polska</label>
+    <br><label><input type="checkbox" name="country" value="de"> Niemcy</label>
+    <br><label><input type="checkbox" name="country" value="uk"> Wielka Brytania</label>
+    <br><label><input type="checkbox" name="country" value="fr"> Francja</label>
+    <br><label><input type="checkbox" name="country" value="us"> USA</label>
+    <br><label><input type="checkbox" name="country" value="it"> Włochy, Rzym</label>
+    <br><label><input type="checkbox" name="country" value="gr"> Grecja</label>
+    <br><label><input type="checkbox" name="country" value="ru"> Rosja</label>
+    <br><label><input type="checkbox" name="country" value="ko"> Kościół</label>
+    <br><label><input type="checkbox" name="country" value="at"> Austria</label>
+    <br><label><input type="checkbox" name="country" value="tu"> Turcja</label>
+    <br><label><input type="checkbox" name="country" value="hu"> Węgry</label>
+    <br><label><input type="checkbox" name="country" value="cz"> Czechy</label>
+    <br><label><input type="checkbox" name="country" value="es"> Hiszpania</label>
+    <br><label><input type="checkbox" name="country" value="lt"> Litwa</label>
+    <br><label><input type="checkbox" name="country" value="se"> Szwecja</label>
+    <br><label><input type="checkbox" name="country" value="re"> Reszta Świata</label>
      </div></details>
     </div>
     <div class="epoki">
@@ -59,21 +64,34 @@
     <label>
         <input type="radio" name="sort" value="random">
         Losowo
-    </label> </div>
-    
+    </label>
+    </div>
+        <h3 class="opcjonalne">Opcjonalne:</h3>
+    <div class="dif">
+    <h3>Poziom trudności</h3><br><h4> (zaznacz wszystkie pożądane)</h4><br>
+    <label>
+        <input type="checkbox" name="difficulty" value="1"> Poziom podstawowy
+    </label><br>
+    <label>
+        <input type="checkbox" name="difficulty" value="2"> Poziom rozszerzony
+    </label><br>
+    <label>
+        <input type="checkbox" name="difficulty" value="3"> Poziom ponadrozszerzony
+    </label>
+</div>
+    <div class="dif2">    <h3>Wybór typu</h3>
+    <form id="flashcardTypeForm">
+        <label><input type="checkbox" name="type" value="po"> polityczne</label><br>
+        <label><input type="checkbox" name="type" value="bi"> wojny, bitwy, etc.</label><br>
+        <label><input type="checkbox" name="type" value="sk"> społeczno-kulturowe</label><br>
+        <label><input type="checkbox" name="type" value="pa"> panowanie władców</label><br>
+    </form></div>
 
 <div class="ni">
     <br><button class="button" onclick="startFlashcards('eventToDate')" id="start">start</button>
     <br><button id="advancedOptionsButton" class="button">opcje zaawansowane</button><br><h4-c>indev</h4-c> <br>
 <div id="advancedOptionsMenu" class="advanced-options hidden">
-    <h3>Wybór typu fiszek</h3>
-    <form id="flashcardTypeForm">
-        <label><input type="checkbox" name="type" value="bi"> Bitwy, Wojny</label><br>
-        <label><input type="checkbox" name="type" value="na"> Odkrycia Naukowe</label><br>
-        <label><input type="checkbox" name="type" value="pa"> Panowanie Władcy</label><br>
-        <label><input type="checkbox" name="type" value="po"> Ugody, unie, porozumienia, traktaty</label><br>
-        <label><input type="checkbox" name="type" value="in"> Inne</label><br>
-    </form>
+
     <h3> Czas wyświetlania odpowiedzi</h3>
     <div class="timeout-options">
     

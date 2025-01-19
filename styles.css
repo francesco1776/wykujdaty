@@ -120,7 +120,13 @@ h-da {
 
     
 }
-
+.opcjonalne {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 5px;
+}
 .epoki h2 + label {
   margin-top: 0; /* Removes the gap above the label */
 }
@@ -157,7 +163,7 @@ h4-c {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
-.menu {
+.menu, .dif, .dif2 {
     width: 100%;
     max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
     margin: 0 auto; /* WyÅ›rodkuj */

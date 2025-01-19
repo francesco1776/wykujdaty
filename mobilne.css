@@ -140,7 +140,7 @@ h4-c {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
-.menu {
+.menu, .dif, .dif2 {
     width: 100%;
     max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
     margin: 0 auto; /* WyÅ›rodkuj */
@@ -406,13 +406,20 @@ body {
         padding: 5px;
     }
 
-    #title, .menu, .epoki, .sortowanie, .flashcards{
+    #title, .menu, .epoki, .sortowanie, .flashcards, .dif, .dif2{
         width: 100%;
         max-width: 100%;
         padding: 10px;
         margin: 0 auto;
         box-shadow: none;
         border-radius: 0;
+    }
+    .opcjonalne {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 5px;
     }
     .summary {
         font-size:1rem;
@@ -481,7 +488,7 @@ body {
         margin: 5px 0;
     }
 
-    .menu label, .epoki label, .sortowanie label {
+    .menu label, .epoki label, .sortowanie label, .dif {
         font-size: 1rem;
     }
 }
