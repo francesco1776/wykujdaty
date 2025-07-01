@@ -660,6 +660,7 @@ let timerInterval; // Referencja do setInterval
 let timeoutMode = "default"; // "default", "manual", "custom"
 let customTimeoutValue = 2000; // W milisekundach (2 sekundy jako domyślna wartość)
 let difficultyFilters = []; // Tablica do przechowywania wybranych poziomów trudności
+let completedAnswers = {}; // Mapowanie: id => true/false, czy została odpowiedziana
 
 
 
@@ -714,7 +715,7 @@ document.querySelectorAll('input[name="country"]').forEach(checkbox => {
     });
 });
 
-
+// TIMER
 
 function startTimer() {
     startTime = Date.now(); // Zapisz czas rozpoczęcia sesji
@@ -742,15 +743,16 @@ function hideButtons() {
 }
 
 function showButtons() {
-    document.querySelectorAll('.guziki .for, .guziki .ch, .guziki .zs').forEach(button => {
-        button.style.display = 'flex'; // Pokaż guziki z wybranymi klasami
+    document.querySelectorAll('.guziki .for, .guziki .ch, .guziki .zs, .guziki .next-button').forEach(button => {
+        button.style.display = 'flex'; // Pokaż także .next-button!
     });
 }
 
-// Wyświetl menu na początku
+// WYSWIETLENIE MENU
 document.querySelector('.menu').style.display = 'block';
 
-let chartInstance; // Referencja do wykresu
+let chartInstance, chartInstance2;
+
 const correctAnswers = { count: 0 }; // Licznik poprawnych odpowiedzi
 const incorrectAnswers = { count: 0 }; // Licznik błędnych odpowiedzi
 
@@ -775,7 +777,7 @@ document.querySelectorAll('input[name="timeoutMode"]').forEach(radio => {
 });
 
 
-
+// WYKRES
 
 function initializeChart() {
     const ctx = document.getElementById('resultsChart').getContext('2d');
@@ -820,7 +822,7 @@ function initializeChart() {
 
 
 
-
+// PASEK POSTEPU
 
 function updateRoundInfo() {
     currentRound++;
@@ -854,6 +856,9 @@ function updateProgressBar() {
     console.log("dziala aktualizacja pska");
 }
 
+// USUNIECIE DUPLIKATOW
+
+
 function removeDuplicates(cards) {
     const uniqueCards = [];
     const ids = new Set();
@@ -867,7 +872,11 @@ function removeDuplicates(cards) {
 
     return uniqueCards;
 }
+
+
 // FUNKCJA OD WYSTARTOWANIA FISZEK
+
+
 function startFlashcards(selectedMode) {
 const flashcardContent = document.getElementById('flashcardContent');
     if (flashcardContent) {
@@ -907,13 +916,20 @@ const timerDisplay = document.getElementById('live-timer');
     if (sortMode === "random") {
         shuffleArray(sessionCards);
     }
+    
+    
+    
 // pokazywanie i chowanie elementow
+// 
+// 
+   // poczatek sesji
     document.querySelector(".menu").style.display = "none";
     document.querySelector(".epoki").style.display = "none";
     document.querySelector(".sortowanie").style.display = "none";
     document.querySelector(".ni").style.display = "none";
     document.querySelector(".dif").style.display = "none";
     document.querySelector(".dif2").style.display = "none";
+    document.querySelector(".opcjonalne").style.display = "none";
     document.querySelector(".flashcards").style.display = "block";
     document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
     document.getElementById("advancedOptionsMenu").classList.add("hidden");
@@ -932,16 +948,20 @@ const timerDisplay = document.getElementById('live-timer');
     console.log('Aktualny indeks:', currentCardIndex);
     showNextCard();
 }
+
+
+//PRZYGOTOWANIE FISZEK
+
 function getFilteredFlashcards() {
     console.log("Group Filter:", groupFilter);
     console.log("Era Filters:", eraFilters);
 
     const countryFilter = document.querySelector('input[name="country"]:checked')?.value || 'all';
     
-    // Pobieranie wybranych typów fiszek
+    // TYPY
     const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
 
-    // Filtrowanie kart na podstawie wybranych kryteriów
+    // FILTROWANIE
     const filteredCards = flashcards.filter(card => {
         // Sprawdzanie dopasowania grupy
         const groupMatch = groupFilter === 'all' || 
@@ -953,30 +973,29 @@ function getFilteredFlashcards() {
 
         // Sprawdzanie dopasowania kraju
        const countryMatch = (() => {
-    // Jeśli nic nie zaznaczono w `countryFilters`, filtruj na podstawie `groupFilter`
+    // JAK NIE MA KONKRETNYCH KRAJOW TO GRUPAMI
     if (countryFilters.length === 0) {
         return groupFilter === 'all' || 
                (groupFilter === 'pl' && card.area.includes('pl')) || 
                (groupFilter === 'world' && !card.area.includes('pl'));
     }
 
-    // Jeśli coś zaznaczono w `countryFilters`, uwzględnij szczegółowe kraje
+    // KONKRETNE KRAJE
     return countryFilters.some(country => card.area.includes(country));
 })();
 
 
 
-        // Sprawdzanie dopasowania typu
+        // TYP
         const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(card.type);
-        // Sprawdzanie dopasowania poziomu trudności
+        // PT
         const difficultyMatch = difficultyFilters.length === 0 || difficultyFilters.includes(String(card.dif));
 
-
-        // Zwracanie dopasowanych fiszek
+        // ZWROT
         return groupMatch && eraMatch && countryMatch && typeMatch && difficultyMatch;
     });
 
-    // Usunięcie duplikatów
+    // DUPLIKATY
     const uniqueFilteredCards = removeDuplicates(filteredCards);
 
     console.log("Filtered Cards (before duplicates removal):", filteredCards);
@@ -984,38 +1003,45 @@ function getFilteredFlashcards() {
 
     return uniqueFilteredCards;
 }
-
+// NIE PAMIETAM
 function dontRemember() {
     updateProgressBar();
-    niga();
     checkAnswer();}
 
-               
-               
+
+
+
+// OPCJONALNE PRZEJSCIE DO NASTEPNEJ FISZKI
+
 
 
 function addNextButton() {
-    // Find the container where the button should appear
     const guzikiContainer = document.querySelector('.guziki');
+    if (!guzikiContainer) return;
 
-    // Check if the button already exists to avoid duplicates
+    // Sprawdź, czy przycisk już istnieje
     const existingButton = guzikiContainer.querySelector('.next-button');
     if (existingButton) return;
 
-    // Create a new button element
     const nextButton = document.createElement('button');
     nextButton.textContent = 'Przejdź do następnej';
-    nextButton.className = 'next-button'; // Add a unique class for identification
+    nextButton.className = 'next-button';
 
-    // Add an event listener to handle moving to the next flashcard
     nextButton.addEventListener('click', () => {
-        nextButton.remove(); // Remove the button after it's clicked
-        showNextCard(); // Call the function to display the next card
+        // --- KLUCZOWA ZMIANA: usuwamy aktualną fiszkę i przesuwamy indeks ---
+        sessionCards.splice(currentCardIndex, 1);
+        if (currentCardIndex >= sessionCards.length) {
+            currentCardIndex = 0;
+        }
+        nextButton.remove();
+        showNextCard();
     });
 
-    // Append the button to the container
     guzikiContainer.appendChild(nextButton);
 }
+
+
+// OPCJE ZAAWANSOWANE
 
 
 function toggleAdvancedOptions() {
@@ -1024,37 +1050,36 @@ function toggleAdvancedOptions() {
 }
 
 
+
+// NASTEPNA FISZKA
+
+
 function showNextCard() {
     hideButtons();
-    document.getElementById('flashcardContent').style.opacity = 0; // Ukryj zawartość pytania
-const flashcardContent = document.getElementById('flashcardContent');
+    document.getElementById('flashcardContent').style.opacity = 0;
+    const flashcardContent = document.getElementById('flashcardContent');
     if (!flashcardContent) {
         console.error('Element #flashcardContent nie istnieje.');
         return;
     }
-
-    // Usuń starą zawartość przed wyświetleniem nowej fiszki
     flashcardContent.innerHTML = '';
-    if (currentCardIndex < sessionCards.length) {
+
+    if (sessionCards.length > 0 && currentCardIndex < sessionCards.length) {
         const flashcard = sessionCards[currentCardIndex];
-    console.log('Treść wyświetlana w flashcardContent:', flashcardContent.innerHTML); // Sprawdź zawartość fiszki
-    console.log('Aktualny indeks:', currentCardIndex);
-        sessionAttempts[flashcard.id] += 1;  // Zwiększ liczbę prób
-
-        if (mode === 'eventToDate') {
-            document.getElementById('flashcardContent').innerHTML = `<p><strong>Wydarzenie:</strong> ${flashcard.event}</p>`;
-        } else {
-            document.getElementById('flashcardContent').innerHTML = `<p><strong>Data:</strong> ${flashcard.date}</p>`;
+        if (!completedAnswers[flashcard.id]) {
+            sessionAttempts[flashcard.id] += 1;
         }
-
-        // Ustawienie opóźnienia dla ukrycia i pokazania elementów
+        if (mode === 'eventToDate') {
+            flashcardContent.innerHTML = `<p><strong>Wydarzenie:</strong> ${flashcard.event}</p>`;
+        } else {
+            flashcardContent.innerHTML = `<p><strong>Data:</strong> ${flashcard.date}</p>`;
+        }
         setTimeout(() => {
-            console.log('Aktualna fiszka:', sessionCards[currentCardIndex]);
-            document.getElementById('flashcardContent').style.opacity = 1; // Upewnij się, że zawartość pytania jest widoczna
+            document.getElementById('flashcardContent').style.opacity = 1;
             showButtons();
-        }, 100); // Opóźnienie 100 ms dla płynności
+        }, 100);
     } else if (wrongAnswers.length > 0) {
-        sessionCards = [...wrongAnswers];  // Przepisz tylko błędne odpowiedzi
+        sessionCards = [...wrongAnswers];
         wrongAnswers = [];
         currentCardIndex = 0;
         updateProgressBar();
@@ -1066,12 +1091,33 @@ const flashcardContent = document.getElementById('flashcardContent');
     }
 }
 
-function niga () {
-    incorrectAnswers.count++;
-    chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
-    chartInstance.update();
-    
-}
+
+
+
+
+// SPRAWDZENIE ODPOWIEDZI
+
+
+// Dodaj flagę globalną do obsługi opcji przycisku "Przejdź do następnej"
+let optionalNextButtonEnabled = false;
+
+// Nasłuchiwacz na checkbox w opcjach zaawansowanych
+document.addEventListener('DOMContentLoaded', function() {
+    // ...existing code...
+
+    // Dodaj nasłuchiwacz na checkbox opcji przycisku "Przejdź do następnej"
+    const optionalNextCheckbox = document.getElementById('optionalNextButton');
+    if (optionalNextCheckbox) {
+        optionalNextButtonEnabled = optionalNextCheckbox.checked;
+        optionalNextCheckbox.addEventListener('change', function() {
+            optionalNextButtonEnabled = this.checked;
+        });
+    }
+    // ...existing code...
+});
+
+
+// --- poprawiony checkAnswer ---
 function checkAnswer() {
     const userInput = document.getElementById('userInput').value.trim();
     const flashcard = sessionCards[currentCardIndex];
@@ -1084,47 +1130,209 @@ function checkAnswer() {
     }
 
     hideButtons();
+    document.getElementById('flashcardContent').style.opacity = 1;
 
-    document.getElementById('flashcardContent').style.opacity = 1; // Upewnij się, że zawartość pytania jest widoczna
+    const cardId = flashcard.id;
 
-    if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
+    let wasCorrect = normalizeAnswer(userInput) === normalizeAnswer(correctAnswer);
+
+    if (wasCorrect) {
         document.getElementById('flashcardContent').innerHTML += `<p class="correct">Poprawnie!</p>`;
-        sessionCards.splice(currentCardIndex, 1);  // Usuń poprawnie rozwiązane fiszki z listy
-        correctAnswers.count++; // Zwiększ liczbę poprawnych odpowiedzi
-        console.log("poprawne:", correctAnswers);
+        completedAnswers[cardId] = true;
+        correctAnswers.count++;
+        if (typeof answerRounds === "undefined") window.answerRounds = {};
+        answerRounds[cardId] = currentRound;
+
+        // Jeśli była w wrongAnswers, usuń ją
+        const wrongIdx = wrongAnswers.findIndex(c => c.id === cardId);
+        if (wrongIdx !== -1) wrongAnswers.splice(wrongIdx, 1);
     } else {
         document.getElementById('flashcardContent').innerHTML += `<p class="incorrect">Błąd! Poprawna odpowiedź to:<h-da> ${correctAnswer}</h-da></p>`;
-        wrongAnswers.push(flashcard);  // Dodaj do listy do powtórzenia
-        sessionCards.splice(currentCardIndex, 1);  // Usuń z głównej listy
-        incorrectAnswers.count++; // Zwiększ liczbę błędnych odpowiedzi
-        console.log("niepoprawne:", incorrectAnswers);
-    }
-    chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
-    chartInstance.update(); // Aktualizacja wykresu
-    // Opóźnienie, aby komunikat o poprawności się pojawił
-    if (timeoutMode === "manual") {
-        addNextButton();
-    } else {
-        const timeout = timeoutMode === "custom" ? customTimeoutValue : 2000; // Wartość domyślna to 2 sekundy
-        setTimeout(showNextCard, timeout);
+        wrongAnswers.push(flashcard);
+        completedAnswers[cardId] = false;
+        incorrectAnswers.count++;
     }
 
-    // Wyczyść pole odpowiedzi
+    chartInstance.data.datasets[0].data = [correctAnswers.count, incorrectAnswers.count];
+    chartInstance.update();
+
     document.getElementById('userInput').value = '';
-    
-    
     updateProgressBar();
 
+    // --- KLUCZOWA ZMIANA: sprawdź istnienie kontenera .guziki i wywołuj addNextButton po DOM update ---
+if (optionalNextButtonEnabled) {
+    setTimeout(() => {
+        // Upewnij się, że kontener istnieje i jest widoczny
+        const guzikiContainer = document.querySelector('.guziki');
+        if (guzikiContainer && guzikiContainer.offsetParent !== null) {
+            showButtons(); // <-- dodaj to tutaj!
+            addNextButton();
+        }
+    }, 100); // Daj czas na aktualizację DOM
+} else {
+        setTimeout(() => {
+            sessionCards.splice(currentCardIndex, 1);
+            if (currentCardIndex >= sessionCards.length) {
+                currentCardIndex = 0;
+            }
+            showNextCard();
+        }, wasCorrect ? 700 : 1500);
+    }
 }
 
-    
+// --- poprawiony showSummary ---
+function showSummary() {
+    hideInput();
+    hideButtons();
+    stopTimer();
+    document.querySelector('.flashcards').style.display = 'none';
+    document.querySelector('.summary').style.display = 'block';
+
+    summaryContent = document.getElementById('summaryContent');
+    summaryContent.innerHTML = '';
+
+    // Czas sesji
+    const endTime = new Date();
+    const totalTime = Math.floor((endTime - startTime) / 1000);
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = totalTime % 60;
+    summaryContent.innerHTML += `
+        <li><strong>Całkowity czas sesji:</strong> ${minutes} min ${seconds} sek</li>
+    `;
+
+    // Zbierz ID fiszek z tej sesji
+    const sessionCardIds = Object.keys(sessionAttempts).map(Number);
+
+    // Przygotuj mapę: tura -> lista fiszek
+    const roundMap = {};
+    const wrongList = [];
+    const unansweredList = [];
+
+    // Ustal ile było tur (maksymalna liczba prób dla dowolnej fiszki)
+    let maxRound = 1;
+    sessionCardIds.forEach(cardId => {
+        if (sessionAttempts[cardId] > maxRound) maxRound = sessionAttempts[cardId];
+    });
+
+    // Dla każdej fiszki ustal w której turze została odgadnięta (jeśli w ogóle)
+    sessionCardIds.forEach(cardId => {
+        const card = flashcards.find(c => c.id === cardId);
+        if (!card) return;
+        const attempts = sessionAttempts[cardId] || 0;
+
+        // Fiszka jest uznana za odgadniętą w danej turze TYLKO jeśli:
+        // - answerRounds[cardId] == tura
+        // - completedAnswers[cardId] === true
+        // - NIE znajduje się w wrongAnswers (czyli nie została pominięta w powtórce)
+        // Jeśli jest w wrongAnswers na końcu sesji, to NIE jest odgadnięta, nawet jeśli była poprawna w 1 turze!
+
+        const isStillWrong = wrongAnswers.some(wc => wc.id === cardId);
+        let solvedRound = null;
+
+        if (
+            typeof answerRounds !== 'undefined' &&
+            answerRounds[cardId] &&
+            completedAnswers[cardId] === true &&
+            !isStillWrong
+        ) {
+            solvedRound = answerRounds[cardId];
+        }
+
+        if (solvedRound) {
+            if (!roundMap[solvedRound]) roundMap[solvedRound] = [];
+            roundMap[solvedRound].push(card);
+        } else if (isStillWrong || completedAnswers[cardId] === false) {
+            wrongList.push(card);
+        } else if (attempts === 0) {
+            unansweredList.push(card);
+        }
+    });
+
+    // Wyświetl podsumowanie wg tur
+    for (let round = 1; round <= maxRound; round++) {
+        if (roundMap[round] && roundMap[round].length > 0) {
+            summaryContent.innerHTML += `<h3>Tura ${round} – odgadnięte:</h3><ul>`;
+            roundMap[round].forEach(card => {
+                const mainInfo = mode === 'eventToDate'
+                    ? `<strong>${card.event}</strong> (${card.date})`
+                    : `<strong>${card.date}</strong>: ${card.event}`;
+                summaryContent.innerHTML += `<li style="color: ${round === 1 ? 'green' : 'lightgreen'};">${mainInfo}</li>`;
+            });
+            summaryContent.innerHTML += `</ul>`;
+        }
+    }
+
+    // Niepoprawne (nieodpowiedziane w powtórce, a wcześniej niepoprawne)
+    if (wrongList.length > 0) {
+        summaryContent.innerHTML += `<h3>Niepoprawne:</h3><ul>`;
+        wrongList.forEach(card => {
+            const mainInfo = mode === 'eventToDate'
+                ? `<strong>${card.event}</strong> (${card.date})`
+                : `<strong>${card.date}</strong>: ${card.event}`;
+            summaryContent.innerHTML += `<li style="color: orange;">${mainInfo}</li>`;
+        });
+        summaryContent.innerHTML += `</ul>`;
+    }
+
+    // Nieodpowiedziane (nigdy nie podjęto próby)
+    if (unansweredList.length > 0) {
+        summaryContent.innerHTML += `<h3>Nieodpowiedziane:</h3><ul>`;
+        unansweredList.forEach(card => {
+            const mainInfo = mode === 'eventToDate'
+                ? `<strong>${card.event}</strong> (${card.date})`
+                : `<strong>${card.date}</strong>: ${card.event}`;
+            summaryContent.innerHTML += `<li style="color: gray;">${mainInfo}</li>`;
+        });
+        summaryContent.innerHTML += `</ul>`;
+    }
+
+    // Usuń stary wykres jeśli istnieje
+    if (chartInstance2) chartInstance2.destroy();
+    if (chartInstance) chartInstance.destroy();
+
+    // Stwórz nowy wykres dla podsumowania
+    const ctx2 = document.getElementById('resultsChart2').getContext('2d');
+    chartInstance = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: ['Poprawne', 'Niepoprawne'],
+            datasets: [{
+                data: [correctAnswers.count, incorrectAnswers.count],
+                backgroundColor: ['#4caf50', '#f44336'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const label = context.label || '';
+                            const value = context.raw || 0;
+                            return `${label}: ${value}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+// ...existing code...
+
+
+// SCHOWANIE FISZEK JAK DO MENU
+
+
+
 function hideFlashcards() {
     // Ukrywa fiszki podczas powrotu do menu
     document.querySelector('.flashcards').style.display = 'none';
     }
-
-
-
 function hideInput() {
     document.querySelector('.input-group').style.display = 'none';
 }
@@ -1132,6 +1340,13 @@ function hideInput() {
 function showInput() {
     document.querySelector('.input-group').style.display = 'block';
 }
+
+
+
+// SORTOWANIE FISZEK
+
+
+
 function sortFlashcards(cards, sortOrder) {
     return cards.sort((a, b) => {
         // Parsowanie daty dla sortowania
@@ -1145,30 +1360,43 @@ function sortFlashcards(cards, sortOrder) {
         }
     });
 }
-// Funkcja do przekształcania dat w liczby (pomocna do sortowania)
+
+
+
+// OGARNIANIE DAT
+
+
+
 function parseDate(date) {
     // Sprawdzenie, czy data jest przedziałem lat
     if (date.includes('-')) {
         const [startDate, endDate] = date.split('-').map(d => d.trim());
-
-        // Obsługa przedziałów dat, gdzie mogą być daty p.n.e.
-        const parsedStartDate = parseDate(startDate); // Rekursywne wywołanie dla pierwszej daty
-        const parsedEndDate = parseDate(endDate);     // Rekursywne wywołanie dla drugiej daty
-
-        // Zwróć pierwszą datę jako reprezentatywną (możesz to zmienić, zależnie od logiki sortowania)
-        return parsedStartDate;
+        return parseDate(startDate); // użyj daty początkowej jako reprezentatywnej
     }
 
-    // Obsługuje daty p.n.e.
-    if (date.includes("p.n.e")) {
-        return -parseInt(date.replace("p.n.e", "").trim());
+    // Obsługa różnych zapisów "p.n.e."
+    const pneRegex = /(p[\.\s]*n[\.\s]*e\.?)/i;
+
+    if (pneRegex.test(date)) {
+        return -parseInt(date.replace(pneRegex, '').trim());
     }
 
-    // Zwracaj datę jako liczbę (dla dat n.e.)
     return parseInt(date.trim());
 }
 
-// Funkcja do losowego sortowania tablicy (Fisher-Yates Shuffle)
+function normalizeAnswer(text) {
+    return text
+        .toLowerCase()
+        .replace(/p[\.\s]*n[\.\s]*e\.?/gi, 'pne') // ujednolica "p.n.e." do "pne"
+        .replace(/\s+/g, '')                     // usuwa wszystkie spacje
+        .trim();
+}
+
+
+// LOSOWE
+
+
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -1176,6 +1404,12 @@ function shuffleArray(array) {
     }
     return array;
 }
+
+
+
+// PRZYCISK DO UKRYTYCH OPCJI
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const advancedOptionsButton = document.getElementById('advancedOptionsButton');
@@ -1192,7 +1426,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Funkcja do wyświetlania odpowiednich sekcji
+    
+    
+    
+    // JAKIS SHITPOST
+    
+    
+    
     function showSection(sectionId) {
         // Ukryj wszystkie sekcje
         document.querySelectorAll('.flashcards, .summary').forEach(section => {
@@ -1226,10 +1466,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Dodajemy nasłuchiwacz zdarzeń dla przycisku domku
+// DOMEK
+
+
+
 document.getElementById('homeButton').addEventListener('click', returnToMenu);
 
-// Nasłuchiwacz zdarzeń dla klawisza Esc
+
+
+// ESC
+
+
+
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         returnToMenu();
@@ -1237,6 +1485,12 @@ document.addEventListener('keydown', function(e) {
 });
 
 let canTrigger = true; // Flag to track if the event can be triggered
+
+
+
+// ENTER
+
+
 
 document.getElementById('userInput').addEventListener('keypress', function(e) {
     if (e.key === 'Enter' && canTrigger) {
@@ -1249,6 +1503,11 @@ document.getElementById('userInput').addEventListener('keypress', function(e) {
         }, 2000);
     }
 });
+
+
+
+
+// POKAZ ODPOWIEDZ
 
 
 
@@ -1269,7 +1528,7 @@ function showAnswer() {
     sessionCards.splice(currentCardIndex, 1);  // Usuń z głównej listy
     setTimeout(showNextCard, 1000);  // Od razu wyświetl kolejne pytanie
 }
-
+// KOLORKI NA KONIEC
 let attemptColor;
 if (sessionAttempts[card.id] === 1) {
     attemptColor = "green";
@@ -1280,31 +1539,53 @@ if (sessionAttempts[card.id] === 1) {
 } else {
     attemptColor = "red";
 }
+
+
+
+// POWTORZ BLEDNE ODPOWIEDZI
+
+
 function retryWrongAnswers() {
-    // Filtrowanie fiszek, na które odpowiedziano za więcej niż pierwszym razem
-    const retryCards = Object.keys(sessionAttempts)
-        .filter(id => sessionAttempts[id] > 1) // Wybrane ID fiszek
-        .map(id => flashcards.find(card => card.id === parseInt(id))); // Znalezienie pełnych obiektów fiszek
+    // Wybierz fiszki do powtórki z poprzednich błędów
+    const retryCards = wrongAnswers;
 
     if (retryCards.length === 0) {
-        alert("Nie ma fiszek do powtórzenia!"); // Informacja, jeśli nie ma błędnych odpowiedzi
+        alert("Nie ma fiszek do powtórzenia!");
         return;
     }
-console.log("dziala retry");
-    
-    // Przygotowanie nowej sesji dla powtórki
+
+    // Ukryj podsumowanie, pokaż fiszki
     document.querySelector('.summary').style.display = 'none';
     document.querySelector('.flashcards').style.display = 'block';
+
     showInput();
     sessionCards = retryCards;
-    console.log("Session Cards After Sorting:", sessionCards);
     currentCardIndex = 0;
-    wrongAnswers = [];
+
+    // 🔥 TO BYŁO BRAKOWANE:
+    sessionAttempts = {};
+    completedAnswers = {};
+    retryCards.forEach(card => {
+        sessionAttempts[card.id] = 0;
+    });
+
+    // 🔁 wyczyść licznik i błędy dla nowej rundy
+    correctAnswers.count = 0;
+    incorrectAnswers.count = 0;
     initializeProgressBar();
     startTimer();
     updateRoundInfo();
     showNextCard();
 }
+
+
+
+
+
+// JESZCZE RAZ
+
+
+
 function resetSession() {
     // Zresetowanie zmiennych globalnych
     currentRound = 1; 
@@ -1316,6 +1597,9 @@ function resetSession() {
     groupFilter = 'all'; 
     eraFilters = []; 
     sortOrder = 'chronological'; 
+    completedAnswers = {};
+    countryFilters = [];
+    difficultyFilters = [];
 
     // Reset zmiennych odpowiedzi
     correctAnswers.count = 0; 
@@ -1353,9 +1637,18 @@ function resetSession() {
     console.log('Zresetowano wszystkie dane sesji, w tym wykres, pasek, licznik czasu oraz odpowiedzi.');
 }
 
+
+
+
+
+// POWROT DO MENU
+
+
+
 function returnToMenu() {
     document.querySelector(".menu").style.display = "block";
     document.querySelector(".epoki").style.display = "block";
+    document.querySelector(".opcjonalne").style.display = "block";
     document.querySelector(".sortowanie").style.display = "block";
     document.querySelector(".ni").style.display = "block";
     document.querySelector(".dif").style.display = "block";
@@ -1367,63 +1660,9 @@ function returnToMenu() {
 }
 
 
-function showSummary() { // Początek funkcji
-    hideInput(); // Ukrywa pole wejściowe
-    hideButtons(); // Ukrywa przyciski
-    stopTimer(); // Zatrzymaj stoper
-    document.querySelector('.flashcards').style.display = 'none'; // Ukrywa sekcję fiszek
-    document.querySelector('.summary').style.display = 'block'; // Wyświetla sekcję podsumowania
-    
-    const summaryContent = document.getElementById('summaryContent'); // Pobiera element dla podsumowania
-    summaryContent.innerHTML = '<ul>'; // Rozpoczyna listę w HTML
-// Obliczenie całkowitego czasu sesji
-    const endTime = new Date(); // Czas zakończenia
-    const totalTime = Math.floor((endTime - startTime) / 1000); // Całkowity czas w sekundach
 
-    // Konwersja czasu na format MM:SS
-    const minutes = Math.floor(totalTime / 60);
-    const seconds = totalTime % 60;
 
-    // Wyświetlenie czasu w podsumowaniu
-    summaryContent.innerHTML += `
-        <li><strong>Całkowity czas sesji:</strong> ${minutes} min ${seconds} sek</li>
-    `;
-    // Iteracja przez fiszki w sesji
-    flashcards.forEach(card => { // Rozpoczyna iterację
-        if (sessionAttempts[card.id] > 0) {  // Sprawdza, czy fiszka była częścią sesji
-            let correctAnswer = '';
-            let attemptColor;
-if (sessionAttempts[card.id] === 1) {
-    attemptColor = "green";
-} else if (sessionAttempts[card.id] === 2) {
-    attemptColor = "lightgreen";
-} else if (sessionAttempts[card.id] === 3) {
-    attemptColor = "yellow";
-} else {
-    attemptColor = "red";
-}
-            if (mode === 'eventToDate') { // Jeśli tryb to 'eventToDate'
-                correctAnswer = card.date;
-                summaryContent.innerHTML += `
-    <li>${card.event} : <strong>${correctAnswer}</strong>. Udało się za 
-    <br><strong><span style="color: ${attemptColor};">
-        ${sessionAttempts[card.id] === 1 ? 'pierwszym razem' : `${sessionAttempts[card.id]} razem`}
-    </span></strong>.
-    </li>`;
-            } else { // W przeciwnym razie
-                correctAnswer = card.event;
-                summaryContent.innerHTML += `
-    <li>${card.date}: <strong>${correctAnswer}</strong>. Udało się za 
-    <strong><span style="color: ${attemptColor};">
-        ${sessionAttempts[card.id] === 1 ? 'pierwszym' : `${sessionAttempts[card.id]} razem`}
-    </span></strong>.
-    </li><ul>
-            <li>Poprawne odpowiedzi: ${correctAnswers.count}</li>
-            <li>Niepoprawne odpowiedzi: ${incorrectAnswers.count}</li>
-        </ul>
-    `;
-            }
-        }
-    }); // Kończy iterację
-    summaryContent.innerHTML += '</ul>'; // Kończy listę
-} // Koniec funkcji
+
+
+
+
