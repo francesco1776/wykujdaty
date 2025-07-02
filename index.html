@@ -11,7 +11,7 @@
 <h1 id="title">
   <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
   </p>
-  <p class="subtitle">wersja beta 1.0.8</p>
+  <p class="subtitle">wersja beta 1.0.9</p>
 </h1>
 <div id="homeButton" class="home-button">🏠</div>
 <c-c>cc:francesco2137, all rights reserved</c-c>
@@ -86,7 +86,9 @@
         <label><input type="checkbox" name="type" value="sk"> społeczno-kulturowe</label><br>
         <label><input type="checkbox" name="type" value="pa"> panowanie władców</label><br>
     </form></div>
-
+<div id="no-flashcards-message" style="display:none; color:#c0392b; font-weight:bold; margin:20px 0; font-size:1.2em; text-align:center;">
+    Brak fiszek dla wybranej kombinacji filtrów!
+</div>
 <div class="ni">
     <br><button class="button" onclick="startFlashcards('eventToDate')" id="start">start</button>
     <br><button id="advancedOptionsButton" class="button">opcje zaawansowane</button><br><h4-c>indev</h4-c> <br>
@@ -100,23 +102,18 @@
     <label>
         <input type="radio" name="timeoutMode" value="default" checked> Domyślny timeout
     </label><br>
-    
-    <!-- Opcja nauki -->
-    <label>
-        <input type="radio" name="timeoutMode" value="manual"> Przejdź dopiero po kliknięciu
-    </label><br>
-    
     <!-- Opcja z ustawianiem czasu -->
     <label>
         <input type="radio" name="timeoutMode" value="custom"> Wpisz własny timeout (w sekundach)
     </label>
     <input type="number" id="customTimeout" placeholder="Sekundy" min="1" disabled>
 </div><label>
-  <input type="checkbox" id="optionalNextButton">
+  <input type="radio" id="optionalNextButton">
   Przycisk „Przejdź do następnej” po odpowiedzi (tryb nauki)
 </label><br>
 </div></div>
-    
+  
+
 <!-- Sekcje, które będą widoczne w odpowiednich momentach -->
 <div id="flashcards" class="flashcards">
     <div id="flashcardContent"></div>

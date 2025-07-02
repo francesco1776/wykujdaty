@@ -661,7 +661,7 @@ let timeoutMode = "default"; // "default", "manual", "custom"
 let customTimeoutValue = 2000; // W milisekundach (2 sekundy jako domyślna wartość)
 let difficultyFilters = []; // Tablica do przechowywania wybranych poziomów trudności
 let completedAnswers = {}; // Mapowanie: id => true/false, czy została odpowiedziana
-
+let solvedThisRound = 0;
 
 
 
@@ -834,28 +834,23 @@ function updateRoundInfo() {
 function initializeProgressBar() {
     const progressBar = document.getElementById("progress-bar");
     const progressText = document.getElementById("progress-text");
-
-    // Ustaw pasek na początkowe wartości
     progressBar.style.width = "0%";
-    progressText.textContent = `0/${sessionCards.length}`; // Liczba całkowita fiszek w sesji
+    progressText.textContent = `0/${sessionCards.length}`; // Liczba fiszek w tej turze
 }
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
     const progressText = document.getElementById("progress-text");
-
-    const totalCards = sessionAttempts ? Object.keys(sessionAttempts).length : sessionCards.length; // Początkowa liczba fiszek
-    const solvedCards = totalCards - sessionCards.length; // Rozwiązane fiszki
+    const totalCards = sessionCards.length + (typeof solvedThisRound === 'number' ? solvedThisRound : 0);
+    // Liczba rozwiązanych w tej turze = startowa liczba fiszek tej tury - bieżąca liczba fiszek
+    const solvedCards = (typeof solvedThisRound === 'number' ? solvedThisRound : 0);
 
     // Oblicz procent wypełnienia
-    const progressPercent = (solvedCards / totalCards) * 100;
+    const progressPercent = totalCards === 0 ? 0 : (solvedCards / totalCards) * 100;
 
-    // Zaktualizuj pasek i tekst
     progressBar.style.width = `${progressPercent}%`;
     progressText.textContent = `${solvedCards}/${totalCards}`;
-    console.log("dziala aktualizacja pska");
 }
-
 // USUNIECIE DUPLIKATOW
 
 
@@ -896,11 +891,32 @@ const timerDisplay = document.getElementById('live-timer');
     sortMode = document.querySelector('input[name="sort"]:checked').value;
     currentCardIndex = 0;
     wrongAnswers = [];
-    sessionCards = getFilteredFlashcards();
+    solvedThisRound = 0;
+        sessionCards = getFilteredFlashcards();
+    const noFlashcardsMsg = document.getElementById('no-flashcards-message');
     if (sessionCards.length === 0) {
-    console.error('Brak fiszek do wyświetlenia.');
-    return; // Zakończ, jeśli nie ma fiszek
-}
+        if (noFlashcardsMsg) {
+            noFlashcardsMsg.style.display = 'block';
+        }
+        // NIE chowaj menu!
+        return;
+    } else {
+        if (noFlashcardsMsg) {
+            noFlashcardsMsg.style.display = 'none';
+        }
+        // Tylko jeśli są fiszki, chowaj menu:
+        document.querySelector(".menu").style.display = "none";
+        document.querySelector(".epoki").style.display = "none";
+        document.querySelector(".sortowanie").style.display = "none";
+        document.querySelector(".ni").style.display = "none";
+        document.querySelector(".dif").style.display = "none";
+        document.querySelector(".dif2").style.display = "none";
+        document.querySelector(".opcjonalne").style.display = "none";
+        document.querySelector(".flashcards").style.display = "block";
+        document.querySelector(".summary").style.display = "none";
+        document.getElementById("advancedOptionsMenu").classList.add("hidden");
+        document.getElementById("advancedOptionsButton").classList.add("hidden");
+    }
     sessionAttempts = {};
     currentRound = 0;
     console.log("Session Cards Before Sorting:", sessionCards);
@@ -916,24 +932,7 @@ const timerDisplay = document.getElementById('live-timer');
     if (sortMode === "random") {
         shuffleArray(sessionCards);
     }
-    
-    
-    
-// pokazywanie i chowanie elementow
-// 
-// 
-   // poczatek sesji
-    document.querySelector(".menu").style.display = "none";
-    document.querySelector(".epoki").style.display = "none";
-    document.querySelector(".sortowanie").style.display = "none";
-    document.querySelector(".ni").style.display = "none";
-    document.querySelector(".dif").style.display = "none";
-    document.querySelector(".dif2").style.display = "none";
-    document.querySelector(".opcjonalne").style.display = "none";
-    document.querySelector(".flashcards").style.display = "block";
-    document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
-    document.getElementById("advancedOptionsMenu").classList.add("hidden");
-    document.getElementById("advancedOptionsButton").classList.add("hidden");
+
     showInput();
     showButtons();
     if (!chartInstance) {
@@ -1030,6 +1029,7 @@ function addNextButton() {
     nextButton.addEventListener('click', () => {
         // --- KLUCZOWA ZMIANA: usuwamy aktualną fiszkę i przesuwamy indeks ---
         sessionCards.splice(currentCardIndex, 1);
+        solvedThisRound++;
         if (currentCardIndex >= sessionCards.length) {
             currentCardIndex = 0;
         }
@@ -1077,11 +1077,13 @@ function showNextCard() {
         setTimeout(() => {
             document.getElementById('flashcardContent').style.opacity = 1;
             showButtons();
+            updateProgressBar(); // <-- DODAJ TUTAJ!
         }, 100);
     } else if (wrongAnswers.length > 0) {
         sessionCards = [...wrongAnswers];
         wrongAnswers = [];
         currentCardIndex = 0;
+        solvedThisRound = 0;
         updateProgressBar();
         updateRoundInfo();
         showNextCard();
@@ -1172,6 +1174,7 @@ if (optionalNextButtonEnabled) {
 } else {
         setTimeout(() => {
             sessionCards.splice(currentCardIndex, 1);
+            solvedThisRound++;
             if (currentCardIndex >= sessionCards.length) {
                 currentCardIndex = 0;
             }
@@ -1450,10 +1453,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Przykładowe wywołanie funkcji do pokazania sekcji 'flashcards'
-    document.querySelector('.menu button[onclick*="startFlashcards"]').addEventListener('click', function() {
-        showSection('flashcards');
-    });
+
+
 
     // Dodaj odpowiednie wywołania dla innych przycisków
     document.querySelectorAll('.summary .button').forEach(button => {
@@ -1546,8 +1547,17 @@ if (sessionAttempts[card.id] === 1) {
 
 
 function retryWrongAnswers() {
-    // Wybierz fiszki do powtórki z poprzednich błędów
-    const retryCards = wrongAnswers;
+    // Zbierz ID fiszek z tej sesji
+    const sessionCardIds = Object.keys(sessionAttempts).map(Number);
+
+    // Zbierz fiszki nieodgadnięte w 1. turze lub nieodpowiedziane w ogóle
+    const retryCards = sessionCardIds
+        .map(cardId => flashcards.find(c => c.id === cardId))
+        .filter(card => {
+            // Jeśli nie ma odpowiedzi lub była błędna w 1. turze
+            const wasWrong = completedAnswers[card.id] !== true || (typeof answerRounds !== 'undefined' && answerRounds[card.id] !== 1);
+            return wasWrong;
+        });
 
     if (retryCards.length === 0) {
         alert("Nie ma fiszek do powtórzenia!");
@@ -1561,23 +1571,28 @@ function retryWrongAnswers() {
     showInput();
     sessionCards = retryCards;
     currentCardIndex = 0;
-
-    // 🔥 TO BYŁO BRAKOWANE:
+    
+    // Reset prób i odpowiedzi
     sessionAttempts = {};
     completedAnswers = {};
     retryCards.forEach(card => {
         sessionAttempts[card.id] = 0;
     });
 
-    // 🔁 wyczyść licznik i błędy dla nowej rundy
+    // Reset liczników
     correctAnswers.count = 0;
     incorrectAnswers.count = 0;
+    if (chartInstance) {
+        chartInstance.destroy();
+        chartInstance = null;
+    }
+    initializeChart();
     initializeProgressBar();
     startTimer();
+    currentRound = 0;
     updateRoundInfo();
     showNextCard();
 }
-
 
 
 
