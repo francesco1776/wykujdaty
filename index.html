@@ -5,17 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wykuwator 3000</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (core) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
 </head>
 <body>
-
 <h1 id="title">
   <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
   </p>
-  <p class="subtitle">wersja beta 1.0.9</p>
+  <p class="subtitle">wersja beta 1.1.0</p>
 </h1>
 <div id="homeButton" class="home-button">🏠</div>
-<c-c>cc:francesco2137, all rights reserved</c-c>
+<div id="leaderboard-container">
+  <h3>🏆 Leaderboard</h3>
+  <table id="leaderboard-table"></table>
+</div>
+<div id="user-info" class="user-info"></div>
+<c-c>cc:francesco2137, all rights reserved</c-c><c-c><button id="logout-btn" style="display:none;">Wyloguj</button></c-c>
 <c-b>Londyn jest czerwony</c-b>
+<div id="firebase-login" style="text-align:center;">
+  <div id="login-register-choice">
+    <button id="choose-login-btn">Logowanie</button>
+    <button id="choose-register-btn">Rejestracja</button>
+  </div>
+  <form id="login-form" style="display:none;">
+    <h2>Zaloguj się</h2>
+    <input type="email" id="login-email" placeholder="Email"><br>
+    <input type="password" id="login-password" placeholder="Hasło"><br>
+    <button type="button" id="login-btn">Zaloguj</button>
+    <button type="button" id="login-back-btn">Cofnij</button>
+    <div id="login-error" style="color:red;"></div>
+  </form>
+  <form id="register-form" style="display:none;">
+    <h2>Rejestracja</h2>
+    <input type="text" id="register-username" placeholder="Nazwa użytkownika"><br>
+    <input type="email" id="register-email" placeholder="Email"><br>
+    <input type="password" id="register-password" placeholder="Hasło"><br>
+    <button type="button" id="register-btn">Zarejestruj</button>
+    <div id="register-error" style="color:red;"></div>
+  </form>
+</div>
 <div class="menu">
     <h2>Wybierz Grupę</h2><br><label><input type="radio" name="group" value="all" checked> Wszystkie</label>
     <label><input type="radio" name="group" value="pl"> Polska</label>
@@ -118,7 +151,7 @@
 <div id="flashcards" class="flashcards">
     <div id="flashcardContent"></div>
     <div class="input-group">
-        <input type="text" id="userInput" placeholder="Wpisz swoją odpowiedź">
+        <input type="text" id="userInput" placeholder="Wpisz swoją odpowiedź" autocomplete="off">
     </div>
     <div class="guziki">
     <button class="ch" onclick="checkAnswer()">Sprawdź</button>
@@ -162,5 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+
 </body>
 </html>

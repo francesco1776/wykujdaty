@@ -641,9 +641,18 @@ const flashcards = [
                ];
 
 
-
-
-    
+const firebaseConfig = {
+  apiKey: "AIzaSyD-Yo8_fVsKlsPSpL9VMtVhW4ELBplVqx4",
+  authDomain: "wykuwator-3000.firebaseapp.com",
+  projectId: "wykuwator-3000",
+  storageBucket: "wykuwator-3000.appspot.com",
+  messagingSenderId: "584824427897",
+  appId: "1:584824427897:web:20bd938d979ef9ee710ba8"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+// ...po firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 let currentRound = 1; // Globalna zmienna do śledzenia bieżącej tury
 let currentCardIndex = 0;
@@ -662,58 +671,175 @@ let customTimeoutValue = 2000; // W milisekundach (2 sekundy jako domyślna wart
 let difficultyFilters = []; // Tablica do przechowywania wybranych poziomów trudności
 let completedAnswers = {}; // Mapowanie: id => true/false, czy została odpowiedziana
 let solvedThisRound = 0;
+let chartInstance = null;
+let chartInstance2 = null;
+let correctAnswers = { count: 0 };
+let incorrectAnswers = { count: 0 };
 
+// ...firebase config, zmienne globalne...
 
-
-
-//poziom trudnosci nasluchiwacze
-document.querySelectorAll('input[name="difficulty"]').forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-        const value = this.value; // Pobierz wartość jako string
-
-        if (this.checked) {
-            // Dodaj poziom trudności do tablicy filtrów
-            difficultyFilters.push(value);
-        } else {
-            // Usuń poziom trudności z tablicy filtrów
-            difficultyFilters = difficultyFilters.filter(dif => dif !== value);
+document.addEventListener('DOMContentLoaded', function() {
+    // --- LOGOWANIE/REJESTRACJA ---
+    const loginRegisterChoice = document.getElementById('login-register-choice');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    
+    document.getElementById('login-btn').onclick = function() {
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        auth.signInWithEmailAndPassword(email, password)
+            .catch(e => document.getElementById('login-error').textContent = e.message);
+    };
+    document.getElementById('choose-login-btn').onclick = function() {
+        loginRegisterChoice.style.display = 'none';
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+    };
+    document.getElementById('choose-register-btn').onclick = function() {
+        loginRegisterChoice.style.display = 'none';
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+    };
+    document.getElementById('register-btn').onclick = function() {
+        const username = document.getElementById('register-username').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        if (!username) {
+            document.getElementById('register-error').textContent = "Podaj nazwę użytkownika!";
+            return;
         }
-
-        console.log("Wybrane poziomy trudności:", difficultyFilters);
-    });
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(userCredential => {
+                return userCredential.user.updateProfile({ displayName: username });
+            })
+            .catch(e => document.getElementById('register-error').textContent = e.message);
+    };
+    document.getElementById('logout-btn').onclick = function() { auth.signOut(); };
+    document.getElementById('login-back-btn').onclick = function() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('login-register-choice').style.display = 'block';
+};
+auth.onAuthStateChanged(user => {
+    const userInfoDiv = document.getElementById('user-info');
+    if (user) {
+        document.getElementById('firebase-login').style.display = 'none';
+        document.querySelector('.menu').style.display = 'block';
+        document.getElementById('logout-btn').style.display = 'inline-block';
+        // Dodaj span z klasą gold-username
+        userInfoDiv.innerHTML = `Zalogowano jako: <span class="gold-username">${user.displayName || user.email}</span>`;
+        userInfoDiv.style.display = 'block';
+    } else {
+        document.getElementById('firebase-login').style.display = 'block';
+        document.querySelector('.menu').style.display = 'none';
+        document.querySelector('.flashcards').style.display = 'none';
+        document.querySelectorAll('.summary').forEach(el => el.style.display = 'none');
+        document.getElementById('logout-btn').style.display = 'none';
+        userInfoDiv.textContent = '';
+        userInfoDiv.style.display = 'none';
+    }
 });
-
-// checkboxy od krajow
-document.querySelectorAll('input[name="country"]').forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-        const value = this.value;
-
-        if (value === 'all') {
-            // Jeśli wybrano "wszystkie kraje"
+    // --- RESZTA NASŁUCHIWACZY I INICJALIZACJI DOM ---
+    document.querySelectorAll('input[name="difficulty"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const value = this.value;
             if (this.checked) {
-                countryFilters = ['all']; // Ustaw tylko "all" w filtrach
-                // Odznacz wszystkie inne checkboxy
-                document.querySelectorAll('input[name="country"]').forEach(cb => {
-                    if (cb.value !== 'all') cb.checked = false;
+                difficultyFilters.push(value);
+            } else {
+                difficultyFilters = difficultyFilters.filter(dif => dif !== value);
+            }
+            console.log("Wybrane poziomy trudności:", difficultyFilters);
+        });
+    });
+
+    document.querySelectorAll('input[name="country"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            const value = this.value;
+            if (value === 'all') {
+                if (this.checked) {
+                    countryFilters = ['all'];
+                    document.querySelectorAll('input[name="country"]').forEach(cb => {
+                        if (cb.value !== 'all') cb.checked = false;
+                    });
+                } else {
+                    countryFilters = [];
+                }
+            } else {
+                if (this.checked) {
+                    countryFilters = countryFilters.filter(country => country !== 'all');
+                    countryFilters.push(value);
+                } else {
+                    countryFilters = countryFilters.filter(country => country !== value);
+                }
+            }
+            console.log("Wybrane kraje:", countryFilters);
+        });
+    });
+
+    document.querySelector('.menu').style.display = 'block';
+
+    document.querySelectorAll('input[name="timeoutMode"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            timeoutMode = this.value;
+            const customTimeoutInput = document.getElementById('customTimeout');
+            if (timeoutMode === "custom") {
+                customTimeoutInput.disabled = false;
+                customTimeoutInput.addEventListener('input', function () {
+                    const value = parseInt(this.value);
+                    if (!isNaN(value) && value > 0) {
+                        customTimeoutValue = value * 1000;
+                    }
                 });
             } else {
-                countryFilters = []; // Usuń "all" z filtrów, jeśli odznaczone
+                customTimeoutInput.disabled = true;
             }
-        } else {
-            // Jeśli wybrano konkretny kraj
-            if (this.checked) {
-                // Usuń "all" z filtrów, jeśli istnieje
-                countryFilters = countryFilters.filter(country => country !== 'all');
-                countryFilters.push(value); // Dodaj wybrany kraj
-            } else {
-                // Usuń kraj z filtrów, jeśli odznaczono
-                countryFilters = countryFilters.filter(country => country !== value);
-            }
-        }
-
-        console.log("Wybrane kraje:", countryFilters);
+        });
     });
-});
+
+    document.getElementById('homeButton').addEventListener('click', returnToMenu);
+
+    let canTrigger = true;
+    document.getElementById('userInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && canTrigger) {
+            e.preventDefault();
+            checkAnswer();
+            canTrigger = false;
+            setTimeout(() => { canTrigger = true; }, 2000);
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            returnToMenu();
+        }
+    });
+
+    const advancedOptionsButton = document.getElementById('advancedOptionsButton');
+    const advancedOptionsMenu = document.getElementById('advancedOptionsMenu');
+    if (advancedOptionsButton && advancedOptionsMenu) {
+        advancedOptionsButton.addEventListener('click', function() {
+            if (advancedOptionsMenu.classList.contains('hidden')) {
+                advancedOptionsMenu.classList.remove('hidden');
+                advancedOptionsMenu.classList.add('visible');
+            } else {
+                advancedOptionsMenu.classList.remove('visible');
+                advancedOptionsMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    const optionalNextCheckbox = document.getElementById('optionalNextButton');
+    if (optionalNextCheckbox) {
+        optionalNextButtonEnabled = optionalNextCheckbox.checked;
+        optionalNextCheckbox.addEventListener('change', function() {
+            optionalNextButtonEnabled = this.checked;
+        });
+    }
+    fetchLeaderboard();
+}); // <-- To jest JEDYNE zamknięcie DOMContentLoaded!
+// PRZYCISK DO UKRYTYCH OPCJI
+ 
+ // <-- To jest zamknięcie JEDYNEGO bloku DOMContentLoaded
 
 // TIMER
 
@@ -749,32 +875,7 @@ function showButtons() {
 }
 
 // WYSWIETLENIE MENU
-document.querySelector('.menu').style.display = 'block';
 
-let chartInstance, chartInstance2;
-
-const correctAnswers = { count: 0 }; // Licznik poprawnych odpowiedzi
-const incorrectAnswers = { count: 0 }; // Licznik błędnych odpowiedzi
-
-document.querySelectorAll('input[name="timeoutMode"]').forEach(radio => {
-    radio.addEventListener('change', function () {
-        timeoutMode = this.value;
-
-        // Jeśli wybrano niestandardowy timeout, aktywuj pole input
-        const customTimeoutInput = document.getElementById('customTimeout');
-        if (timeoutMode === "custom") {
-            customTimeoutInput.disabled = false;
-            customTimeoutInput.addEventListener('input', function () {
-                const value = parseInt(this.value);
-                if (!isNaN(value) && value > 0) {
-                    customTimeoutValue = value * 1000; // Przekształcenie sekund na milisekundy
-                }
-            });
-        } else {
-            customTimeoutInput.disabled = true;
-        }
-    });
-});
 
 
 // WYKRES
@@ -1103,20 +1204,6 @@ function showNextCard() {
 // Dodaj flagę globalną do obsługi opcji przycisku "Przejdź do następnej"
 let optionalNextButtonEnabled = false;
 
-// Nasłuchiwacz na checkbox w opcjach zaawansowanych
-document.addEventListener('DOMContentLoaded', function() {
-    // ...existing code...
-
-    // Dodaj nasłuchiwacz na checkbox opcji przycisku "Przejdź do następnej"
-    const optionalNextCheckbox = document.getElementById('optionalNextButton');
-    if (optionalNextCheckbox) {
-        optionalNextButtonEnabled = optionalNextCheckbox.checked;
-        optionalNextCheckbox.addEventListener('change', function() {
-            optionalNextButtonEnabled = this.checked;
-        });
-    }
-    // ...existing code...
-});
 
 
 // --- poprawiony checkAnswer ---
@@ -1189,6 +1276,7 @@ function showSummary() {
     hideButtons();
     stopTimer();
     document.querySelector('.flashcards').style.display = 'none';
+    document.querySelector('.menu').style.display = 'none'; // <-- Dodaj to!
     document.querySelector('.summary').style.display = 'block';
 
     summaryContent = document.getElementById('summaryContent');
@@ -1324,6 +1412,56 @@ function showSummary() {
             }
         }
     });
+const user = auth.currentUser;
+if (user) {
+    const playerName = user.displayName || "Anonim";
+    const userRef = db.collection("users").doc(user.uid);
+    const sessionSolved = correctAnswers.count + incorrectAnswers.count;
+    const sessionCorrect = correctAnswers.count;
+
+    db.runTransaction(async (transaction) => {
+        const doc = await transaction.get(userRef);
+        if (!doc.exists) {
+            transaction.set(userRef, {
+                uid: user.uid,
+                username: playerName,
+                totalSolved: sessionSolved,
+                totalCorrect: sessionCorrect
+            });
+        } else {
+            const data = doc.data();
+            transaction.update(userRef, {
+                totalSolved: (data.totalSolved || 0) + sessionSolved,
+                totalCorrect: (data.totalCorrect || 0) + sessionCorrect
+            });
+        }
+    });
+}
+fetchLeaderboard();
+    }
+
+function fetchLeaderboard() {
+    db.collection("users")
+      .orderBy("totalSolved", "desc")
+      .orderBy("totalCorrect", "desc")
+      .get()
+      .then(querySnapshot => {
+        const table = document.getElementById("leaderboard-table");
+        table.innerHTML = "<tr><th>Gracz</th><th>Rozw.</th><th>% Popr.</th></tr>";
+        querySnapshot.forEach(doc => {
+          const entry = doc.data();
+          const percent = entry.totalSolved > 0
+            ? Math.round((entry.totalCorrect / entry.totalSolved) * 100)
+            : 0;
+          table.innerHTML += `
+            <tr>
+              <td><span class="gold-username">${entry.username || "Anonim"}</span></td>
+              <td>${entry.totalSolved}</td>
+              <td>${percent}%</td>
+            </tr>
+          `;
+        });
+      });
 }
 // ...existing code...
 
@@ -1410,24 +1548,7 @@ function shuffleArray(array) {
 
 
 
-// PRZYCISK DO UKRYTYCH OPCJI
 
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const advancedOptionsButton = document.getElementById('advancedOptionsButton');
-    const advancedOptionsMenu = document.getElementById('advancedOptionsMenu');
-
-    // Funkcja do obsługi rozwijania i zwijania menu zaawansowanych opcji
-    advancedOptionsButton.addEventListener('click', function() {
-        if (advancedOptionsMenu.classList.contains('hidden')) {
-            advancedOptionsMenu.classList.remove('hidden');
-            advancedOptionsMenu.classList.add('visible');
-        } else {
-            advancedOptionsMenu.classList.remove('visible');
-            advancedOptionsMenu.classList.add('hidden');
-        }
-    });
 
     
     
@@ -1456,54 +1577,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    // Dodaj odpowiednie wywołania dla innych przycisków
-    document.querySelectorAll('.summary .button').forEach(button => {
-        button.addEventListener('click', function() {
-            showSection('summary');
-        });
-    });
-});
 
 
 
 
-// DOMEK
-
-
-
-document.getElementById('homeButton').addEventListener('click', returnToMenu);
-
-
-
-// ESC
-
-
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        returnToMenu();
-    }
-});
-
-let canTrigger = true; // Flag to track if the event can be triggered
-
-
-
-// ENTER
-
-
-
-document.getElementById('userInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' && canTrigger) {
-        e.preventDefault(); // Prevent default behavior of the Enter key
-        checkAnswer();
-        
-        canTrigger = false; // Disable the event
-        setTimeout(() => {
-            canTrigger = true; // Re-enable the event after 2 seconds
-        }, 2000);
-    }
-});
 
 
 
@@ -1529,18 +1606,6 @@ function showAnswer() {
     sessionCards.splice(currentCardIndex, 1);  // Usuń z głównej listy
     setTimeout(showNextCard, 1000);  // Od razu wyświetl kolejne pytanie
 }
-// KOLORKI NA KONIEC
-let attemptColor;
-if (sessionAttempts[card.id] === 1) {
-    attemptColor = "green";
-} else if (sessionAttempts[card.id] === 2) {
-    attemptColor = "lightgreen";
-} else if (sessionAttempts[card.id] === 3) {
-    attemptColor = "yellow";
-} else {
-    attemptColor = "red";
-}
-
 
 
 // POWTORZ BLEDNE ODPOWIEDZI
@@ -1565,7 +1630,7 @@ function retryWrongAnswers() {
     }
 
     // Ukryj podsumowanie, pokaż fiszki
-    document.querySelector('.summary').style.display = 'none';
+    document.querySelectorAll('.summary').forEach(el => el.style.display = 'none');
     document.querySelector('.flashcards').style.display = 'block';
 
     showInput();
@@ -1669,11 +1734,11 @@ function returnToMenu() {
     document.querySelector(".dif").style.display = "block";
     document.querySelector(".dif2").style.display = "block";
     document.querySelector(".flashcards").style.display = "none";
-    document.querySelector(".summary").style.display = "none"; // Ukryj podsumowanie
+    // Ukryj podsumowanie po klasie (nie id!)
+    document.querySelectorAll(".summary").forEach(el => el.style.display = "none");
     document.getElementById("advancedOptionsMenu").classList.add("hidden");
     resetSession();
 }
-
 
 
 
