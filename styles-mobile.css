@@ -455,7 +455,6 @@ input::placeholder {
     text-align: center;
 }
 #logout-btn {
-    position: fixed;
     bottom: 30px;
     right: 20px;
     z-index: 1001;
@@ -607,22 +606,7 @@ label {
 }
 
 /* Przywróć przycisk wyloguj na dół, ale nie na całą szerokość */
-#logout-btn {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    left: unset;
-    width: auto;
-    min-width: 120px;
-    max-width: 90vw;
-    font-size: 18px;
-    padding: 12px 24px;
-    z-index: 1001;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px #000a;
-}
-
-/* Zmniejsz nagłówki sekcji */
+mniejsz nagłówki sekcji */
 .menu h2,
 .epoki h2,
 .sortowanie h2,
@@ -682,4 +666,146 @@ input, #firebase-login input {
     border-radius: 0;
     padding-left: 4px;
     padding-right: 4px;
+}
+.flashcards .guziki button,
+.flashcards .guziki .ch,
+.flashcards .guziki .for,
+.flashcards .guziki .zs {
+    font-size: 22px;
+    padding: 18px 0;
+    width: 99%;
+    min-width: 140px;
+    margin: 10px auto;
+    border-radius: 10px;
+    display: block;
+}
+.epoka-daty {
+    font-size: 13px;
+    color: #bdbdbd;
+    margin-left: 8px;
+    font-weight: normal;
+    display: inline;
+}
+#logout-btn {
+    position: static !important;
+    display: block !important;
+    margin: 30px auto 10px auto !important;
+    left: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: 90vw !important;
+    font-size: 18px !important;
+    padding: 12px 24px !important;
+    z-index: 1001 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px #000a !important;
+    background-color: #007bff !important;
+    color: #fff !important;
+}
+#customTimeout,
+input[type="number"] {
+    width: 60px !important;
+    min-width: 40px !important;
+    max-width: 80px !important;
+    font-size: 16px !important;
+    padding: 6px 4px !important;
+    margin: 0 6px 0 0 !important;
+    display: inline-block !important;
+    text-align: center;
+}
+.advanced-options {
+    width: 95% !important;
+    min-width: 0 !important;
+    max-width: 99vw !important;
+    padding: 14px !important;
+    font-size: 16px !important;
+    margin: 0 auto 18px auto !important;
+    box-sizing: border-box !important;
+}
+/* Leaderboard i komunikat o zalogowaniu na dole strony */
+#leaderboard-container, .user-info {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto 10px auto !important;
+    left: unset !important;
+    right: unset !important;
+    top: unset !important;
+    bottom: unset !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    background: #222d !important;
+    color: #fff !important;
+    text-align: center !important;
+}
+
+/* Ustaw na dole strony */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main-content {
+    flex: 1 0 auto;
+}
+#leaderboard-container, .user-info {
+    flex-shrink: 0;
+}
+
+/* Wycentruj napisy na guzikach podczas sesji fiszek */
+.flashcards .guziki button,
+.flashcards .guziki .ch,
+.flashcards .guziki .for,
+.flashcards .guziki .zs {
+    font-size: 22px;
+    padding: 18px 0;
+    width: 99%;
+    min-width: 140px;
+    margin: 10px auto;
+    border-radius: 10px;
+    display: block;
+    text-align: center !important;
+    justify-content: center !important;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ustaw główną zawartość na początek, a leaderboard i user-info na koniec */
+#leaderboard-container {
+    order: 100;
+}
+.user-info {
+    order: 101;
+}
+.main-content, .flashcards, .summary, .menu, .epoki, .dif, .dif2, .ni, #firebase-login, .opcjonalne, .sortowanie {
+    order: 1;
+}
+#logout-btn {
+    order: 99;
+}
+.flashcards .guziki button,
+.flashcards .guziki .ch,
+.flashcards .guziki .for,
+.flashcards .guziki .zs {
+    font-size: 18px;
+    padding: 12px 0;
+    width: 99%;
+    min-width: 100px;
+    margin: 6px auto;
+    border-radius: 0;
+    display: block;
+    text-align: center !important;
+    justify-content: center !important;
+}
+.guziki {
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
 }

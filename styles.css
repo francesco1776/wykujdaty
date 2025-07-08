@@ -550,3 +550,30 @@ input::placeholder {
 #leaderboard-table tr:nth-child(even) {
     background: #333a;
 }
+.epoki label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 2px;
+    margin-right: 10px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.epoki .daty,
+.epoki .przedzial,
+.epoki .epoka-daty {
+    font-size: 12px !important;
+    color: #bdbdbd;
+    margin-left: 6px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline;
+    vertical-align: middle;
+}
+.epoka-daty {
+    font-size: 13px;
+    color: #bdbdbd;
+    margin-left: 8px;
+    font-weight: normal;
+    display: inline;
+}
