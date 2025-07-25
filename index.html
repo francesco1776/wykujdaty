@@ -16,7 +16,7 @@
 <h1 id="title">
   <p class="page-title"><i class="fas fa-cloud-moon"></i>   Wykuwator 3000  <i class="fas fa-cloud-moon"></i>
   </p>
-  <p class="subtitle">wersja beta 1.1.0</p>
+  <p class="subtitle">wersja beta 1.2</p>
 </h1>
 <div id="homeButton" class="home-button">🏠</div>
 <div id="leaderboard-container">
@@ -24,8 +24,7 @@
   <table id="leaderboard-table"></table>
 </div>
 <div id="user-info" class="user-info"></div>
-<c-c>cc:francesco2137, all rights reserved</c-c><c-c><button id="logout-btn" style="display:none;">Wyloguj</button></c-c>
-<c-b>Londyn jest czerwony</c-b>
+<c-c>cc:francesco2137, all rights reserved</c-c>
 <div id="firebase-login" style="text-align:center;">
   <div id="login-register-choice">
     <button id="choose-login-btn">Logowanie</button>
@@ -48,7 +47,27 @@
     <div id="register-error" style="color:red;"></div>
   </form>
 </div>
-<div class="menu">
+<!-- Wybór trybu -->
+<div class="blok menutryb" style="text-align:center;">
+  <h2 class="diva">Wybierz tryb</h2>
+  <div id="mode-select">
+    <button class="button trybowe" id="mode-flashcards-btn">Fiszki</button>
+    <button class="button trybowe" id="mode-tryb2-btn">Sortowanie wydarzeń</button>
+  </div>
+</div>
+
+<!-- Menu dla trybu 2 (na początek proste) -->
+
+
+<!-- Sekcja gry trybu 2 -->
+<div id="tryb2-game" class="blok t2" style="display:none;">
+  <h2>Ułóż wydarzenia chronologicznie</h2>
+  <div id="tryb2-events-list"></div>
+  <button class="button" id="check-tryb2-btn">Sprawdź</button>
+  <div id="tryb2-result"></div>
+  <button class="button" id="back-to-menu-tryb2" style="display:none;" onclick="returnToMenu()">Powrót</button>
+</div>
+<div class="blok menu menu-main wspolne">
     <h2>Wybierz Grupę</h2><br><label><input type="radio" name="group" value="all" checked> Wszystkie</label>
     <label><input type="radio" name="group" value="pl"> Polska</label>
     <label><input type="radio" name="group" value="world"> Europa i Świat</label> 
@@ -72,22 +91,74 @@
     <br><label><input type="checkbox" name="country" value="re"> Reszta Świata</label>
      </div></details>
     </div>
-    <div class="epoki">
+<!-- ...początek pliku bez zmian... -->
+<div class="blok epoki menu-main wspolne">
    <h2>Wybierz Epokę</h2>
-    <br><label><input type="checkbox" name="era" value="st"> Starożytność </label><h4>10 tys. p.n.e - 476 n.e</h4>
-    <br><label><input type="checkbox" name="era" value="sm"> Średniowiecze</label><h4> 477 - 1491</h4>
-    <br><label><input type="checkbox" name="era" value="xvi"> XVI wiek</label><h4> 1492 - 1599</h4>
-    <br><label><input type="checkbox" name="era" value="xvii"> XVII wiek</label><h4> 1600 - 1699</h4>
-    <br><label><input type="checkbox" name="era" value="xviii"> XVIII wiek</label><h4> 1700 - 1788</h4>
-    <br><label><input type="checkbox" name="era" value="nap"> Epoka Napoleońska</label><h4> 1789 - 1815</h4>
-    <br><label><input type="checkbox" name="era" value="xix"> XIX wiek</label><h4> 1816 - 1913</h4>
-    <br><label><input type="checkbox" name="era" value="ww1"> I wojna światowa</label><h4> 1914 - 1918</h4>
-    <br><label><input type="checkbox" name="era" value="mw"> 20-lecie międzywojenne</label><h4> 1919 - 1938</h4>
-    <br><label><input type="checkbox" name="era" value="ww2"> II wojna światowa</label><h4> 1939 - 1945</h4>
-    <br><label><input type="checkbox" name="era" value="pw"> Powojnie</label><h4> 1946 - 1988</h4>
-    <br><label><input type="checkbox" name="era" value="ff"> Najnowsza</label><h4> 1989 - teraz</h4>
+   <label>
+     <input type="checkbox" name="era" value="st"> Starożytność
+     <span class="epoka-daty">10 tys. p.n.e - 476 n.e</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="sm"> Średniowiecze
+     <span class="epoka-daty">477 - 1491</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="xvi"> XVI wiek
+     <span class="epoka-daty">1492 - 1599</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="xvii"> XVII wiek
+     <span class="epoka-daty">1600 - 1699</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="xviii"> XVIII wiek
+     <span class="epoka-daty">1700 - 1788</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="nap"> Epoka Napoleońska
+     <span class="epoka-daty">1789 - 1815</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="xix"> XIX wiek
+     <span class="epoka-daty">1816 - 1913</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="ww1"> I wojna światowa
+     <span class="epoka-daty">1914 - 1918</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="mw"> 20-lecie międzywojenne
+     <span class="epoka-daty">1919 - 1938</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="ww2"> II wojna światowa
+     <span class="epoka-daty">1939 - 1945</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="pw"> Powojnie
+     <span class="epoka-daty">1946 - 1988</span>
+   </label>
+   <label>
+     <input type="checkbox" name="era" value="ff"> Najnowsza
+     <span class="epoka-daty">1989 - teraz</span>
+   </label>
+</div>
+
+<!-- Zakres lat -->
+<div class="blok year-range menu-main wspolne">
+  <h3>Zakres lat</h3>
+  <input type="number" id="year-from" placeholder="Od roku">
+  <input type="number" id="year-to" placeholder="Do roku">
+</div>
+<div class="blok error-margin menu-main fiszki-only" style="display:none;">
+  <label>
+    <input type="checkbox" id="enable-error-margin"> Tryb marginesu błędu (nie liczy się do leaderboardu)
+  </label>
+  <input type="number" id="error-margin-value" placeholder="Margines błędu (w latach)" min="0" disabled>
+</div>
+<!-- ...reszta pliku bez zmian... -->
     </div>
-    <div class="sortowanie">
+    <div class="blok sortowanie menu-main fiszki-only" style="display:none;">
     <h2>Sortowanie</h2><br>
     <label>
         <input type="radio" name="sort" value="chronological" checked>
@@ -98,8 +169,9 @@
         Losowo
     </label>
     </div>
-        <h3 class="opcjonalne">Opcjonalne:</h3>
-    <div class="dif">
+        
+    <div class="blok dif menu-main wspolne">
+      <h3 class="opcjonalne">Opcjonalne:</h3>
     <h3>Poziom trudności</h3><br><h4> (zaznacz wszystkie pożądane)</h4><br>
     <label>
         <input type="checkbox" name="difficulty" value="1"> Poziom podstawowy
@@ -111,7 +183,7 @@
         <input type="checkbox" name="difficulty" value="3"> Poziom ponadrozszerzony
     </label>
 </div>
-    <div class="dif2">    <h3>Wybór typu</h3>
+    <div class="blok dif2 menu-main wspolne">    <h3>Wybór typu</h3>
     <form id="flashcardTypeForm">
         <label><input type="checkbox" name="type" value="po"> polityczne</label><br>
         <label><input type="checkbox" name="type" value="bi"> wojny, bitwy, etc.</label><br>
@@ -121,9 +193,12 @@
 <div id="no-flashcards-message" style="display:none; color:#c0392b; font-weight:bold; margin:20px 0; font-size:1.2em; text-align:center;">
     Brak fiszek dla wybranej kombinacji filtrów!
 </div>
-<div class="ni">
+
+   <div class="ni fiszki-only menu-main" style="display:none;">
     <br><button class="button" onclick="startFlashcards('eventToDate')" id="start">start</button>
     <br><button id="advancedOptionsButton" class="button">opcje zaawansowane</button><br><h4-c>indev</h4-c> <br>
+    <br><button class="button" id="back-to-menu-tryb1">Powrót</button>
+
 <div id="advancedOptionsMenu" class="advanced-options hidden">
 
     <h3> Czas wyświetlania odpowiedzi</h3>
@@ -144,7 +219,25 @@
   Przycisk „Przejdź do następnej” po odpowiedzi (tryb nauki)
 </label><br>
 </div></div>
-  
+
+
+
+
+
+<div class="menu-tryb2 blok t2" style="display:none;">
+  <h2 class="sybau">Sortowanie choronologicznie</h2>
+  <p class="sybau">Twoim zadaniem będzie ułożyć wydarzenia w kolejności chronologicznej.</p>
+  <div id="chronology-settings" style="display:none;">
+  <label>Ile zestawów do sortowania w tej sesji? 
+    <input type="number" id="chronology-count" min="1" max="20" value="5">
+  </label>
+  <button class="button" id="chronology-confirm-btn">Rozpocznij sortowanie</button>
+</div>
+  <br><button class="button sybau" id="start-chronology-btn">Start</button>
+  <button class="button sybau" id="back-to-mode-select2" onclick="returnToMenu()">Powrót</button>
+  <button class="button" id="next-chronology-btn" style="display:none;">Następny</button>
+  <div id="chronology-summary" style="display:none;"></div>
+</div>
 
 <!-- Sekcje, które będą widoczne w odpowiednich momentach -->
 <div id="flashcards" class="flashcards">
@@ -175,7 +268,8 @@
     <div class="button-container">
         <button class="button" onclick="returnToMenu()">Powrót do menu</button>
         <button id="retry-button" class="button" onclick="retryWrongAnswers()">Powtórz błędne odpowiedzi</button>
-        
+        <button id="show-details-btn" class="button">Zobacz szczegóły</button>
+<div id="details-section" style="display:none; margin-top:20px;"></div>
 
     </div>
 </div>
@@ -187,7 +281,25 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.getElementById('main-style').setAttribute('href', 'styles-mobile.css');
 }
 </script>
-
-
+<button id="logout-btn" style="display:none;">Wyloguj</button>
+<!-- Panel admina do manipulacji fiszkami -->
+<div id="admin-panel" style="display:none; background:#333; color:#fff; padding:20px; margin:20px auto; max-width:400px; border-radius:10px;">
+  <h2>Panel admina: Fiszki</h2>
+  <h3>Dodaj nową fiszkę</h3>
+  <input id="admin-event" placeholder="Wydarzenie"><br>
+  <input id="admin-date" placeholder="Data (np. 1569)"><br>
+  <input id="admin-era" placeholder="Epoka (np. [xvi])"><br>
+  <input id="admin-area" placeholder="Obszar (np. pl,uk,fr)"><br>
+  <input id="admin-type" placeholder="Typ (np. po,wo)"><br>
+  <input id="admin-dif" placeholder="Trudność (np. 1)"><br>
+  <input id="admin-daydate" placeholder="Data dzienna (DD//MM//YYYY)"><br>
+  <button id="admin-add-flashcard">Dodaj fiszkę</button>
+  <hr>
+  <h3>Dodaj/aktualizuj datę dzienną do istniejącej fiszki</h3>
+  <input id="admin-update-id" placeholder="ID fiszki"><br>
+  <input id="admin-update-daydate" placeholder="Data dzienna (DD//MM//YYYY)"><br>
+  <button id="admin-update-daydate-btn">Aktualizuj datę dzienną</button>
+  <div id="admin-msg" style="margin-top:10px;color:#FFD700;"></div>
+</div>
 </body>
 </html>

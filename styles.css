@@ -1,3 +1,4 @@
+/* ======= OGÓLNE ======= */
 body {
     font-family: Century Gothic, sans-serif;
     color: #cbcbcb;
@@ -6,190 +7,99 @@ body {
     padding: 15px;
     font-size: 15px;
 }
-#fullBackground {
-    background: linear-gradient(to right, #007bff, #423535); /* Background spanning across */
-    width: 100%; /* Make it span across the container */
-    padding: 20px; /* Add some padding for spacing */
-    text-align: center; /* Center-align the text */
-    color: white; /* Ensure the text is readable */
-    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000; /* Optional shadow */
-}
-.label {
-   margin-bottom: -5px;
-  }
-.nadpaskowcy {
-    display:flex;
-    margin-bottom:0;
-    align-items: center;
-}
-.time-display {
-    display: inline-block;
-    font-size: 17px;
-    font-weight: bold;
-    color: #ffffff;
-    padding: 5px 10px;
-    margin-left: 73%;
-    margin-bottom:-2px;
-}
-.guziki .next-button {
-   background-color: #007bff;
+input, textarea {
+    background-color: #7b7b7b;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-left: 5%;
-    margin-right: 0;
-    text-align: center;
 }
-
-.guziki .next-button:hover {
-    background-color: rgb(0, 68, 255);
-}
-#round-info {
-    font-size: 17px;
-    font-weight: bold;
-    text-align: left;
+input::placeholder {
     color: #ffffff;
-    margin-bottom: 0;
-    margin-top:0;
 }
-h1 {
-    text-align: center;
+.container {
+    width: 80%;
+    padding: 0;
 }
-h3 {
-    display: inline;
-}
-h2 {
-    display: inline;
-}
-.page-title {
-       display: block;
-       margin-top: 0;
-       margin-bottom: .5rem;
-       font-size: 2rem;
-    }
-    .subtitle {
-      display: block;
-      margin: 0;
-      font-size: 1rem;
-      color: gray;
-    }
-h2, label {
-  margin: 0; /* Removes any default margin */
-  padding: 0; /* Removes padding */
+.hidden {
+    display: none;
 }
 
-.container {
-  padding: 0; /* Remove any padding from the container */
+/* ======= NAGŁÓWKI ======= */
+h1 { text-align: center; }
+h2, h3 { display: inline; }
+h2, label { margin: 0; padding: 0; }
+h3 { font-size: 18px; }
+h4, h4-c {
+    font-size: 10px;
+    text-shadow: none;
+    display: inline;
+}
+h4 { color: #aeb1b2; }
+h4-c { color: #c81e1e; }
+.page-title {
+    display: block;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-size: 2rem;
+}
+.subtitle {
+    display: block;
+    margin: 0;
+    font-size: 1rem;
+    color: gray;
 }
 h-da {
     font-size: 16px;
     color: #ffd700;
 }
-.zs {
-    background-color: #c90202;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-right: 1px;
-}
-.for {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-left: 5%;
-    margin-right: 0;
-    text-align: center;
-}
-.ch {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
-}
-.guziki {
-    display:flex;
-    justify-content: space-between;
-    align-items: center; /* Wyrównanie w pionie */
-    width: 100%; /* Szerokość kontenera */
 
-    
-}
-.opcjonalne {
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 6px;
-    margin-top: 5px;
-}
-.epoki h2 + label {
-  margin-top: 0; /* Removes the gap above the label */
-}
-c-c {
-    position: fixed;
-bottom: 0;
-right: 0;
-    font-size: 12px;
-    color: #cbcbcb;
-}
-c-b {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    font-size: 12px;
-}
-h4 {
-    font-size: 10px;
-    color:#aeb1b2;
-    text-shadow: none;
-    display: inline;
-}
-h4-c {
-    font-size: 10px;
-    color:#c81e1e;
-    text-shadow: none;
-    display: inline;
-}
-.flashcards, .summary {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #423535;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-}
-.menu, .dif, .dif2 {
+/* ======= MENU I SEKCJE ======= */
+.menu, .dif, .dif2, .epoki, .sortowanie {
     width: 100%;
-    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
-    margin: 0 auto; /* WyÅ›rodkuj */
+    max-width: 800px;
+    margin: 0 auto;
     padding: 10px;
-    background-color: #423535; /* Kolor tÅ‚a menu */
+    background-color: #423535;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
     align-items: center;
     text-align: center;
     display: block;
 }
 .epoki {
-    width: 100%;
-    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
-    margin: 0 auto; /* WyÅ›rodkuj */
-    padding: 10px;
-    background-color: #423535; /* Kolor tÅ‚a menu */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    display: block;
     gap: 0;
-    
+}
+.epoki h2 + label { margin-top: 0; }
+#innekraje { text-align: left; }
+#epoki { text-align: left; }
+.ni, .opcjonalne {
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    display: block;
+}
+.opcjonalne { margin-bottom: 6px; margin-top: 5px; }
+.advanced-options {
+    width: 50%;
+    padding: 10px;
+    background-color: #423535;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 0 auto;
+    align-items: left;
+}
+.advanced-options.visible { align-items: left; }
+
+/* ======= FLASHCARDS & SUMMARY ======= */
+.flashcards, .summary {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #423535;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    display: none;
 }
 .progress-container {
     width: 100%;
@@ -199,7 +109,6 @@ h4-c {
     position: relative;
     height: 25px;
 }
-
 #progress-bar {
     height: 100%;
     background-color: #007bff;
@@ -207,7 +116,6 @@ h4-c {
     border-radius: 5px;
     transition: width 0.3s ease;
 }
-
 #progress-text {
     position: absolute;
     top: 50%;
@@ -218,76 +126,40 @@ h4-c {
     color: #fff;
     font-weight: bold;
 }
-.ni {
-    text-align: center;
+.nadpaskowcy {
+    display: flex;
+    margin-bottom: 0;
     align-items: center;
-    margin: 0 auto;
-    display: block;
 }
-.sortowanie {
-    display: block;
-    width: 100%;
-    max-width: 800px; /* Ogranicz szerokoÅ›Ä‡ menu, dostosuj wedÅ‚ug potrzeb */
-    margin: 0 auto; /* WyÅ›rodkuj */
-    padding: 10px;
-    background-color: #423535; /* Kolor tÅ‚a menu */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+.time-display {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-left: 73%;
+    margin-bottom: -2px;
+}
+.chart {
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
-    text-align: center;
+    height: 120px;
+    width: 25%;
+    margin-bottom: 0;
 }
 #resultsChart {
-    width: 100%; /* Ustaw na 100% szerokoÅ›ci rodzica */
-    height: 100%; /* Automatyczne dopasowanie wysokoÅ›ci */
-    display: inline-block; /* UsuÅ„ ewentualne odstÄ™py inline */
+    width: 100%;
+    height: 100%;
+    display: inline-block;
     align-items: right;
     text-align: right;
     margin-top: 10px;
     margin-bottom: 10px;
-    
-    
-}
-.chart {
-    display: flex;
-    justify-content: flex-end; /* Aligns children (the canvas) to the right */
-    align-items: center; /* Centers the canvas vertically within the container */
-    height: 120px; /* Optional height */
-    width: 25%;
-    margin-bottom: 0; /* Optional border for visualization */
-}
-#innekraje {
-    text-align: left;
-}
-#epoki {
-    text-align: left;
-}
-/* DomyÅ›lnie ukryte sekcje */
-.flashcards,
-.summary {
-    display: none; /* Ukryj domyÅ›lnie sekcje */
 }
 
-b.input-group {
-    margin-bottom: 15px;
-    margin-top: 10px;
-}
-
-.input-group input {
-    padding: 10px;
-    width: 96%;
-    margin-bottom: 10px;
-}
-input, textarea {
-  background-color: #7b7b7b;
-    color: white;
-
-}
-input::placeholder {
-    color: #ffffff;  /* Tutaj moÅ¼esz ustawiÄ‡ dowolny kolor */
-}
-
-.button {
+/* ======= PRZYCISKI ======= */
+.button, #firebase-login button {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
@@ -295,14 +167,18 @@ input::placeholder {
     cursor: pointer;
     margin-right: 10px;
     display: inline-block;
+    font-family: Century Gothic, sans-serif;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+.button:hover, #firebase-login button:hover { background-color: #0056b3; }
 #start {
-    background-color: #0026ff; /* Zielone tÅ‚o */
-    color: white; /* BiaÅ‚y tekst */
-    padding: 10px 20px; /* OdstÄ™py wewnÄ™trzne */
-    border: none; /* UsuniÄ™cie obramowania */
-    cursor: pointer; /* Kursor jako wskaÅºnik */
-    font-size: 20px; /* Rozmiar czcionki */
+    background-color: #0026ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
     margin-bottom: 10px;
     width: 250px;
     margin: 0 auto;
@@ -310,91 +186,62 @@ input::placeholder {
     font-weight: bold;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
-
-#start:hover {
-    background-color: #0156ac; /* Ciemniejsze zielone tÅ‚o na hover */
+#start:hover { background-color: #0156ac; }
+.guziki {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
-.button:hover {
-    background-color: #0056b3;
+.guziki .next-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 5%;
+    margin-right: 0;
+    text-align: center;
 }
-/* Ustaw przyciski w kontenerze obok siebie */
+.guziki .next-button:hover { background-color: rgb(0, 68, 255); }
+.zs, .for, .ch {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.zs { background-color: #c90202; margin-right: 1px; }
+.for, .ch { background-color: #007bff; }
+.for { margin-left: 5%; margin-right: 0; text-align: center; }
+.ch { margin-right: 10px; }
 .summary .button-container {
     display: flex;
     margin-top: 20px;
 }
-
-/* Styl dla ukrywania kontenera przyciskÃ³w */
-.hidden-button-container {
-    display: none;
-}
-
-/* Dodaj styl dla kontenera przyciskÃ³w w sekcji podsumowania */
 .button-container {
     display: block;
     justify-content: space-around;
-    flex-wrap: wrap; /* Pozwala przyciskom na zawijanie w razie potrzeby */
+    flex-wrap: wrap;
     margin-top: 20px;
 }
+.hidden-button-container { display: none; }
+.hidden-input { display: none; }
 
-.hidden-input {
-    display: none;
-}
-
-/* Styl dla przycisku Opcje zaawansowane */
-#advancedOptionsButton {
-    width: auto; /* PrzywrÃ³Ä‡ domyÅ›lnÄ… szerokoÅ›Ä‡ */
-    height: auto;
-    font-size: auto;
-    margin: 0 auto;
-    text-align: center;
+/* ======= INPUTY ======= */
+.input-group input, #firebase-login input[type="email"], #firebase-login input[type="password"], #firebase-login input[type="text"] {
+    width: 90%;
+    margin: 8px 0;
     padding: 10px;
-    justify-items: center;
-    font-family: Century Gothic, sans-serif;
-    font-weight: bold;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    display: inline-block;
-    
+    border-radius: 6px;
+    border: none;
+    background: #7b7b7b;
+    color: #fff;
+    font-size: 15px;
+    box-sizing: border-box;
+    display: block;
 }
-.container {
-    width: 80%; /* SzerokoÅ›Ä‡ kontenera, dopasuj w zaleÅ¼noÅ›ci od potrzeb */
-}
-/* Styl dla menu zaawansowanych opcji */
-.advanced-options {
-    width: 50%; /* Dopasuj szerokoÅ›Ä‡ menu opcji */
-    padding: 10px;
-    background-color: #423535;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 0 auto; /* WyÅ›rodkuj */
-    align-items: left;
-}
-.hidden {
-    display: none;
-}
-
-/* Styl dla widocznego menu */
-.advanced-options.visible {
-    align-items: left;
-}
-
-.home-button {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1000; /* Upewnij siÄ™, Å¼e przycisk jest nad innymi elementami */
-}
-.correct {
-    color: green;
-        
-}
-.incorrect {
-    color: #c90202;
-    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-    
-}
+.input-group { margin-bottom: 15px; margin-top: 10px; }
+#register-form input { display: block; margin: 8px auto; }
 #firebase-login {
     display: flex;
     flex-direction: column;
@@ -410,113 +257,35 @@ input::placeholder {
     min-height: 320px;
     font-size: 16px;
 }
-#firebase-login input[type="email"],
-#firebase-login input[type="password"] {
-    width: 90%;
-    margin: 8px 0;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    background: #7b7b7b;
-    color: #fff;
-    font-size: 15px;
-}
-#firebase-login button {
-    width: 90%;
-    margin: 7px 0;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    background: #007bff;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    font-family: Century Gothic, sans-serif;
-    font-weight: bold;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-#firebase-login button:hover {
-    background: #0156ac;
-}
-#firebase-login hr {
-    width: 80%;
-    border: 1px solid #7b7b7b;
-    margin: 15px 0;
-}
-#login-form,
-#register-form {
-    text-align: center;
-}
-
+#login-form, #register-form { text-align: center; }
 #login-error {
     color: #ff4d4d;
     margin: 5px 0 0 0;
     min-height: 18px;
     text-align: center;
 }
-#logout-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 20px;
-    z-index: 1001;
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
+
+/* ======= EPOKI ======= */
+.epoki label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
     font-size: 16px;
-    font-weight: bold;
-    border: none;
-    box-shadow: 0 2px 8px #000a;
-    transition: background 0.2s;
+    vertical-align: middle;
+    width: 100%;
 }
-#logout-btn:hover {
-    background: #0156ac;
+.epoka-daty, .epoki .daty, .epoki .przedzial {
+    font-size: 12px !important;
+    color: #bdbdbd;
+    margin-left: 8px;
+    display: inline;
+    vertical-align: middle;
+    font-weight: normal;
 }
-/* Poprawka dla inputów w rejestracji */
-#firebase-login input[type="text"],
-#firebase-login input[type="email"],
-#firebase-login input[type="password"] {
-    display: block;
-    margin: 1px auto;   /* <-- było 8px auto */
-    width: 90%;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    background: #7b7b7b;
-    color: #fff;
-    font-size: 15px;
-    box-sizing: border-box;
-}
-#firebase-login input[type="text"] {
-    margin-top: 8px;
-}
-#register-form input {
-    display: block;
-    margin: 8px auto;
-}
-.user-info {
-    position: fixed;
-    top: 10px;
-    right: 20px;
-    background: #222d;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-family: Century Gothic, sans-serif;
-    z-index: 2000;
-    box-shadow: 0 2px 8px #000a;
-    pointer-events: none;
-}
-.gold-username {
-    color: #FFD700;
-    font-weight: bold;
-    text-shadow: 0 0 4px #bfa100;
-}
-#leaderboard-container {
-    position: fixed;
-    top: 60px;
-    left: 10px;
+
+/* ======= LEADERBOARD & USER INFO ======= */
+#leaderboard-container, .user-info {
     background: #222d;
     color: #fff;
     padding: 14px 18px 10px 18px;
@@ -526,6 +295,17 @@ input::placeholder {
     box-shadow: 0 2px 8px #000a;
     font-size: 15px;
     max-width: 320px;
+    position: fixed;
+}
+#leaderboard-container {
+    top: 60px;
+    left: 10px;
+}
+.user-info {
+    top: 10px;
+    right: 20px;
+    font-family: Century Gothic, sans-serif;
+    pointer-events: none;
 }
 #leaderboard-container h3 {
     margin: 0 0 8px 0;
@@ -550,30 +330,181 @@ input::placeholder {
 #leaderboard-table tr:nth-child(even) {
     background: #333a;
 }
-.epoki label {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 2px;
-    margin-right: 10px;
+.gold-username {
+    color: #FFD700;
+    font-weight: bold;
+    text-shadow: 0 0 4px #bfa100;
+}
+#admin-panel {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    background-color: #423535;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
     font-size: 16px;
-    vertical-align: middle;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 2px 8px #000a;
+    transition: background 0.2s;
 }
-.epoki .daty,
-.epoki .przedzial,
-.epoki .epoka-daty {
-    font-size: 12px !important;
-    color: #bdbdbd;
-    margin-left: 6px;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    display: inline;
-    vertical-align: middle;
+/* ======= INNE ======= */
+c-c {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+    color: #cbcbcb;
 }
-.epoka-daty {
-    font-size: 13px;
-    color: #bdbdbd;
-    margin-left: 8px;
-    font-weight: normal;
-    display: inline;
+c-b {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+}
+.home-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.correct { color: green; }
+.incorrect {
+    color: #c90202;
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+#logout-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    z-index: 1001;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 2px 8px #000a;
+    transition: background 0.2s;
+}
+#logout-btn:hover { background: #0156ac; }
+.year-range,
+.error-margin {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 18px auto;
+    padding: 18px 24px 14px 24px;
+    background-color: #423535;
+    border-radius: 8px;
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+}
+
+.year-range h3,
+.error-margin label {
+    margin-bottom: 8px;
+    margin-top: 1px;
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+
+.year-range input[type="number"],
+.error-margin input[type="number"] {
+    width: 260px;
+    max-width: 90%;
+    margin: 8px auto;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    background: #7b7b7b;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+}
+.blok {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 18px auto;
+    padding: 10px;
+    background-color: #423535;
+    border-radius: 8px;
+    box-shadow: -3px -3px 0 #000, 3px -1px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    text-align: center;
+    box-sizing: border-box;
+}
+.chronology-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+.chronology-event {
+    flex: 1 1 auto;
+    text-align: left;
+    margin-right: 20px;
+}
+.chronology-input {
+    width: 60px;
+    text-align: right;
+    margin-left: 0;
+}
+#mode-select {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: stretch;
+    width: 100%;
+    padding: 0;
+}
+#mode-select .button.trybowe {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 80px;
+    height: 80px;
+    box-sizing: border-box;
+    font-size: 25px;
+    margin: 0;
+    border-radius: 0px;
+    text-align: center;
+    padding: 0;
+    /* USUŃ poniższe dwie linie: */
+    width: 45%;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+.diva {
+    display:block;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+}
+#mode-flashcards-btn {
+    margin-right: 2px;
+}
+#mode-tryb2-btn {
+    margin-left: 2px;
+}
+.button.sybau {
+    font-size: 25px;
+    width: 30%;
+}
+.menutryb, #mode-select {
+    display: block 
+}
+#mode-select {
+    display: flex 
 }
